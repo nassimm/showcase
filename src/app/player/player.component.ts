@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sc-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+	selector: 'sc-player',
+	templateUrl: './player.component.html',
+	styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+
+	constructor() { }
+	ngOnInit() {}
+
+
 
 }

@@ -1,5 +1,17 @@
+
 <div class="container">
-	<div class="row" *ngFor="let result of data">{{result.snippet.title}}
-	{{result.snippet.description}}
+	<form>
+		<input type="text" [formControl]="name">
+	</form>
+
+	<div class="row" *ngFor="let result of data">
+		<div class="col-12">
+		<p>
+			{{result.snippet.title}}
+		</p>
+			<p>
+			{{result.snippet.description}}
+			</p>
+		</div>
 	</div>
 </div>
