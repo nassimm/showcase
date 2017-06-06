@@ -1,0 +1,13 @@
+.sc-menu {
+	background-color: grey;
+	position: fixed;
+	left: 0px;
+	bottom: 0;
+	top: 54px;
+	width: 220px;
+	padding: 10px;
+
+	&_title {
+		border-bottom: 3px black solid;
+	}
+}

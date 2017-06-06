@@ -1,0 +1,6 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+	<select formControlName="playlistId">
+		<option *ngFor="let playlist of getPlaylists()" [value]="playlist.id">{{playlist.name}}</option>
+	</select>
+	<button type="submit">Add to playlist</button>
+</form>

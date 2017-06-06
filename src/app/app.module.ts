@@ -9,8 +9,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { MenuComponent } from './nav/menu.component';
 import { SearchComponent } from './search/search.component';
+import { AddComponent } from './search/add.component';
 import { PlayerComponent } from './player/player.component';
 import { YoutubeService } from './youtube.service';
+import { UidService } from './uid.service';
+import { PlaylistsService } from './playlists.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { YoutubeService } from './youtube.service';
     NavbarComponent,
     MenuComponent,
     SearchComponent,
-    PlayerComponent
+    PlayerComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import { YoutubeService } from './youtube.service';
     NgbModule.forRoot(),
     ReactiveFormsModule
   ],
-  providers: [YoutubeService],
+  providers: [YoutubeService, UidService, PlaylistsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

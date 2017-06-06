@@ -13,7 +13,7 @@ import 'rxjs/Rx';
 })
 export class SearchComponent implements OnInit {
 
-	data: Object;
+	results: Object;
 	name = new FormControl();
 	observeInput: Observable<string>;
 
@@ -22,10 +22,9 @@ export class SearchComponent implements OnInit {
 	searchyt(term: string) {
 		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&q='"+term+"'")
 		.map(res => res.json())
-		.subscribe(data => this.data = data.items,
+		.subscribe(data => this.results = data.items,
 			err => console.log(err),
 			() => console.log());
-		console.log(this.name);
 	}
 	ngOnInit() {
 		// this.searchyt();
