@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistsService } from '../playlists.service';
 import { Entry, Playlist } from '../entry';
+import { FormsModule, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sc-menu',
@@ -17,6 +18,8 @@ export class MenuComponent implements OnInit {
   getPlaylists(): Playlist[] {
     return this.playlistsService.getPlaylists();
   }
-
+  newPlaylist(form: FormGroup) {
+  	this.playlistsService.newPlaylist(form.value.playlistName);
+  }
 
 }
