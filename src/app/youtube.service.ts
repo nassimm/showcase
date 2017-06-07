@@ -6,8 +6,15 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class YoutubeService {
-	constructor(private http: Http) {
+	player: YT.Player;
+	isInit = false;
+	constructor() {
 		
 	}
+	initYt(player: YT.Player) {
+		this.player = player;
+		this.isInit = true;
+	}
+	isYtInit() {return this.isInit;}
 
 }

@@ -9,4 +9,8 @@
 		</div>
 	</div>
 </div>
-<div id="ytPlayer"></div>
+        <youtube-player
+      [videoId]="id"
+      (ready)="savePlayer($event)"
+      (change)="onStateChange($event)"
+    ></youtube-player>

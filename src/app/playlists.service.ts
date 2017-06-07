@@ -9,7 +9,7 @@ export class PlaylistsService {
 	newPlaylist(name: string) {
 		var newPlaylist = new Playlist(this.getNewUid(), name);
 		this.playlists.push(newPlaylist);
-		console.log(newPlaylist);
+		localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
 	}
 	getNewUid(): number {
 		return this.uidServce.getNewId();
@@ -19,6 +19,15 @@ export class PlaylistsService {
 	}
 	getPlaylist(id: number): Playlist {
 		return this.playlists.find(playlist => playlist.id == id);
+	}
+	loadPlaylists(playlists: Playlist[]) {
+		this.playlists = playlists;
+	}
+	removePlaylist(playlist: Playlist) {
+	const index = this.playlists.indexOf(playlist);
+		if (index !== -1) {
+			this.playlists.splice(index, 1);
+		}
 	}
 	ngOnInit() {
 

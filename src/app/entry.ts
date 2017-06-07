@@ -33,7 +33,4 @@ export class Playlist {
     this.name = name;
     this.entries = [];
   }
-  addTrack(entry: Entry) {
-    this.entries.push(entry);
-  }
 }

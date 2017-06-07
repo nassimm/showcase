@@ -1,10 +1,7 @@
 <div class="sc-search">
 	<div class="container-fluid">
-		<form class="text-center">
-			<input type="text" [formControl]="name" class="sc-search_input">
-		</form>
-
 		<div class="sc-search_result" *ngFor="let result of results">
+			<a class="float-left play-button" (click)="playTrack(result)" [class.isDisabled]="isYtInit()==false"><i class="icofont icofont-ui-play"></i></a>
 			<p class="sc-search_result_title">
 				{{result.snippet.title}}
 			</p>

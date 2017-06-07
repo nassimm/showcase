@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { YoutubeService } from '../youtube.service';
 
 @Component({
 	selector: 'sc-player',
@@ -8,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class PlayerComponent implements OnInit {
 
 
+	constructor(private ytService: YoutubeService) { }
+	private id: string = 'qDuKsiwS5xw';
 
-	constructor() { }
-	ngOnInit() {}
+	savePlayer (player) {
+		this.ytService.initYt(player);
+	}
+	onStateChange(event){
+		console.log('player state', event.data);
+	}
+
+	ngOnInit() {
+
+	}
 
 
 

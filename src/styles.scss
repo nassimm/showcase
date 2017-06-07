@@ -5,6 +5,7 @@ body {
 	padding-left: 220px;
 }
 
+a {cursor: pointer;}
 
 .sc-player {
 	position: fixed;
@@ -19,3 +20,38 @@ body {
 		font-size: 2rem;
 	}
 }
+
+.sc-search {
+	padding-top: 30px;
+	&_input {width: 100%;max-width: 800px;margin: 0 auto 10px;}
+	&_result {
+		margin-bottom: 20px;
+		background-color: silver;
+		&_title{ font-size: 1.4rem; margin-bottom: 0.2rem;}
+		&_detail { margin-bottom: 0.5rem;}
+	}
+}
+
+.play-button {
+	padding: 10px
+}
+
+.isDisabled {
+	color: grey !important;
+	pointer-events:none;
+}
+
+youtube-player {display:none;}
+
+.rename-form {
+	display: inline-block;
+}
+
+
+.edit-button {
+	background: silver;
+	padding: 2px 8px;
+	border: 1px black solid;
+	font-size: 15px;
+}
+

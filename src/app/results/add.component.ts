@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { PlaylistsService } from '../playlists.service';
 import { Entry, Playlist } from '../entry';
@@ -14,20 +14,20 @@ export class AddComponent implements OnInit {
 	@Input() entry: Entry;
 	addForm: FormGroup;
 	selectedPlaylist: Playlist;
-	constructor(private pService: PlaylistsService) {
+	constructor(private pService: PlaylistsService, private fB: FormBuilder) {
 	}
 
 	ngOnInit() {
-		this.addForm = new FormGroup({
-			playlistId: new FormControl()
-		});
+		this.selectedPlaylist = this.getPlaylists()[0];
+		this.addForm = this.fB.group(
+				{playlistId: [this.selectedPlaylist.name, Validators.required]}
+			);
 	}
 
 	onSubmit() {
-		console.log(this.addForm.value.playlistId);
 		this.selectedPlaylist = this.getPlaylist(this.addForm.value.playlistId);
-		console.log(this.selectedPlaylist);
 		this.selectedPlaylist.entries.push(this.entry);
+		localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
 	}
 
 	getPlaylists(): Playlist[]{

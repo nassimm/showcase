@@ -1,7 +1,11 @@
 <div class="sc-menu">
-<div class="sc-menu_title">Playlists</div>
-<ul><li *ngFor="let playlist of getPlaylists()">{{playlist.name}}
-<div *ngFor="let entry of playlist.entries">{{entry.snippet.title}}</div>
-</li></ul>
-<div *ngIf="getPlaylists()=='null'">No playlists here.</div>
+	<div class="sc-menu_title">Playlists</div>
+	<ul>
+		<li *ngFor="let playlist of getPlaylists()">
+			<a routerLink="{{playlist.id}}">{{playlist.name}}</a> 
+<!-- 			<div *ngFor="let entry of playlist.entries">{{entry.snippet.title}}
+			</div> -->
+		</li>
+	</ul>
+	<div *ngIf="getPlaylists()=='null'">No playlists here.</div>
 </div>

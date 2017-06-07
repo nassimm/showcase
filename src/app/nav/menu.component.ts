@@ -12,15 +12,11 @@ export class MenuComponent implements OnInit {
   constructor(private playlistsService: PlaylistsService) { }
 
   ngOnInit() {
-    this.newPlaylist("Blabla");
-    this.newPlaylist("qgsgsdfg ");
-    this.newPlaylist("shshsdh");
+
   }
   getPlaylists(): Playlist[] {
     return this.playlistsService.getPlaylists();
   }
-  newPlaylist(name: string){
-    this.playlistsService.newPlaylist(name);
-  }
+
 
 }
