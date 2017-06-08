@@ -21,22 +21,24 @@ export class ResultsComponent implements OnInit {
 	observeInput: Observable<string>;
 
 	constructor(private http: Http,
-				private route: ActivatedRoute,
-				private ytService: YoutubeService) {
+		private route: ActivatedRoute,
+		private ytService: YoutubeService) {
 	}
 	searchyt(term: string) {
-		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&q='"+term+"'")
+		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=20&type=video&q='"+term+"'")
 		.map(res => res.json())
 		.subscribe(data => this.results = data.items,
 			err => console.log(err),
 			() => console.log());
 	}
 	playTrack(entry: Entry) {
-		this.ytService.player.loadVideoById(entry.id.videoId);
-		this.ytService.player.playVideo;
+		this.ytService.setPlaying(entry);
 	}
 	isYtInit() {
 		return this.ytService.isYtInit();
+	}
+	isPlaying(entry: Entry) {
+		return this.ytService.currPlaying()==entry;
 	}
 	ngOnInit() {
 		// this.searchyt();

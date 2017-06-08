@@ -16,15 +16,18 @@
 
 <div class="sc-search">
 	<div class="container-fluid">
-		<div class="sc-search_result" *ngFor="let entry of playlist.entries">
-			<a class="float-left play-button" (click)="playTrack(entry)" [class.isDisabled]="isYtInit()==false"><i class="icofont icofont-ui-play"></i></a>
-			<p class="sc-search_result_title">
-				{{entry.snippet.title}}
-			</p>
-			<p class="sc-search_result_detail">
-				{{entry.snippet.description}}
-			</p>
-			<button (click)="remove(entry)">Remove from playlist</button>
+		<div class="sc-search_result" *ngFor="let entry of playlist.entries" >
+		<div class="sc-search_inner" [class.isActive]="isPlaying(entry)">
+
+				<a class="float-left play-button" (click)="playTrack(entry)" [class.isDisabled]="isYtInit()==false"><i class="icofont icofont-ui-play"></i></a>
+				<button (click)="remove(entry)" class="float-right">Remove from playlist</button>
+				<p class="sc-search_result_title">
+					{{entry.snippet.title}}
+				</p>
+				<p class="sc-search_result_detail">
+					{{entry.snippet.description}}
+				</p>
+			</div>
 		</div>
 	</div>
 </div>

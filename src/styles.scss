@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
 	padding-top: 54px;
-	padding-bottom: 120px;
+	padding-bottom: 160px;
 	padding-left: 220px;
 }
 
@@ -12,7 +12,7 @@ a {cursor: pointer;}
 	bottom: 0;
 	left: 0;
 	right: 0;
-	height: 120px;
+	height: 160px;
 	background-color: grey;
 	&_controls {
 		margin: 10px auto 0;
@@ -24,16 +24,25 @@ a {cursor: pointer;}
 .sc-search {
 	padding-top: 30px;
 	&_input {width: 100%;max-width: 800px;margin: 0 auto 10px;}
+	&_inner {
+		padding: 7px;
+	}
 	&_result {
 		margin-bottom: 20px;
 		background-color: silver;
 		&_title{ font-size: 1.4rem; margin-bottom: 0.2rem;}
 		&_detail { margin-bottom: 0.5rem;}
+		& .isActive {
+			background: #9f9f9f;
+			color: #fff;
+			font-weight: 600;
+		}
 	}
 }
 
 .play-button {
-	padding: 10px
+	padding: 8px 16px;
+	font-size: 30px;
 }
 
 .isDisabled {

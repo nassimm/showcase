@@ -2,15 +2,38 @@
 	<div class="sc-player_controls">
 		<div class="container">
 			<div class="row">
-				<div class="col-4"><i class="icofont icofont-ui-previous"></i></div>
-				<div class="col-4"><i class="icofont icofont-ui-play"></i></div>
-				<div class="col-4"><i class="icofont icofont-ui-next"></i></div>
+				<div class="col-12 col-md-4 offset-md-4">
+					<div class="transportBar_wrapper">
+						<input type="range"  class="transportControl" [formControl]="transportBar">
+						<div class="transportBar_bg"></div>
+						<div class="transportBar" [style.width.%]="trackPosition"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-8 offset-2">
+					<div class="row">
+						<div class="col-4"><i class="icofont icofont-ui-previous"></i></div>
+						<div class="col-4"><i class="icofont icofont-ui-play"></i></div>
+						<div class="col-4"><i class="icofont icofont-ui-next"></i></div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="row">
+						<div class="col-12">
+							<input type="range" class="volumeBar" [formControl]="volumeBar">
+						</div>
+					</div>
+					
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-        <youtube-player
-      [videoId]="id"
-      (ready)="savePlayer($event)"
-      (change)="onStateChange($event)"
-    ></youtube-player>
+<youtube-player
+[videoId]="id"
+(ready)="savePlayer($event)"
+(change)="onStateChange($event)"
+></youtube-player>

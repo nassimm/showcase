@@ -1,14 +1,17 @@
 <div class="sc-search">
 	<div class="container-fluid">
 		<div class="sc-search_result" *ngFor="let result of results">
-			<a class="float-left play-button" (click)="playTrack(result)" [class.isDisabled]="isYtInit()==false"><i class="icofont icofont-ui-play"></i></a>
-			<p class="sc-search_result_title">
-				{{result.snippet.title}}
-			</p>
-			<p class="sc-search_result_detail">
-				{{result.snippet.description}}
-			</p>
-		<sc-add [entry]="result"></sc-add>
+			<div class="sc-search_inner"  [class.isActive]="isPlaying(result)">
+
+				<a class="float-left play-button" (click)="playTrack(result)" [class.isDisabled]="isYtInit()==false"><i class="icofont icofont-ui-play"></i></a>
+				<p class="sc-search_result_title">
+					{{result.snippet.title}}
+				</p>
+				<p class="sc-search_result_detail">
+					{{result.snippet.description}}
+				</p>
+				<sc-add [entry]="result"></sc-add>
+			</div>
 		</div>
 	</div>
 </div>

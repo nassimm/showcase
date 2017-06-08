@@ -7,7 +7,7 @@
 			</div> -->
 		</li>
 	</ul>
-	<div *ngIf="getPlaylists()=='null'">No playlists here.</div>
+	<div *ngIf="noPlaylist()">No playlists here.</div>
 	<form #newPlaylistForm="ngForm" (ngSubmit)="newPlaylist(newPlaylistForm)">
 		<input ngModel name="playlistName" required="" placeholder="New Playlist">
 		<button type="submit" [disabled]="!newPlaylistForm.form.valid">Add new Playlist</button>

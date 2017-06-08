@@ -1,0 +1,24 @@
+.volumeBar, .transportControl {
+	max-width: 100%;
+}
+.transportControl {
+	opacity: 0;
+	cursor: pointer;
+}
+.transport {
+	height: 3px;
+	position: absolute;
+	top: 19px;
+}
+.transportBar {
+	@extend .transport;
+	background-color: #aeaeae;
+}
+.transportBar_wrapper {
+	position: relative;
+}
+.transportBar_bg {
+	@extend .transport;
+	background-color: #575757;
+	width: 100%;
+}

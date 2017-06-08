@@ -11,13 +11,17 @@ import { FormsModule, FormGroup } from '@angular/forms';
 export class MenuComponent implements OnInit {
 
   constructor(private playlistsService: PlaylistsService) { }
-
+  playlists: Playlist[];
   ngOnInit() {
-
+  	this.playlists = this.getPlaylists();
   }
   getPlaylists(): Playlist[] {
     return this.playlistsService.getPlaylists();
   }
+  noPlaylist(){
+	return this.playlists.length == 0;
+  }
+  
   newPlaylist(form: FormGroup) {
   	this.playlistsService.newPlaylist(form.value.playlistName);
   }

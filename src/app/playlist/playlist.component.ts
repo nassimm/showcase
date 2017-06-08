@@ -17,6 +17,7 @@ export class PlaylistComponent implements OnInit {
 
 	playlist: Playlist;
 	edit = false;
+
 	constructor(private route: ActivatedRoute,
 		private pService: PlaylistsService,
 		private ytService: YoutubeService,
@@ -28,7 +29,6 @@ export class PlaylistComponent implements OnInit {
 		this.route.params.subscribe(params =>{
 			if (params['id']!=undefined){
 				this.playlist = this.pService.getPlaylist(Number(params['id']))
-				console.dir(this.playlist);
 			}
 		});
 	}
@@ -42,8 +42,10 @@ export class PlaylistComponent implements OnInit {
 		return this.ytService.isYtInit();
 	}
 	playTrack(entry: Entry) {
-		this.ytService.player.loadVideoById(entry.id.videoId);
-		this.ytService.player.playVideo;
+		this.ytService.setPlaying(entry);
+	}
+	isPlaying(entry: Entry) {
+		return this.ytService.currPlaying()==entry;
 	}
 	remove(entry: Entry) {
 		const index = this.playlist.entries.indexOf(entry);
@@ -66,6 +68,7 @@ export class PlaylistComponent implements OnInit {
 	removePlaylist() {
 		this.pService.removePlaylist(this.playlist);
 		this.rService.navigateByUrl("/");
+		localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
 	}
 
 
