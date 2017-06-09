@@ -14,14 +14,18 @@ export class MenuComponent implements OnInit {
   playlists: Playlist[];
   ngOnInit() {
   	this.playlists = this.getPlaylists();
+  	console.dir(this.playlists);
   }
   getPlaylists(): Playlist[] {
     return this.playlistsService.getPlaylists();
   }
+
   noPlaylist(){
 	return this.playlists.length == 0;
   }
-  
+  nbTracks(playlist: Playlist) {
+  	return playlist.entries.length;
+  }
   newPlaylist(form: FormGroup) {
   	this.playlistsService.newPlaylist(form.value.playlistName);
   }

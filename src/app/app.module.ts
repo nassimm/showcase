@@ -20,6 +20,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SearchbarComponent } from './nav/searchbar.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { PlayComponent } from './player/play.component';
+import { PrevComponent } from './player/prev.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { YoutubePlayerModule } from 'ng2-youtube-player';
     AddComponent,
     HomeComponent,
     SearchbarComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    PlayComponent,
+    PrevComponent
   ],
   imports: [
     BrowserModule,

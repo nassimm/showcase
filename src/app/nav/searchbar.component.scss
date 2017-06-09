@@ -1,5 +1,14 @@
 .sc-searchbar {
 	text-align: center;
 	padding-top: 30px;
-	&_input {width: 100%;max-width: 800px;margin: 0 auto 10px;}
+	&_input {
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto 10px;
+		font-size: 28px;
+		padding: 5px 20px;
+		background: #47535c;
+		border: none;
+		color: white;
+	}
 }

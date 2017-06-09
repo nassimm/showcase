@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { Entry } from './entry';
+import { Entry, Playlist } from './entry';
 
 
 @Injectable()
 export class YoutubeService {
 	player: YT.Player;
-	isInit = false;
-	playing: Entry;
-	
+	isInit = false;					//True once the player is initialized
+	selected: Entry;				//Currently playing track
+	selectedPlaylist: Playlist;
+	playing = false;				//Player status, true = playing
 	constructor() {
 		
 	}
@@ -18,13 +19,22 @@ export class YoutubeService {
 		this.isInit = true;
 	}
 	isYtInit() {return this.isInit;}
+	deselect() {this.selected = null;}
 	setPlaying(entry: Entry) {
-		this.player.loadVideoById(entry.id.videoId);
-		this.player.playVideo;
-		this.playing = entry;
+		if (this.selected != entry) {
+			this.player.loadVideoById(entry.id.videoId);
+		}
+		else {this.player.playVideo();}
+		this.selected = entry;
+	}
+	pauseTrack() {
+		this.player.pauseVideo();
+	}
+	prevTrack() {
+		
 	}
 	currPlaying(): Entry {
-		return this.playing;
+		return this.selected;
 	}
 	setVolume(vol: number) {
 		this.player.setVolume(vol);
@@ -38,4 +48,14 @@ export class YoutubeService {
 	getPosition(): number {
 		return Number((this.player.getCurrentTime()/this.player.getDuration()*100).toFixed(1));
 	}
+	getPlaying(): Entry {
+		return this.selected;
+	}
+	isPlaying() {
+		return this.playing;
+	}
+	setState(playing) {
+		this.playing = playing;
+	}
+
 }

@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { Entry } from '../entry';
+import { PlayComponent } from '../player/play.component';
 import { YoutubeService } from '../youtube.service';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';

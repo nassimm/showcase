@@ -1,23 +1,17 @@
 <div class="sc-player">
 	<div class="sc-player_controls">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-4 offset-md-4">
-					<div class="transportBar_wrapper">
-						<input type="range"  class="transportControl" [formControl]="transportBar">
-						<div class="transportBar_bg"></div>
-						<div class="transportBar" [style.width.%]="trackPosition"></div>
-					</div>
-				</div>
-			</div>
+		<div class="transportBar_wrapper">
+			<input type="range"  class="transportControl" [formControl]="transportBar">
+			<div class="transportBar_bg"></div>
+			<div class="transportBar" [style.width.%]="trackPosition"></div>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-8 offset-2">
-					<div class="row">
-						<div class="col-4"><i class="icofont icofont-ui-previous"></i></div>
-						<div class="col-4"><i class="icofont icofont-ui-play"></i></div>
-						<div class="col-4"><i class="icofont icofont-ui-next"></i></div>
+					<div class="controls_wrapper">
+						<sc-prev></sc-prev>
+						<div class="control_big"><sc-play [entry]="getPlaying()"></sc-play></div>
+						<div class="control_small"><i class="icofont icofont-ui-next"></i></div>
 					</div>
 				</div>
 				<div class="col-2">

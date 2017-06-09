@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+import { Entry } from '../entry';
 import { YoutubeService } from '../youtube.service';
 import { Observable } from 'rxjs/Rx';
 
@@ -14,7 +15,7 @@ export class PlayerComponent implements OnInit {
 	transportBar = new FormControl();
 	trackPosition = 0;
 	transportInterval: number;
-	private id: string = 'KhvOFA9v_-Y';
+	private id: string = '';
 	
 	constructor(private ytService: YoutubeService) { }
 
@@ -29,13 +30,18 @@ export class PlayerComponent implements OnInit {
 			);
 		setInterval(() => {
 			this.trackPosition = this.getPosition();
-			console.log(this.trackPosition);
 		}, 1000)
 	}
 	onStateChange(event){
 		console.log('player state', event.data);
+		if (event.data === 1 || event.data === 3) {
+			this.ytService.setState(true);
+		}
+		else{
+			this.ytService.setState(false);
+		}
 		if (event.data === 0) {
-			this.ytService.setPlaying(null);
+			this.ytService.deselect();
 		}
 	}
 	getPosition() {
@@ -43,6 +49,9 @@ export class PlayerComponent implements OnInit {
 	}
 	isYtInit(){
 		return this.ytService.isYtInit();
+	}
+	getPlaying(): Entry {
+		return this.ytService.getPlaying();
 	}
 	ngOnInit() {
 

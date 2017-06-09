@@ -4,6 +4,7 @@
 .transportControl {
 	opacity: 0;
 	cursor: pointer;
+	width: 100%;
 }
 .transport {
 	height: 3px;
@@ -16,6 +17,9 @@
 }
 .transportBar_wrapper {
 	position: relative;
+	max-width: 960px;
+	margin: auto;
+	width: 72%;
 }
 .transportBar_bg {
 	@extend .transport;

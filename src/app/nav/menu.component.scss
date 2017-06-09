@@ -1,13 +1,50 @@
+@import '../../assets/css/mixins';
+
+.logoBig {
+	font-size: 29px;
+	color: #fffdfa;
+	text-align: center;
+	margin: 15px 0 15px;
+}
+
 .sc-menu {
-	background-color: grey;
+background-color: rgba(83, 83, 83, 0.16);
 	position: fixed;
 	left: 0px;
-	bottom: 0;
+	bottom: 160px;
 	top: 54px;
-	width: 220px;
+	@include lg {top: 0;}
+	width: 240px;
 	padding: 10px;
-
+	z-index: 2;
+	@include box-shadow(0, 3px, 26px, rgba(0, 0, 0, 0.1));
 	&_title {
-		border-bottom: 3px black solid;
+		border-bottom: 3px #eaeaea solid;
+		text-transform: capitalize;
+		font-family: 'Pacifico', cursive;
+		font-size: 28px;
+		margin-bottom: 5px;
+		color: white;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	&_subgroup {
+	}
+	&_link {
+		color: white;
+		padding-left: 3px;
+		display: flex;
+		&:hover {text-decoration: none; background: rgba(255,255,255,0.1);}
+		&_nbTracks {
+			font-size: 15px;
+		}
+		&_pic {
+			img {
+				width: 40px;
+				margin: 5px 10px 0 0;
+			}
+		}
 	}
 }
