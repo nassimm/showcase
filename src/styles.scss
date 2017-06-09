@@ -4,6 +4,7 @@
 
 
 body {
+
 	padding-top: 54px;
 	padding-bottom: 160px;
 	@include lg {
@@ -16,11 +17,12 @@ body {
 	font-family: 'Roboto', sans-serif !important;
 
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#344549+0,000000+100 */
-	background: #344549; /* Old browsers */
-	background: -moz-linear-gradient(top,  #344549 0%, #000000 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #344549 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #344549 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#344549', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	background-image: url('assets/img/bg.png');
+	background: #1f1f2c ; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1f1f2c  0%, #000000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #1f1f2c  0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #1f1f2c  0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f1f2c ', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
@@ -40,7 +42,7 @@ a {cursor: pointer;}
 	left: 0;
 	right: 0;
 	height: 160px;
-	background-color: #2a2a2a;
+	background-color: #1b1b1b;
 	box-shadow: 0 3px 26px rgba(0, 0, 0, 0.51);
 	z-index: 4;
 	@include box-shadow(0, 3px, 26px, rgba(0,0,0,0.1));
@@ -57,22 +59,22 @@ a {cursor: pointer;}
 	&_inner {
 		padding: 7px;
 		transition: background-color, .2s;
-		&:hover {background-color: rgba(255, 255, 255, 0.1)}
+		&:hover {background-color: rgba(158, 158, 158, 0.05);}
 		a:hover:not(.play-button) {text-decoration: underline !important;}
 	}
 	&_playButton {
-		font-size: 30px;
-		padding: 10px 12px;
+		font-size: 22px;
+		padding: 6px 12px 0 0;
 	}
 	&_result {
 		color: #e8e5f8;
 		padding: 0px 0;
 		border: 0 #ffffff1a solid;
 		border-bottom-width: 1px;
-		&_title{ font-size: 1.4rem; margin-bottom: 0.2rem;}
-		&_detail { margin-bottom: 0.5rem;}
+		&_title{ font-size: 1.1rem; margin-bottom: 0.2rem;}
+		&_detail { margin-bottom: 0.5rem;font-size: 0.7rem;}
 		& .isActive {
-			background: rgba(231, 231, 231, 0.1);
+			background: rgba(109, 99, 141, 0.23);
 			color: #fff;
 			font-weight: 600;
 		}
@@ -114,10 +116,13 @@ youtube-player {display:none;}
 
 $control_small: 40px;
 $control_big: 61px;
-$controls-color: #c5c5c5;
+$controlsColor: #c5c5c5;
+$controlsColorHover: #EFEFEF;
 .control {
-	border: 1px $controls-color solid;
-	color: $controls-color;
+	border: 1px $controlsColor solid;
+	color: $controlsColor;
+	transition: all .2s;
+	&:hover {border-color: $controlsColorHover;color: $controlsColorHover;}
 	&_small {
 		@extend .control;
 		width: $control_small;
@@ -144,4 +149,16 @@ $controls-color: #c5c5c5;
 			.icofont-ui-pause {position: relative;right: 2px;}
 		}
 	}
+}
+$btn-color: #947fad ;
+.btn-outline-primary:hover {
+	color: #191923!important;
+	background-color: $btn-color !important;
+	border-color: $btn-color!important;
+}
+.btn-outline-primary {
+	color: $btn-color !important;
+	background-image: none;
+	background-color: transparent;
+	border-color: $btn-color !important;
 }

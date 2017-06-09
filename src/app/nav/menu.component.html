@@ -1,9 +1,11 @@
 <div class="sc-menu">
-	<div class="hidden-md-down logoBig">Showcase</div>
+	<div class="hidden-md-down logoBig"><img src="assets/img/logo.png" alt=""></div>
 	<div class="sc-menu_title">Playlists</div>
 	<ul>
-		<li *ngFor="let playlist of getPlaylists()">
+		<li *ngFor="let playlist of getPlaylists()" class="sc-menu_playlistWrapper">
 			<a routerLink="{{playlist.id}}" class="sc-menu_link">
+			<div class="sc-menu_bg"></div>
+				<div class="sc-menu_gradient"></div>
 				<div *ngIf="playlist.entries[0]" class="sc-menu_link_pic">
 					<img src="{{playlist.entries[0].snippet.thumbnails.default.url}}" alt="">
 				</div>
