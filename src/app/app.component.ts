@@ -22,9 +22,6 @@ export class AppComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		
 		if(localStorage.getItem("playlists") == null) {
-			this.newPlaylist("Blabla");
-			this.newPlaylist("Playlist 2 ");
-			this.newPlaylist("A last playlist");
 			this.playlists = this.playlistsService.getPlaylists();
 			localStorage.setItem("playlists", JSON.stringify(this.playlists));
 		}

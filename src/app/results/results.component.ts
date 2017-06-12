@@ -28,7 +28,8 @@ export class ResultsComponent implements OnInit {
 	searchyt(term: string) {
 		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=20&type=video&q='"+term+"'")
 		.map(res => res.json())
-		.subscribe(data => this.results = data.items,
+		.map(res => res.items)
+		.subscribe(data => this.results = data,
 			err => console.log(err),
 			() => console.log());
 	}

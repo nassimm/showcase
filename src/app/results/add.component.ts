@@ -18,15 +18,15 @@ export class AddComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.selectedPlaylist = this.getPlaylists()[0];
-		this.addForm = this.fB.group(
-			{playlistId: [this.selectedPlaylist.name, Validators.required]}
-			);
+		// this.selectedPlaylist = this.getPlaylists()[0];
+		// this.addForm = this.fB.group(
+		// 	{playlistId: [this.selectedPlaylist.name, Validators.required]}
+		// 	);
 	}
 
-	onSubmit() {
-		this.selectedPlaylist = this.getPlaylist(this.addForm.value.playlistId);
-		if (this.selectedPlaylist.entries.some(entry => entry.id.videoId == this.entry.id.videoId)) {
+	addTrack(playlist: Playlist) {
+		this.selectedPlaylist = playlist;
+		if (this.selectedPlaylist.entries.some(entry => entry.id == this.entry.id)) {
 			console.log("track is already in playlist");
 		}
 		else {

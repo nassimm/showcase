@@ -1,0 +1,15 @@
+<div class="sc-search_inner clearfix"  [class.isActive]="isPlaying(entry)">
+	<div class="float-left sc-search_playButton">
+		<sc-play [entry]="entry"></sc-play>
+	</div>
+	<button (click)="remove(entry)" class="float-right btn btn-outline-primary btn-sm"   *ngIf="edit">Remove from playlist</button>
+	<div class="float-right"  *ngIf="!edit">
+		<sc-add [entry]="entry"></sc-add>
+	</div>
+	<a class="sc-search_result_title" (click)="playTrack(entry)">
+		{{entry.title}}
+	</a>
+	<p class="sc-search_result_detail">
+		{{entry.duration | duration}}
+	</p>
+</div>
