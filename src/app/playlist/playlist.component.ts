@@ -41,20 +41,11 @@ export class PlaylistComponent implements OnInit {
 	isYtInit() {
 		return this.ytService.isYtInit();
 	}
-	playTrack(entry: Entry) {
-		this.ytService.setPlaying(entry);
-	}
+
 	isPlaying(entry: Entry) {
 		return this.ytService.currPlaying()==entry;
 	}
-	remove(entry: Entry) {
-		const index = this.playlist.entries.indexOf(entry);
 
-		if (index !== -1) {
-			this.playlist.entries.splice(index, 1);
-		}
-		localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
-	}
 	editPlaylist() {
 		this.edit===false?this.edit=true:this.edit=false;
 	}

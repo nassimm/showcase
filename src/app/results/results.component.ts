@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Entry } from '../entry';
 import { PlayComponent } from '../player/play.component';
 import { YoutubeService } from '../youtube.service';
+import { PlaylistsService } from '../playlists.service';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 
@@ -23,18 +24,25 @@ export class ResultsComponent implements OnInit {
 
 	constructor(private http: Http,
 		private route: ActivatedRoute,
-		private ytService: YoutubeService) {
+		private ytService: YoutubeService,
+		private pService: PlaylistsService) {
 	}
 	searchyt(term: string) {
-		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=20&type=video&q='"+term+"'")
-		.map(res => res.json())
+		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=10&type=video&q='"+term+"'")
+		.map(res => res.json())//Getting search result items
 		.map(res => res.items)
-		.subscribe(data => this.results = data,
+		.map(res => res.map(entry => entry.id.videoId))
+		.map(res => res.join()) 
+		.switchMap(res =>this.http.get("https://www.googleapis.com/youtube/v3/videos?id="+res+"&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet,contentDetails")			) 
+		.map(res => res.json())//Getting actual video items that include duration property.
+		.map(res => res.items)
+		.map(res => res.map(entry=> new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition)))
+		.subscribe(res => this.results = res,
 			err => console.log(err),
 			() => console.log());
 	}
-	playTrack(entry: Entry) {
-		this.ytService.setPlaying(entry);
+	playTrack(entry: Entry, collection: Entry[]) {
+		this.ytService.setPlaying(entry, collection);
 	}
 	isYtInit() {
 		return this.ytService.isYtInit();

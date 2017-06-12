@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { YoutubeService } from '../youtube.service';
 
 @Component({
   selector: 'sc-prev',
   template: `
-  <a (click)= "prevTrack()">  
-  <div class="control_small"><i class="icofont icofont-ui-previous"></i></div>
+  <a (click)= "handle()">  
+  <div class="control_small">
+  <i class="icofont" [class.icofont-ui-previous]="!next" [class.icofont-ui-next]="next">
+  </i>
+  </div>
   </a>
   `,
   styles: []
 })
 export class PrevComponent implements OnInit {
-
+  @Input() next = false;
   constructor(private ytService: YoutubeService) { }
-  prevTrack() {
-   this.ytService.prevTrack();
+  handle() {
+    this.next?this.ytService.nextTrack():this.ytService.prevTrack()
   }
   ngOnInit() {
   }

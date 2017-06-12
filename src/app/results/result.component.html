@@ -1,6 +1,6 @@
 <div class="sc-search_inner clearfix"  [class.isActive]="isPlaying(entry)">
 	<div class="float-left sc-search_playButton">
-		<sc-play [entry]="entry"></sc-play>
+		<sc-play [entry]="entry" [collection]="playlist" [index]="i" ></sc-play>
 	</div>
 	<button (click)="remove(entry)" class="float-right btn btn-outline-primary btn-sm"   *ngIf="edit">Remove from playlist</button>
 	<div class="float-right"  *ngIf="!edit">
@@ -10,6 +10,6 @@
 		{{entry.title}}
 	</a>
 	<p class="sc-search_result_detail">
-		{{entry.duration | duration}}
+		{{entry.duration}}
 	</p>
 </div>

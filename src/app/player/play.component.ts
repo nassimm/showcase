@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { YoutubeService } from '../youtube.service';
-import { Entry } from '../entry';
+import { Entry, Playlist } from '../entry';
 
 @Component({
   selector: 'sc-play',
@@ -20,11 +20,13 @@ import { Entry } from '../entry';
   styles: []
 })
 export class PlayComponent implements OnInit {
+  @Input() collection: Entry[];
+  @Input() index: Number;
   @Input() entry: Entry;
   constructor(private ytService: YoutubeService) { }
   playTrack(entry: Entry) {
     if (entry) {
-      this.ytService.setPlaying(entry);
+      this.ytService.setPlaying(entry, this.collection);
     }
   }
   pauseTrack() {

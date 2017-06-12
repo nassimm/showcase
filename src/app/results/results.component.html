@@ -1,20 +1,7 @@
 <div class="sc-search">
 	<div class="container-fluid">
-		<div class="sc-search_result" *ngFor="let entry of results">
-			<div class="sc-search_inner clearfix"  [class.isActive]="isPlaying(entry)">
-				<div class="float-left sc-search_playButton">
-					<sc-play [entry]="entry"></sc-play>
-				</div>
-				<div class="float-right">
-					<sc-add [entry]="entry"></sc-add>
-				</div>
-				<a class="sc-search_result_title" (click)="playTrack(entry)">
-					{{entry.snippet.title}}
-				</a>
-				<p class="sc-search_result_detail">
-					{{entry.snippet.description}}
-				</p>
-			</div>
+		<div class="sc-search_result" *ngFor="let entry of results;let i = index" >
+			<sc-result [entry]="entry" [playlist]="results"></sc-result>
 		</div>
 	</div>
 </div>

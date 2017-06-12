@@ -22,6 +22,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
 import { PlayComponent } from './player/play.component';
 import { PrevComponent } from './player/prev.component';
+import { ResultComponent } from './results/result.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PrevComponent } from './player/prev.component';
     SearchbarComponent,
     PlaylistComponent,
     PlayComponent,
-    PrevComponent
+    PrevComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

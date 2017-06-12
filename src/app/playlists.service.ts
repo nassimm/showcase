@@ -5,6 +5,8 @@ import { UidService } from './uid.service';
 @Injectable()
 export class PlaylistsService {
 	playlists = [];
+	selected: Playlist;
+
 	constructor(private uidServce: UidService) {}
 	newPlaylist(name: string) {
 		var newPlaylist = new Playlist(this.getNewUid(), name);
@@ -28,6 +30,9 @@ export class PlaylistsService {
 		if (index !== -1) {
 			this.playlists.splice(index, 1);
 		}
+	}
+	select(playlist: Playlist) {
+		this.selected = playlist;
 	}
 	ngOnInit() {
 

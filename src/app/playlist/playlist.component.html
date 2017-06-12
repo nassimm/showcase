@@ -16,19 +16,8 @@
 
 <div class="sc-search">
 	<div class="container-fluid">
-		<div class="sc-search_result" *ngFor="let entry of playlist.entries" >
-			<div class="sc-search_inner" [class.isActive]="isPlaying(entry)">
-				<div class="float-left sc-search_playButton">
-					<sc-play [entry]="entry"></sc-play>
-				</div>
-				<button (click)="remove(entry)" class="float-right btn btn-outline-primary btn-sm">Remove from playlist</button>
-				<a class="sc-search_result_title"  (click)="playTrack(entry)">
-					{{entry.snippet.title}}
-				</a>
-				<p class="sc-search_result_detail">
-					{{entry.snippet.description}}
-				</p>
-			</div>
+		<div class="sc-search_result" *ngFor="let entry of playlist.entries;let i = index" >
+			<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=true></sc-result>
 		</div>
 	</div>
 </div>

@@ -14,7 +14,6 @@ export class MenuComponent implements OnInit {
   playlists: Playlist[];
   ngOnInit() {
   	this.playlists = this.getPlaylists();
-  	console.dir(this.playlists);
   }
   getPlaylists(): Playlist[] {
     return this.playlistsService.getPlaylists();

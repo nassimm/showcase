@@ -3,6 +3,12 @@ export class Entry {
   "title": string;
   "duration": string;
   "definition": string;
+  constructor(id: string, title: string, duration: string, definition: string) {
+    this.id = id;
+    this.title = title;
+    this.duration = duration;
+    this.definition = definition;
+  }
 }
 
 export class Playlist {
