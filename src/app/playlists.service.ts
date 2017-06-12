@@ -31,7 +31,7 @@ export class PlaylistsService {
 			this.playlists.splice(index, 1);
 		}
 	}
-	select(playlist: Playlist) {
+	selectPlaylist(playlist: Playlist) {
 		this.selected = playlist;
 	}
 	ngOnInit() {

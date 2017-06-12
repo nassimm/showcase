@@ -29,6 +29,7 @@ export class PlaylistComponent implements OnInit {
 		this.route.params.subscribe(params =>{
 			if (params['id']!=undefined){
 				this.playlist = this.pService.getPlaylist(Number(params['id']))
+				this.pService.selectPlaylist(this.playlist);
 			}
 		});
 	}
