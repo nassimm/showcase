@@ -39,7 +39,7 @@ export class PlayerComponent implements OnInit {
 		else{
 			this.ytService.setState(false);
 		}
-		if (event.data === 0 && this.ytService.nextTrack()) {
+		if (event.data === 0 && !this.ytService.nextTrack()) {
 			this.ytService.deselect();
 
 		}

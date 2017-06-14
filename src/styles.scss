@@ -9,7 +9,7 @@ body {
 		padding: 72px 0 230px 210px;
 	}
 
-	font-family: 'Roboto', sans-serif !important;
+	font-family: 'Overpass', sans-serif !important;
 
 }
 
@@ -68,10 +68,13 @@ $btn-color: #947fad ;
 		width: 67%;
 		margin: 8px auto 0;
 		font-size: 21px;
-		padding: 5px 20px;
+		padding: 5px 0;
 		background: transparent;
 		border: none;
 		line-height: 2.5rem;
+		font-weight: 100;
+		font-style: italic;
+		font-family: 'Overpass', sans-serif !important;
 	}
 	@include lg {
 		position: fixed;
@@ -256,10 +259,16 @@ $controlsColorHover: #EFEFEF;
 }
 //RESULTS COMPONENT
 .sc-search {
-	padding-top: 30px;
+	&_header {
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 300;
+		color: #9FA49B;
+		margin-top: 20px;
+	}
+	padding-top: 10px;
 	&_input {width: 100%;max-width: 800px;margin: 0 auto 10px;}
 	&_inner {
-		padding: 7px;
+		padding: 7px 0;
 		transition: background-color, .2s;
 		&:hover {background-color: rgba(158, 158, 158, 0.05);}
 		.sc-search_result_title:hover {text-decoration: underline !important;}
@@ -290,7 +299,7 @@ $controlsColorHover: #EFEFEF;
 		border-radius: 3px;
 		margin-right: 13px;
 		background-size: cover;
-
+		background-position: center;
 		.playButton_wrapper{
 			width: 24px;
 			height: 24px;

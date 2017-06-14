@@ -51,10 +51,11 @@ export class YoutubeService {
 			const index = this.selectedPlaylist.indexOf(this.selected);
 			if (this.selectedPlaylist[index+1]) {
 				this.setPlaying(this.selectedPlaylist[index+1], this.selectedPlaylist)
+
 				return true;
 			}
 		}
-		else {return false}
+		return false
 	}
 currPlaying(): Entry {
 	return this.selected;
