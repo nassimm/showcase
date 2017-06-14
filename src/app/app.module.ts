@@ -23,6 +23,9 @@ import { YoutubePlayerModule } from 'ng2-youtube-player';
 import { PlayComponent } from './player/play.component';
 import { PrevComponent } from './player/prev.component';
 import { ResultComponent } from './results/result.component';
+import { DurationPipe } from './duration.pipe';
+import { AgoPipe } from './ago.pipe';
+import { PopoverModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { ResultComponent } from './results/result.component';
     PlaylistComponent,
     PlayComponent,
     PrevComponent,
-    ResultComponent
+    ResultComponent,
+    DurationPipe,
+    AgoPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { ResultComponent } from './results/result.component';
     NgbModule.forRoot(),
     ReactiveFormsModule,
     appRouterModule,
-    YoutubePlayerModule 
+    YoutubePlayerModule,
+    PopoverModule.forRoot()
   ],
   providers: [YoutubeService, UidService, PlaylistsService],
   bootstrap: [AppComponent]

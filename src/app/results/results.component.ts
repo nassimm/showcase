@@ -13,8 +13,7 @@ import 'rxjs/Rx';
 
 @Component({
 	selector: 'sc-results',
-	templateUrl: './results.component.html',
-	styleUrls: ['./results.component.scss']
+	templateUrl: './results.component.html'
 })
 export class ResultsComponent implements OnInit {
 
@@ -29,14 +28,14 @@ export class ResultsComponent implements OnInit {
 	}
 	searchyt(term: string) {
 		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=10&type=video&q='"+term+"'")
-		.map(res => res.json())//Getting search result items
-		.map(res => res.items)
-		.map(res => res.map(entry => entry.id.videoId))
-		.map(res => res.join()) 
-		.switchMap(res =>this.http.get("https://www.googleapis.com/youtube/v3/videos?id="+res+"&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet,contentDetails")			) 
-		.map(res => res.json())//Getting actual video items that include duration property.
-		.map(res => res.items)
-		.map(res => res.map(entry=> new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition)))
+		.map(raw => raw.json())//Getting search result items
+		.map(response => response.items)
+		.map(items => items.map(entry => entry.id.videoId))
+		.map(videoIds => videoIds.join()) 
+		.switchMap(videoIds =>this.http.get("https://www.googleapis.com/youtube/v3/videos?id="+videoIds+"&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet,contentDetails")			) 
+		.map(raw => raw.json())//Getting actual video items that include duration property.
+		.map(response => response.items)
+		.map(items => items.map(entry=> new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition, entry.snippet.publishedAt, entry.snippet.tags, entry.snippet.thumbnails)))
 		.subscribe(res => this.results = res,
 			err => console.log(err),
 			() => console.log());

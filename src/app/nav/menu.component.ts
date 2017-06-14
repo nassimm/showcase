@@ -5,11 +5,15 @@ import { FormsModule, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sc-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  templateUrl: './menu.component.html'
 })
 export class MenuComponent implements OnInit {
-
+  menu = [
+  {name: "Home", action: this.goHome, icon: "icofont-ui-home"},
+  {name: "Favorite tracks", action: this.goHome, icon: "icofont-heart"},
+  {name: "Most played", action: this.goHome, icon: "icofont-star"},
+  {name: "Recently added", action: this.goHome, icon: "icofont-ui-calendar"}
+  ]
   constructor(private playlistsService: PlaylistsService) { }
   playlists: Playlist[];
   ngOnInit() {
@@ -18,7 +22,12 @@ export class MenuComponent implements OnInit {
   getPlaylists(): Playlist[] {
     return this.playlistsService.getPlaylists();
   }
-
+  navigate(link){
+    link.action.call(this);
+  }
+  goHome() {
+    console.log("go home")
+  }
   noPlaylist(){
 	return this.playlists.length == 0;
   }

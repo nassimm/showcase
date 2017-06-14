@@ -10,8 +10,7 @@ import 'rxjs/Rx';
 
 @Component({
 	selector: 'sc-playlist',
-	templateUrl: './playlist.component.html',
-	styleUrls: ['./playlist.component.scss']
+	templateUrl: './playlist.component.html'
 })
 export class PlaylistComponent implements OnInit {
 

@@ -4,11 +4,11 @@ import { Entry, Playlist } from '../entry';
 import { YoutubeService } from '../youtube.service';
 import { PlaylistsService } from '../playlists.service';
 import * as moment from 'moment';
+import { DomSanitizer  } from '@angular/platform-browser';
 
 @Component({
 	selector: 'sc-result',
-	templateUrl: './result.component.html',
-	styleUrls: ['./result.component.scss']
+	templateUrl: './result.component.html'
 })
 export class ResultComponent implements OnInit {
 	@Input() playlist: Entry[];
@@ -16,14 +16,15 @@ export class ResultComponent implements OnInit {
 	@Input() edit = false;
 
 	constructor(private ytService: YoutubeService,
-				private pService: PlaylistsService
+				private pService: PlaylistsService,
+				private sanitizer: DomSanitizer
 		) { }
 	isPlaying(entry: Entry) {
 		return this.ytService.currPlaying()==entry;
 	}
 	playTrack(entry: Entry, collection: Entry[]) {
 		this.ytService.setPlaying(entry, collection);
-		// console.log(moment.duration(entry.contentDetails.duration));
+		// console.log();
 	}
 	remove(entry: Entry) {
 		const index = this.pService.selected.entries.indexOf(entry);
@@ -33,6 +34,14 @@ export class ResultComponent implements OnInit {
 		}
 		localStorage.setItem("playlists", JSON.stringify(this.pService.getPlaylists()));
 	}
+  getStyle() {
+
+    const imgUrl = this.entry.thumbnails.default.url;
+    const style = `background-image: url(${imgUrl})`;
+
+
+    return this.sanitizer.bypassSecurityTrustStyle(style);
+  }
 	ngOnInit() {
 	}
 

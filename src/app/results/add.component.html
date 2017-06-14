@@ -1,8 +1,3 @@
-<!-- <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
-	<select formControlName="playlistId">
-		<option *ngFor="let playlist of getPlaylists()" [value]="playlist.id">{{playlist.name}}</option>
-	</select>
-	<button type="submit">Add to playlist</button>
-</form> -->
-
-<div *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">{{playlist.name}}</div>
+<div class="addTrack_popOver">
+<a class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist);pop.hide()">{{playlist.name}}</a>
+</div>

@@ -1,15 +1,33 @@
 <div class="sc-search_inner clearfix"  [class.isActive]="isPlaying(entry)">
-	<div class="float-left sc-search_playButton">
-		<sc-play [entry]="entry" [collection]="playlist" [index]="i" ></sc-play>
+
+	<div class="float-left entry_playButton" [style]="getStyle()">
+
+			<sc-play [entry]="entry" [collection]="playlist"></sc-play>
+
 	</div>
-	<button (click)="remove(entry)" class="float-right btn btn-outline-primary btn-sm"   *ngIf="edit">Remove from playlist</button>
-	<div class="float-right"  *ngIf="!edit">
-		<sc-add [entry]="entry"></sc-add>
-	</div>
-	<a class="sc-search_result_title" (click)="playTrack(entry)">
-		{{entry.title}}
-	</a>
-	<p class="sc-search_result_detail">
-		{{entry.duration}}
-	</p>
+	<div class="float-right" >
+		<ul class="entry_actions">
+			<li><i class="icofont icofont-heart"></i></li>
+			<li><i class="icofont icofont-share"></i></li>
+			<li *ngIf="!edit">
+				<a type="button" class="entry_actions_add" placement="left"
+				[popover]="addToPlaylist"
+				popoverTitle="Dismissible popover"
+				popoverTitle="Add track to a playlist" #pop="bs-popover">
+				<i class="icofont icofont-plus" ></i>
+			</a>
+			<template #addToPlaylist >
+				<sc-add [entry]="entry" [pop]="pop"></sc-add>	
+			</template>
+		</li>
+		<li><i class="icofont icofont-download"></i></li>
+		<li><a class="icofont icofont-trash" (click)="remove(entry)" *ngIf="edit"></a></li>
+	</ul>
+</div>
+<a class="sc-search_result_title" (click)="playTrack(entry)">
+	{{entry.title}}
+</a>
+<p class="sc-search_result_detail">
+	{{entry.duration | duration}} &bull; {{entry.definition}} &bull; Uploaded {{entry.publishedAt | ago}}
+</p>
 </div>

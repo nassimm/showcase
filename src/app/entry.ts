@@ -3,11 +3,24 @@ export class Entry {
   "title": string;
   "duration": string;
   "definition": string;
-  constructor(id: string, title: string, duration: string, definition: string) {
+  "publishedAt": string;
+  "tags": string[];
+  "thumbnails": any;
+  constructor(id: string,
+              title: string,
+              duration: string,
+              definition: string,
+              publishedAt: string,
+              tags: string[],
+              thumbnails: string[]
+              ) {
     this.id = id;
     this.title = title;
     this.duration = duration;
     this.definition = definition;
+    this.publishedAt = publishedAt;
+    this.tags = tags;
+    this.thumbnails= thumbnails;
   }
 }
 

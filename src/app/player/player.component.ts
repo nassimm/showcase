@@ -7,8 +7,7 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
 	selector: 'sc-player',
-	templateUrl: './player.component.html',
-	styleUrls: ['./player.component.scss']
+	templateUrl: './player.component.html'
 })
 export class PlayerComponent implements OnInit {
 	volumeBar = new FormControl();
@@ -40,7 +39,7 @@ export class PlayerComponent implements OnInit {
 		else{
 			this.ytService.setState(false);
 		}
-		if (event.data === 0 && !this.ytService.nextTrack()) {
+		if (event.data === 0 && this.ytService.nextTrack()) {
 			this.ytService.deselect();
 
 		}

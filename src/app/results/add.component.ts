@@ -1,27 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { PlaylistsService } from '../playlists.service';
 import { Entry, Playlist } from '../entry';
 
 @Component({
 	selector: 'sc-add',
-	templateUrl: './add.component.html',
-	styleUrls: ['./add.component.scss']
+	templateUrl: './add.component.html'
 })
 export class AddComponent implements OnInit {
 
 	@Input() entry: Entry;
-	addForm: FormGroup;
+	@Input() pop: any;
 	selectedPlaylist: Playlist;
-	constructor(private pService: PlaylistsService, private fB: FormBuilder) {
+	constructor(private pService: PlaylistsService) {
 	}
 
 	ngOnInit() {
-		// this.selectedPlaylist = this.getPlaylists()[0];
-		// this.addForm = this.fB.group(
-		// 	{playlistId: [this.selectedPlaylist.name, Validators.required]}
-		// 	);
 	}
 
 	addTrack(playlist: Playlist) {
@@ -40,7 +34,7 @@ export class AddComponent implements OnInit {
 	getPlaylists(): Playlist[]{
 		return this.pService.getPlaylists();
 	}
-	getPlaylist(id: number): Playlist {
-		return this.pService.getPlaylist(id);
-	}
+	// getPlaylist(id: number): Playlist {
+	// 	return this.pService.getPlaylist(id);
+	// }
 }

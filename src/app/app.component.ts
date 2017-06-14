@@ -6,8 +6,7 @@ import { Playlist } from './entry';
 
 @Component({
 	selector: 'sc-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.scss']
+	templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
 	playlists: Playlist[];

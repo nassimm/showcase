@@ -8,10 +8,10 @@ import { Observable } from 'rxjs/Rx';
   selector: 'sc-searchbar',
   template: `
   <div class="sc-searchbar">
+  <i class="icofont icofont-search sc-searchbar_icon"></i>
   <input type="text" [formControl]="name" class="sc-searchbar_input" placeholder="Search Youtube for tracks">
   </div>
-  `,
-  styleUrls: ['./searchbar.component.scss']
+  `
 })
 export class SearchbarComponent implements OnInit {
   name = new FormControl();
