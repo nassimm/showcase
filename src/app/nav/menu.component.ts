@@ -14,6 +14,12 @@ export class MenuComponent implements OnInit {
   {name: "Most played", action: this.goHome, icon: "icofont-star"},
   {name: "Recently added", action: this.goHome, icon: "icofont-ui-calendar"}
   ]
+  social = [
+  {name: "Facebook", icon: "icofont-social-facebook"},
+  {name: "Twitter",  icon: "icofont-social-twitter"},
+  {name: "Google Plus", icon: "icofont-social-google-plus"},
+  {name: "Instagram", icon: "icofont-social-instagram"}
+  ]
   constructor(private playlistsService: PlaylistsService) { }
   playlists: Playlist[];
   ngOnInit() {
@@ -29,7 +35,7 @@ export class MenuComponent implements OnInit {
     console.log("go home")
   }
   noPlaylist(){
-	return this.playlists.length == 0;
+    return this.playlists.length == 0;
   }
   nbTracks(playlist: Playlist) {
   	return playlist.entries.length;

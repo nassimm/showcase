@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer  } from '@angular/platform-browser';
 
 import { Entry, Playlist } from '../entry';
 import { YoutubeService } from '../youtube.service';
 import { PlaylistsService } from '../playlists.service';
 import * as moment from 'moment';
-import { DomSanitizer  } from '@angular/platform-browser';
 
 @Component({
 	selector: 'sc-result',

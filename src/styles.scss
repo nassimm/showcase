@@ -12,7 +12,10 @@ body {
 	font-family: 'Overpass', sans-serif !important;
 
 }
-
+hr {
+	margin: 0.7rem 0!important;
+	border-top: 1px solid rgba(227, 227, 227, 0.1) !important;
+}
 a {
 	cursor: pointer;
 	// &:hover{ color: $textMainColor !important;}
@@ -155,6 +158,31 @@ $btn-color: #947fad ;
 	}
 }
 
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0 10px;
+	color: $textMenuColor;
+	font-size: 12px;
+
+	.icofont {color: $iconMenu}
+	ul {
+		display: flex;
+		justify-content:space-around;
+		font-size: 21px;
+		margin-bottom: 0px;
+	}
+	&_links {
+		text-align: justify;
+		&:after {
+			content: "";
+			display: inline-block;
+			width: 100%;
+		}
+	}
+}
 //PLAYER
 youtube-player {display:none;}
 .sc-player {
@@ -168,16 +196,41 @@ youtube-player {display:none;}
 	z-index: 4;
 	@include box-shadow(0, 3px, 26px, rgba(0,0,0,0.1));
 	&_controls {
-		margin: 10px auto 0;
+		margin: 22px auto 0;
 		text-align: center;
-		font-size: 2rem;
+		font-size: 1.4rem;
 	}
+
 	@include lg {
 		left: 210px;
 	}
 }
-
-$control_small: 40px;
+.texts {
+	display: inline-block;
+	line-height: 1em;
+}
+.currentlyPlaying {
+	&_wrapper {height: 49px;}
+	text-align: left;
+	display: inline-block;
+	margin: -9px auto 21px;
+	color: #ddd;
+	.sc-search_result_detail, .sc-search_result_title {
+		color: white;
+		display: inline-block;
+	}
+	.entry_playButton {
+		display: inline-block;
+		margin: 0px 7px -7px 0px;
+	}
+}
+.controls_additional {
+	display: flex;
+	color: #717171;
+	justify-content: space-between;
+	margin-top: 21px;
+}
+$control_small: 31px;
 $control_big: 61px;
 $controlsColor: #FFFFFF;
 $controlsColorHover: #EFEFEF;
@@ -228,10 +281,15 @@ $controlsColorHover: #EFEFEF;
 	max-width: 270px;
 	margin: auto;
 }
-.volumeBar, .transportControl {
-	max-width: 100%;
+.volume {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 11px;
+	.icofont {color: white;}
 }
 .transportControl {
+	max-width: 100%;
 	opacity: 0;
 	cursor: pointer;
 	width: 100%;
@@ -242,15 +300,19 @@ $controlsColorHover: #EFEFEF;
 	position: absolute;
 	top: 19px;
 }
+.l-transportBar_duration {
+	margin-bottom: 30px;
+}
 .transportBar {
 	@extend .transport;
-	background-color: #aeaeae;
+	background-color: $brightGreen;
 }
 .transportBar_wrapper {
 	position: relative;
 	max-width: 960px;
 	margin: auto;
 	width: 72%;
+	height: 41px;
 }
 .transportBar_bg {
 	@extend .transport;
@@ -270,7 +332,7 @@ $controlsColorHover: #EFEFEF;
 	&_inner {
 		padding: 7px 0;
 		transition: background-color, .2s;
-		&:hover {background-color: rgba(158, 158, 158, 0.05);}
+		&:hover {background-color: rgba(131, 255, 100, 0.06);}
 		.sc-search_result_title:hover {text-decoration: underline !important;}
 	}
 
@@ -279,9 +341,9 @@ $controlsColorHover: #EFEFEF;
 		border: 0 silver solid;
 		border-bottom-width: 1px;
 		&_title{ font-size: 1.1rem; margin-bottom: 0.2rem;color: $entryTextColor;}
-		&_detail { margin-bottom: 0.5rem;font-size: 0.7rem;}
+		&_detail {font-size: 0.7rem;}
 		& .isActive {
-			background: rgba(233, 255, 228, 0.53);
+			background: rgba(237, 237, 237, 0.5);
 			color: #504d57;
 			font-weight: 600;
 		}
@@ -305,6 +367,9 @@ $controlsColorHover: #EFEFEF;
 			height: 24px;
 			border-radius: 12px;
 		}
+	}
+	&_texts {
+		margin-top: 3px;
 	}
 	&_actions {
 		list-style: none;

@@ -8,7 +8,7 @@
 	</ul>
 	<hr>
 	<div class="sc-menu_link">
-	<i class="icofont icofont-list"></i>Playlists
+		<i class="icofont icofont-list"></i>Playlists
 	</div>
 	<ul class="sc-menu_playlists">
 		<li *ngFor="let playlist of getPlaylists()" class="sc-menu_playlist">
@@ -28,4 +28,15 @@
 		<input ngModel name="playlistName" required="" placeholder="New Playlist">
 		<button type="submit" [disabled]="!newPlaylistForm.form.valid">Add new Playlist</button>
 	</form>
+	<div class="footer">
+		<ul class="socialIcons">
+			<li *ngFor="let entry of social">
+				<i [ngClass]="['icofont', entry.icon]"></i> 
+			</li>
+		</ul>
+		<hr>
+		<div class="footer_links">
+			About Showcase &bull; Contact me
+		</div>
+	</div>
 </div>

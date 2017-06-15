@@ -2,7 +2,7 @@
 
 	<div class="float-left entry_playButton" [style]="getStyle()">
 
-			<sc-play [entry]="entry" [collection]="playlist"></sc-play>
+		<sc-play [entry]="entry" [collection]="playlist"></sc-play>
 
 	</div>
 	<div class="float-right" >
@@ -24,10 +24,13 @@
 		<li><a class="icofont icofont-trash" (click)="remove(entry)" *ngIf="edit"></a></li>
 	</ul>
 </div>
-<a class="sc-search_result_title" (click)="playTrack(entry)">
-	{{entry.title}}
-</a>
-<p class="sc-search_result_detail">
-	{{entry.duration | duration}} &bull; {{entry.definition}} &bull; Uploaded {{entry.publishedAt | ago}}
-</p>
+<div class="entry_texts">
+	
+	<a class="sc-search_result_title" (click)="playTrack(entry)">
+		{{entry.title}}
+	</a>
+	<div class="sc-search_result_detail">
+		{{entry.duration | duration}} &bull; {{entry.definition | uppercase}} &bull; Uploaded {{entry.publishedAt | ago}}
+	</div>
+</div>
 </div>

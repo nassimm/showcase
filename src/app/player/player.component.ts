@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { DomSanitizer  } from '@angular/platform-browser';
 
 import { Entry } from '../entry';
 import { YoutubeService } from '../youtube.service';
@@ -13,23 +14,31 @@ export class PlayerComponent implements OnInit {
 	volumeBar = new FormControl();
 	transportBar = new FormControl();
 	trackPosition = 0;
+	trackVolume = 0;
 	transportInterval: number;
 	private id: string = '';
 	
-	constructor(private ytService: YoutubeService) { }
+	constructor(private ytService: YoutubeService,
+		private sanitizer: DomSanitizer
+		) { }
 
 	savePlayer (player) {
 		this.ytService.initYt(player);
-		this.volumeBar.setValue(this.ytService.getVolume());
+		let volumeInit = this.ytService.getVolume();
+		this.volumeBar.setValue(volumeInit);
+		this.trackVolume = volumeInit;
 		this.volumeBar.valueChanges.subscribe(data =>
 			this.ytService.setVolume(Number(data))
+			);
+		this.volumeBar.valueChanges.subscribe(data =>
+			this.trackVolume = data
 			);
 		this.transportBar.valueChanges.subscribe(data =>
 			this.ytService.transport(Number(data))
 			);
-		setInterval(() => {
-			this.trackPosition = this.getPosition();
-		}, 1000)
+		Observable.interval(600)
+		.subscribe(() => this.trackPosition = this.getPosition())
+
 	}
 	onStateChange(event){
 		console.log('player state', event.data);
@@ -52,6 +61,12 @@ export class PlayerComponent implements OnInit {
 	}
 	getPlaying(): Entry {
 		return this.ytService.getPlaying();
+	}
+	getStyle() {
+		let entry = this.getPlaying();
+		const imgUrl = entry.thumbnails.default.url;
+		const style = `background-image: url(${imgUrl})`;
+		return this.sanitizer.bypassSecurityTrustStyle(style);
 	}
 	ngOnInit() {
 
