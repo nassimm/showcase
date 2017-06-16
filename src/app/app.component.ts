@@ -11,7 +11,7 @@ import { Playlist } from './entry';
 export class AppComponent implements OnInit, OnDestroy {
 	playlists: Playlist[];
 	constructor(private playlistsService: PlaylistsService,
-				private uidService: UidService) {
+		private uidService: UidService) {
 
 	}
 	newPlaylist(name: string){
@@ -19,15 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		
-		if(localStorage.getItem("playlists") == null) {
-			this.playlists = this.playlistsService.getPlaylists();
-			localStorage.setItem("playlists", JSON.stringify(this.playlists));
-		}
-		else {
-			this.playlists = JSON.parse(localStorage.getItem("playlists"));
-			this.playlistsService.loadPlaylists(this.playlists);
-		}
+		this.playlists = this.playlistsService.loadPlaylists();
 
 	}
 	ngOnDestroy() {

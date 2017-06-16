@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { PlaylistsService } from '../playlists.service';
@@ -13,7 +12,7 @@ export class MenuComponent implements OnInit {
   menu = [
   {name: "Home", action: this.goHome, icon: "icofont-ui-home"},
   {name: "Favorite tracks", action: this.goHome, icon: "icofont-heart"},
-  {name: "Most played", action: this.goHome, icon: "icofont-star"},
+  {name: "Most played", action: this.goMostPlayed, icon: "icofont-star"},
   {name: "Recently added", action: this.goHome, icon: "icofont-ui-calendar"}
   ]
   social = [
@@ -38,14 +37,15 @@ export class MenuComponent implements OnInit {
   goHome() {
     this.router.navigateByUrl('/')
   }
+  goMostPlayed() {
+    // this.router.navigateByUrl('/mostplayed')
+  }
   noPlaylist(){
     return this.playlists.length == 0;
   }
   nbTracks(playlist: Playlist) {
   	return playlist.entries.length;
   }
-  newPlaylist(form: FormGroup) {
-  	this.playlistsService.newPlaylist(form.value.playlistName);
-  }
+
 
 }

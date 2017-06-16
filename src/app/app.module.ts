@@ -27,6 +27,8 @@ import { ResultComponent } from './results/result.component';
 import { DurationPipe } from './duration.pipe';
 import { AgoPipe } from './ago.pipe';
 import { PopoverModule } from 'ngx-bootstrap';
+import { AddPlaylistComponent } from './add-playlist.component';
+import { MostPlayedComponent } from './results/mostplayed.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { PopoverModule } from 'ngx-bootstrap';
     PrevComponent,
     ResultComponent,
     DurationPipe,
-    AgoPipe
+    AgoPipe,
+    AddPlaylistComponent,
+    MostPlayedComponent
   ],
   imports: [
     BrowserModule,

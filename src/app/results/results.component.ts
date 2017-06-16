@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +20,8 @@ export class ResultsComponent implements OnInit {
 	results: Object;
 	name = new FormControl();
 	observeInput: Observable<string>;
-
+	@Input() title: String;
+	
 	constructor(private http: Http,
 		private route: ActivatedRoute,
 		private ytService: YoutubeService,

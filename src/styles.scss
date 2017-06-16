@@ -177,6 +177,10 @@ a {
 			}
 		}
 	}
+	&_addPlaylist {
+		.icofont {color: $brightGreen;}
+		color: $playlistsLinkTextColor;
+	}
 }
 .footer {
 	position: absolute;
@@ -224,6 +228,7 @@ a {
 	background-color:gol#F4F4F4d;
 	position: relative;
 	margin-bottom: 30px;
+	border-radius: 4px;
 	@extend .coverCenter;
 }
 .album {

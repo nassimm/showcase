@@ -34,3 +34,13 @@ export class Playlist {
     this.entries = [];
   }
 }
+
+export class MostPlayedData {
+  id: string;
+  times: number;
+  constructor(id: string, times: number) {
+    this.id=id;
+    this.times = times;
+  }
+
+}

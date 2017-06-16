@@ -11,7 +11,6 @@ export class YoutubeService {
 	isInit = false;					//True once the player is initialized
 	selected: Entry;				//Currently playing track
 	selectedPlaylist: Entry[];
-	index: Number;
 	playing = false;				//Player status, true = playing
 	constructor(private pService: PlaylistsService) {
 		
@@ -24,12 +23,12 @@ export class YoutubeService {
 	deselect() {
 		this.selected = null;
 		this.selectedPlaylist = null;
-		this.index = null;
 	}
 	setPlaying(entry: Entry, collection: Entry[]) {
 		if (this.selected != entry) {
 			this.player.loadVideoById(entry.id);
 			this.selectedPlaylist = collection;
+			this.pService.incrementMostPlayed(entry.id);
 		}
 		else {this.player.playVideo();}
 		this.selected = entry;
