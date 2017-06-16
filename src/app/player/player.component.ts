@@ -16,7 +16,6 @@ export class PlayerComponent implements OnInit {
 	trackPosition = 0;
 	trackVolume = 0;
 	transportInterval: number;
-	private id: string = '';
 	
 	constructor(private ytService: YoutubeService,
 		private sanitizer: DomSanitizer

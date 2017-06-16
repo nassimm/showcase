@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { PlaylistsService } from '../playlists.service';
 import { Entry, Playlist } from '../entry';
-import { FormsModule, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sc-menu',
@@ -20,11 +22,13 @@ export class MenuComponent implements OnInit {
   {name: "Google Plus", icon: "icofont-social-google-plus"},
   {name: "Instagram", icon: "icofont-social-instagram"}
   ]
-  constructor(private playlistsService: PlaylistsService) { }
+  constructor(private playlistsService: PlaylistsService,
+    private router:Router) { }
   playlists: Playlist[];
   ngOnInit() {
   	this.playlists = this.getPlaylists();
   }
+
   getPlaylists(): Playlist[] {
     return this.playlistsService.getPlaylists();
   }
@@ -32,7 +36,7 @@ export class MenuComponent implements OnInit {
     link.action.call(this);
   }
   goHome() {
-    console.log("go home")
+    this.router.navigateByUrl('/')
   }
   noPlaylist(){
     return this.playlists.length == 0;

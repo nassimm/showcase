@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DomSanitizer  } from '@angular/platform-browser';
 
 import { Entry, Playlist } from '../entry';
 import { YoutubeService } from '../youtube.service';
 import { PlaylistsService } from '../playlists.service';
+import { BgService } from '../bg.service';
 import * as moment from 'moment';
 
 @Component({
@@ -16,8 +16,8 @@ export class ResultComponent implements OnInit {
 	@Input() edit = false;
 
 	constructor(private ytService: YoutubeService,
-				private pService: PlaylistsService,
-				private sanitizer: DomSanitizer
+		private pService: PlaylistsService,
+		private bgService: BgService
 		) { }
 	isPlaying(entry: Entry) {
 		return this.ytService.currPlaying()==entry;
@@ -34,14 +34,9 @@ export class ResultComponent implements OnInit {
 		}
 		localStorage.setItem("playlists", JSON.stringify(this.pService.getPlaylists()));
 	}
-  getStyle() {
-
-    const imgUrl = this.entry.thumbnails.default.url;
-    const style = `background-image: url(${imgUrl})`;
-
-
-    return this.sanitizer.bypassSecurityTrustStyle(style);
-  }
+	getStyle(imgUrl: String) {
+		return this.bgService.getStyle(imgUrl);
+	}
 	ngOnInit() {
 	}
 

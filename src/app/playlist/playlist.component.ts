@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/Rx';
 
 import { Playlist, Entry } from '../entry';
 import { PlaylistsService } from '../playlists.service';
 import { YoutubeService } from '../youtube.service';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/Rx';
+import { BgService } from '../bg.service';
+import * as moment from 'moment';
 
 @Component({
 	selector: 'sc-playlist',
@@ -14,23 +16,40 @@ import 'rxjs/Rx';
 })
 export class PlaylistComponent implements OnInit {
 
-	playlist: Playlist;
+	@Input() playlist: Playlist;
 	edit = false;
+	duration;
 
 	constructor(private route: ActivatedRoute,
 		private pService: PlaylistsService,
 		private ytService: YoutubeService,
-		private rService: Router) { 
+		private rService: Router,
+		private bgService: BgService) { 
 	}
 
 	ngOnInit() {
-
 		this.route.params.subscribe(params =>{
 			if (params['id']!=undefined){
 				this.playlist = this.pService.getPlaylist(Number(params['id']))
-				this.pService.selectPlaylist(this.playlist);
+				if(this.playlist!==undefined) {
+					this.pService.selectPlaylist(this.playlist)
+				}
+				else {
+					this.rService.navigateByUrl('/')
+				}
 			}
 		});
+	}
+	nbTracks(): String {
+		return this.playlist.entries.length.toString()
+	}
+	totalLength() {
+		return this.playlist.entries
+		.map(entry=>moment.duration(entry.duration))
+		.reduce((acc, curr) =>	acc.add(curr))
+	}
+		getStyle(imgUrl: String) {
+		return this.bgService.getStyle(imgUrl);
 	}
 	getPlaylists(): Playlist[]{
 		return this.pService.getPlaylists();
@@ -53,8 +72,11 @@ export class PlaylistComponent implements OnInit {
 		return this.edit;
 	}
 	renamePlaylist(rename: FormGroup) {
-		this.playlist.name = rename.value.name;
-		localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
+		
+		if (rename.value.name) {
+			this.playlist.name = rename.value.name;
+			localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
+		}
 	}
 	removePlaylist() {
 		this.pService.removePlaylist(this.playlist);

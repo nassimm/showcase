@@ -1,6 +1,6 @@
 <div class="sc-search_inner clearfix"  [class.isActive]="isPlaying(entry)">
 
-	<div class="float-left entry_playButton" [style]="getStyle()">
+	<div class="float-left entry_playButton" [style]="getStyle(entry.thumbnails.default.url)">
 
 		<sc-play [entry]="entry" [collection]="playlist"></sc-play>
 
@@ -16,9 +16,9 @@
 				popoverTitle="Add track to a playlist" #pop="bs-popover">
 				<i class="icofont icofont-plus" ></i>
 			</a>
-			<template #addToPlaylist >
+			<ng-template #addToPlaylist >
 				<sc-add [entry]="entry" [pop]="pop"></sc-add>	
-			</template>
+			</ng-template>
 		</li>
 		<li><i class="icofont icofont-download"></i></li>
 		<li><a class="icofont icofont-trash" (click)="remove(entry)" *ngIf="edit"></a></li>
@@ -26,7 +26,7 @@
 </div>
 <div class="entry_texts">
 	
-	<a class="sc-search_result_title" (click)="playTrack(entry)">
+	<a class="sc-search_result_title" (click)="playTrack(entry, playlist)">
 		{{entry.title}}
 	</a>
 	<div class="sc-search_result_detail">
