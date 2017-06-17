@@ -2,14 +2,15 @@ import { Routes, RouterModule } from '@angular/router'
 import { HomeComponent } from './home/home.component';
 import { ResultsComponent } from './results/results.component';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { MostPlayedComponent } from './results/mostplayed.component';
+import { MostplayedComponent } from './results/mostplayed.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent, pathMatch: 'full'},
-	{ path: 'search', component: ResultsComponent},
-	{ path: 'search/:term', component: ResultsComponent},
-	{ path: ':id', component: PlaylistComponent},
-	{ path: 'mostplayed', component: MostPlayedComponent}
+	{ path: 'search', component: ResultsComponent, data: [{title: "SEARCH RESULTS"}]},
+	{ path: 'search/:term', component: ResultsComponent, data: [{title: "SEARCH RESULTS"}]},
+	{ path: 'mostplayed', component: ResultsComponent, pathMatch: 'full', data: [{title: "MOST PLAYED"}]},
+	{ path: 'favs', component: ResultsComponent, pathMatch: 'full', data: [{title: "FAVORITE TRACKS"}]},
+	{ path: ':id', component: PlaylistComponent}
 ];
 
 export const appRouterModule = RouterModule.forRoot(appRoutes);

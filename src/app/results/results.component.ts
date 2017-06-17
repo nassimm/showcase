@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -20,27 +19,13 @@ export class ResultsComponent implements OnInit {
 	results: Object;
 	name = new FormControl();
 	observeInput: Observable<string>;
-	@Input() title: String;
+	title: String;
 	
-	constructor(private http: Http,
-		private route: ActivatedRoute,
+	constructor(private route: ActivatedRoute,
 		private ytService: YoutubeService,
 		private pService: PlaylistsService) {
 	}
-	searchyt(term: string) {
-		this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=10&type=video&q='"+term+"'")
-		.map(raw => raw.json())//Getting search result items
-		.map(response => response.items)
-		.map(items => items.map(entry => entry.id.videoId))
-		.map(videoIds => videoIds.join()) 
-		.switchMap(videoIds =>this.http.get("https://www.googleapis.com/youtube/v3/videos?id="+videoIds+"&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet,contentDetails")			) 
-		.map(raw => raw.json())//Getting actual video items that include duration property.
-		.map(response => response.items)
-		.map(items => items.map(entry=> new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition, entry.snippet.publishedAt, entry.snippet.tags, entry.snippet.thumbnails)))
-		.subscribe(res => this.results = res,
-			err => console.log(err),
-			() => console.log());
-	}
+
 	playTrack(entry: Entry, collection: Entry[]) {
 		this.ytService.setPlaying(entry, collection);
 	}
@@ -50,13 +35,27 @@ export class ResultsComponent implements OnInit {
 	isPlaying(entry: Entry) {
 		return this.ytService.currPlaying()==entry;
 	}
+	handleUrl(data) {
+		(data[0].path === "mostplayed")
+		?this.results=this.pService.getMostPlayed()
+		:((data[0].path === "favs")
+		?this.results=this.pService.getFavs()
+		:console.log(data[0].path))
+	}
 	ngOnInit() {
 		// this.searchyt();
 		this.route.params.subscribe(params =>{
 			if (params['term']!=undefined){
-				this.searchyt(params['term'])
+				this.ytService.searchYt(params['term'])
+				.subscribe(res => this.results = res,
+						err => console.log(err),
+						() => console.log());
 			}
 		});
+		this.route.url.subscribe(data=>this.handleUrl(data))
+		this.route.data.subscribe(data=>this.title = data[0].title)
+
+
 	}
 
 }

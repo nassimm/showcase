@@ -7,22 +7,25 @@
 	</div>
 	<div class="float-right" >
 		<ul class="entry_actions">
-			<li><i class="icofont icofont-heart"></i></li>
-			<li><i class="icofont icofont-share"></i></li>
-			<li *ngIf="!edit">
-				<a type="button" class="entry_actions_add" placement="left"
-				[popover]="addToPlaylist"
-				popoverTitle="Dismissible popover"
-				popoverTitle="Add track to a playlist" #pop="bs-popover">
-				<i class="icofont icofont-plus" ></i>
+			<li> <a (click)="handleFav(entry)">
+				<i class="icofont icofont-heart entry_actions_favorite"></i>
 			</a>
-			<ng-template #addToPlaylist >
-				<sc-add [entry]="entry" [pop]="pop"></sc-add>	
-			</ng-template>
 		</li>
-		<li><i class="icofont icofont-download"></i></li>
-		<li><a class="icofont icofont-trash" (click)="remove(entry)" *ngIf="edit"></a></li>
-	</ul>
+		<li><i class="icofont icofont-share"></i></li>
+		<li *ngIf="!edit">
+			<a type="button" class="entry_actions_add" placement="left"
+			[popover]="addToPlaylist"
+			popoverTitle="Dismissible popover"
+			popoverTitle="Add track to a playlist" #pop="bs-popover">
+			<i class="icofont icofont-plus" ></i>
+		</a>
+		<ng-template #addToPlaylist >
+			<sc-add [entry]="entry" [pop]="pop"></sc-add>	
+		</ng-template>
+	</li>
+	<li><i class="icofont icofont-download"></i></li>
+	<li><a class="icofont icofont-trash" (click)="remove(entry)" *ngIf="edit"></a></li>
+</ul>
 </div>
 <div class="entry_texts">
 	

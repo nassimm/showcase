@@ -433,6 +433,10 @@ $controlsColorHover: #EFEFEF;
 		min-width: 121px;
 		justify-content: space-between;
 		font-size: 21px;
+		&_favorite {
+			
+			color: #eaeaea;
+		}
 		a {text-decoration: none !important;}
 		&_add {background: none;border: none;color: inherit}
 	}

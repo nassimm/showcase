@@ -19,7 +19,9 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.playlists = this.playlistsService.loadPlaylists();
+		this.playlistsService.loadPlaylists();
+		this.playlists = this.playlistsService.getPlaylists();
+
 
 	}
 	ngOnDestroy() {

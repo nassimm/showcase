@@ -1,11 +1,12 @@
 export class Entry {
-  "id": string;
-  "title": string;
-  "duration": string;
-  "definition": string;
-  "publishedAt": string;
-  "tags": string[];
-  "thumbnails": any;
+  id: string;
+  title: string;
+  duration: string;
+  definition: string;
+  publishedAt: string;
+  tags: string[];
+  thumbnails: any;
+  played: number;
   constructor(id: string,
               title: string,
               duration: string,
@@ -21,6 +22,7 @@ export class Entry {
     this.publishedAt = publishedAt;
     this.tags = tags;
     this.thumbnails= thumbnails;
+    this.played = 0;
   }
 }
 

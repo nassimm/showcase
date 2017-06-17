@@ -37,6 +37,9 @@ export class ResultComponent implements OnInit {
 	getStyle(imgUrl: String) {
 		return this.bgService.getStyle(imgUrl);
 	}
+	handleFav(entry: Entry) {
+		this.pService.handleFav(entry);
+	}
 	ngOnInit() {
 	}
 

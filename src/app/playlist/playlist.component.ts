@@ -46,7 +46,7 @@ export class PlaylistComponent implements OnInit {
 	totalLength() {
 		return this.playlist.entries
 		.map(entry=>moment.duration(entry.duration))
-		.reduce((acc, curr) =>	acc.add(curr))
+		.reduce((acc, curr) =>	acc.add(curr), moment.duration(0, 'seconds'))
 	}
 		getStyle(imgUrl: String) {
 		return this.bgService.getStyle(imgUrl);

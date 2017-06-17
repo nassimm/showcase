@@ -11,7 +11,7 @@ import { Entry, Playlist } from '../entry';
 export class MenuComponent implements OnInit {
   menu = [
   {name: "Home", action: this.goHome, icon: "icofont-ui-home"},
-  {name: "Favorite tracks", action: this.goHome, icon: "icofont-heart"},
+  {name: "Favorite tracks", action: this.goFavs, icon: "icofont-heart"},
   {name: "Most played", action: this.goMostPlayed, icon: "icofont-star"},
   {name: "Recently added", action: this.goHome, icon: "icofont-ui-calendar"}
   ]
@@ -38,7 +38,10 @@ export class MenuComponent implements OnInit {
     this.router.navigateByUrl('/')
   }
   goMostPlayed() {
-    // this.router.navigateByUrl('/mostplayed')
+    this.router.navigateByUrl('/mostplayed')
+  }
+  goFavs() {
+    this.router.navigateByUrl('/favs')
   }
   noPlaylist(){
     return this.playlists.length == 0;

@@ -12,7 +12,8 @@ export class YoutubeService {
 	selected: Entry;				//Currently playing track
 	selectedPlaylist: Entry[];
 	playing = false;				//Player status, true = playing
-	constructor(private pService: PlaylistsService) {
+	constructor(private pService: PlaylistsService,
+				private http: Http) {
 		
 	}
 	initYt(player: YT.Player) {
@@ -24,14 +25,28 @@ export class YoutubeService {
 		this.selected = null;
 		this.selectedPlaylist = null;
 	}
+	searchYt(term: string): Observable<Entry[]> {
+		return this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=10&type=video&q='"+term+"'")
+		.map(raw => raw.json())//Getting search result items
+		.map(response => response.items)
+		.map(items => items.map(entry => entry.id.videoId))
+		.map(videoIds => videoIds.join()) 
+		.switchMap(videoIds =>this.http.get("https://www.googleapis.com/youtube/v3/videos?id="+videoIds+"&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet,contentDetails")			) 
+		.map(raw => raw.json())//Getting actual video items that include duration property.
+		.map(response => response.items)
+		.map(items => items.map(entry=> new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition, entry.snippet.publishedAt, entry.snippet.tags, entry.snippet.thumbnails)))
+		
+	}
 	setPlaying(entry: Entry, collection: Entry[]) {
 		if (this.selected != entry) {
 			this.player.loadVideoById(entry.id);
+			entry.played++;
+			this.pService.savePlaylists();
 			this.selectedPlaylist = collection;
-			this.pService.incrementMostPlayed(entry.id);
 		}
 		else {this.player.playVideo();}
 		this.selected = entry;
+		console.log(collection)
 	}
 	pauseTrack() {
 		this.player.pauseVideo();
@@ -56,29 +71,29 @@ export class YoutubeService {
 		}
 		return false
 	}
-currPlaying(): Entry {
-	return this.selected;
-}
-setVolume(vol: number) {
-	this.player.setVolume(vol);
-}
-getVolume(): number {
-	return this.player.getVolume();
-}
-transport(location: number) {
-	this.player.seekTo(this.player.getDuration()*location/100, true);
-}
-getPosition(): number {
-	return Number((this.player.getCurrentTime()/this.player.getDuration()*100).toFixed(1));
-}
-getPlaying(): Entry {
-	return this.selected;
-}
-isPlaying() {
-	return this.playing;
-}
-setState(playing) {
-	this.playing = playing;
-}
+	currPlaying(): Entry {
+		return this.selected;
+	}
+	setVolume(vol: number) {
+		this.player.setVolume(vol);
+	}
+	getVolume(): number {
+		return this.player.getVolume();
+	}
+	transport(location: number) {
+		this.player.seekTo(this.player.getDuration()*location/100, true);
+	}
+	getPosition(): number {
+		return Number((this.player.getCurrentTime()/this.player.getDuration()*100).toFixed(1));
+	}
+	getPlaying(): Entry {
+		return this.selected;
+	}
+	isPlaying() {
+		return this.playing;
+	}
+	setState(playing) {
+		this.playing = playing;
+	}
 
 }

@@ -1,30 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PlaylistsService } from '../playlists.service';
-import { Entry, Playlist } from '../entry';
 
 @Component({
-  selector: 'sc-searchresults',
+  selector: 'sc-mostplayed',
   template: `
-  <div class="l-results">
-  <div class="container-fluid">
-  <div class="header">MOST PLAYED</div>
-  </div>
-  <div class="sc-search">
-  <div class="container-fluid">
-  <div class="sc-search_result" *ngFor="let entry of results;let i = index" >
-  <sc-result [entry]="entry" [playlist]="results"></sc-result>
-  </div>
-  </div>
-  </div>
-  </div>
+    <p>
+      mostplayed Works!
+    </p>
   `,
   styles: []
 })
-export class MostPlayedComponent implements OnInit {
+export class MostplayedComponent implements OnInit {
 
   constructor(private pService: PlaylistsService) { }
-  playlist: Playlist;
+
   ngOnInit() {
+
+
   }
 
 }
