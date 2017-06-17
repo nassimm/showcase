@@ -441,6 +441,9 @@ $controlsColorHover: #EFEFEF;
 		&_add {background: none;border: none;color: inherit}
 	}
 }
+.isFavorite {
+	color: red;
+}
 .popover {z-index: 200;}
 .addTrack_popOver {
 	background: white;

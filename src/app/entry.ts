@@ -1,3 +1,5 @@
+import * as moment from 'moment'
+
 export class Entry {
   id: string;
   title: string;
@@ -7,6 +9,7 @@ export class Entry {
   tags: string[];
   thumbnails: any;
   played: number;
+  addedAt: number;
   constructor(id: string,
               title: string,
               duration: string,

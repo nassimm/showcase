@@ -26,6 +26,9 @@ export class ResultComponent implements OnInit {
 		this.ytService.setPlaying(entry, collection);
 		// console.log();
 	}
+	isFav(entry: Entry) {
+		return this.pService.isFav(entry);
+	}
 	remove(entry: Entry) {
 		const index = this.pService.selected.entries.indexOf(entry);
 

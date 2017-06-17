@@ -46,14 +46,12 @@ export class YoutubeService {
 		}
 		else {this.player.playVideo();}
 		this.selected = entry;
-		console.log(collection)
 	}
 	pauseTrack() {
 		this.player.pauseVideo();
 	}
 	prevTrack() {
 		if (this.selectedPlaylist &&  this.selected != null) {
-			console.log(this.selectedPlaylist);
 			const index = this.selectedPlaylist.indexOf(this.selected);
 			if (index > 0) {
 				this.setPlaying(this.selectedPlaylist[index-1], this.selectedPlaylist)

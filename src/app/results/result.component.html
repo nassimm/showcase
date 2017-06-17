@@ -8,7 +8,7 @@
 	<div class="float-right" >
 		<ul class="entry_actions">
 			<li> <a (click)="handleFav(entry)">
-				<i class="icofont icofont-heart entry_actions_favorite"></i>
+				<i class="icofont icofont-heart entry_actions_favorite" [class.isFavorite]="isFav(entry)"></i>
 			</a>
 		</li>
 		<li><i class="icofont icofont-share"></i></li>

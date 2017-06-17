@@ -38,9 +38,11 @@ export class ResultsComponent implements OnInit {
 	handleUrl(data) {
 		(data[0].path === "mostplayed")
 		?this.results=this.pService.getMostPlayed()
-		:((data[0].path === "favs")
+		:(data[0].path === "favs")
 		?this.results=this.pService.getFavs()
-		:console.log(data[0].path))
+		:(data[0].path === "recent")
+		?this.results=this.pService.getRecent()
+		:console.log(data[0].path)
 	}
 	ngOnInit() {
 		// this.searchyt();

@@ -19,17 +19,7 @@ export class AddComponent implements OnInit {
 	}
 
 	addTrack(playlist: Playlist) {
-		this.selectedPlaylist = playlist;
-		if (this.selectedPlaylist.entries.some(entry => entry.id === this.entry.id)) {
-			console.log("track is already in playlist");
-		}
-		else {
-			this.selectedPlaylist.entries.push(this.entry);
-			localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
-			this.pService.savePlaylists();
-		}
-
-		
+		this.pService.addTrack(playlist, this.entry)
 	}
 
 	getPlaylists(): Playlist[]{

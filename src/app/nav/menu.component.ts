@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   {name: "Home", action: this.goHome, icon: "icofont-ui-home"},
   {name: "Favorite tracks", action: this.goFavs, icon: "icofont-heart"},
   {name: "Most played", action: this.goMostPlayed, icon: "icofont-star"},
-  {name: "Recently added", action: this.goHome, icon: "icofont-ui-calendar"}
+  {name: "Recently added", action: this.goRecent, icon: "icofont-ui-calendar"}
   ]
   social = [
   {name: "Facebook", icon: "icofont-social-facebook"},
@@ -39,6 +39,9 @@ export class MenuComponent implements OnInit {
   }
   goMostPlayed() {
     this.router.navigateByUrl('/mostplayed')
+  }
+  goRecent() {
+    this.router.navigateByUrl('/recent')
   }
   goFavs() {
     this.router.navigateByUrl('/favs')
