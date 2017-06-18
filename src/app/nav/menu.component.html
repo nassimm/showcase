@@ -1,8 +1,9 @@
 <div class="sc-menu">
-	<div class="hidden-md-down logoBig"><img src="assets/img/logo.png" alt=""></div>
+	<div class="hidden-md-down logoBig" routerLink="/"><img src="assets/img/logo.png" alt=""></div>
 	<hr>
 	<ul>
-		<li *ngFor="let link of menu" class="sc-menu_link" (click)="navigate(link)">
+		<li *ngFor="let link of menu" class="sc-menu_link" routerLink="{{link.action}}"  routerLinkActive="isActive" [routerLinkActiveOptions]="{exact:
+true}">
 			<i [ngClass]="['icofont', link.icon]"></i> {{link.name}}
 		</li>
 	</ul>
@@ -24,7 +25,7 @@
 			</a>
 		</li>
 		<li *ngIf="noPlaylist()"  class="sc-menu_playlist">
-			<div>No playlists here.</div>
+			<div class="sc-menu_playlistLink_name">No playlists here.</div>
 		</li>
 		<hr>
 		<li  class="sc-menu_playlist">

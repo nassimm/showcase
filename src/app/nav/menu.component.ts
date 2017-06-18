@@ -10,10 +10,10 @@ import { Entry, Playlist } from '../entry';
 })
 export class MenuComponent implements OnInit {
   menu = [
-  {name: "Home", action: this.goHome, icon: "icofont-ui-home"},
-  {name: "Favorite tracks", action: this.goFavs, icon: "icofont-heart"},
-  {name: "Most played", action: this.goMostPlayed, icon: "icofont-star"},
-  {name: "Recently added", action: this.goRecent, icon: "icofont-ui-calendar"}
+  {name: "Home", action: "/", icon: "icofont-ui-home"},
+  {name: "Favorite tracks", action: "/favs", icon: "icofont-heart"},
+  {name: "Most played", action: "/mostplayed", icon: "icofont-star"},
+  {name: "Recently added", action: "/recent", icon: "icofont-ui-calendar"}
   ]
   social = [
   {name: "Facebook", icon: "icofont-social-facebook"},

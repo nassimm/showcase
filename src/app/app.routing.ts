@@ -11,6 +11,7 @@ const appRoutes: Routes = [
 	{ path: 'favs', component: ResultsComponent, pathMatch: 'full', data: [{title: "FAVORITE TRACKS"}]},
 	{ path: 'mostplayed', component: ResultsComponent, pathMatch: 'full', data: [{title: "MOST PLAYED"}]},
 	{ path: 'recent', component: ResultsComponent, pathMatch: 'full', data: [{title: "RECENTLY ADDED"}]},
+	{ path: 'selections/:id', component: PlaylistComponent},
 	{ path: ':id', component: PlaylistComponent}
 ];
 

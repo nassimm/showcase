@@ -5,7 +5,7 @@
 			<div class="col-lg-4 text-center">
 				<div class="row">
 					<div class="col-10 offset-1">					
-						<div class="album_wrapper" [style]="getStyle(playlist.entries[0]?.thumbnails.high.url)">
+						<div class="album_wrapper" [style]="getStyle(playlist.imgUrl || playlist.entries[0]?.thumbnails.high.url)">
 							<div class="album">
 								
 							</div>
@@ -18,7 +18,7 @@
 					<a class="btn btn-primary">
 						PLAY
 					</a>					
-					<a class="btn btn-primary" [popover]="editPlaylist" placement="bottom">
+					<a class="btn btn-primary" [popover]="editPlaylist" placement="bottom" *ngIf="edit">
 					EDIT
 				</a>
 			</div>
@@ -40,7 +40,7 @@
 			<div class="sc-search">
 				<div class="container-fluid">
 					<div class="sc-search_result" *ngFor="let entry of playlist?.entries;let i = index" >
-						<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=true></sc-result>
+						<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=edit></sc-result>
 					</div>
 				</div>
 			</div>

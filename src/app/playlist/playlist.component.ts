@@ -16,8 +16,8 @@ import * as moment from 'moment';
 })
 export class PlaylistComponent implements OnInit {
 
-	@Input() playlist: Playlist;
-	edit = false;
+	@Input() playlist;
+	edit = true;
 	duration;
 
 	constructor(private route: ActivatedRoute,
@@ -26,17 +26,27 @@ export class PlaylistComponent implements OnInit {
 		private rService: Router,
 		private bgService: BgService) { 
 	}
+	handleUrl(data, param) {
+		
+		if (data[0].path === "selections") {
+			this.playlist =this.pService.getSelections().main[Number(param)-1];
+			this.edit = false
+		}
+		else {this.playlist =this.pService.getPlaylist(Number(param))}
 
+			console.log(JSON.stringify(this.playlist))
+		if(this.playlist!==undefined) {
+			this.pService.selectPlaylist(this.playlist)
+		}
+		else {
+			this.rService.navigateByUrl('/')
+		}
+	}
 	ngOnInit() {
 		this.route.params.subscribe(params =>{
 			if (params['id']!=undefined){
-				this.playlist = this.pService.getPlaylist(Number(params['id']))
-				if(this.playlist!==undefined) {
-					this.pService.selectPlaylist(this.playlist)
-				}
-				else {
-					this.rService.navigateByUrl('/')
-				}
+				this.route.url.subscribe(data=>this.handleUrl(data, params['id']))
+
 			}
 		});
 	}
@@ -48,7 +58,7 @@ export class PlaylistComponent implements OnInit {
 		.map(entry=>moment.duration(entry.duration))
 		.reduce((acc, curr) =>	acc.add(curr), moment.duration(0, 'seconds'))
 	}
-		getStyle(imgUrl: String) {
+	getStyle(imgUrl: String) {
 		return this.bgService.getStyle(imgUrl);
 	}
 	getPlaylists(): Playlist[]{

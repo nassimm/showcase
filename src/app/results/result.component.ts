@@ -24,7 +24,6 @@ export class ResultComponent implements OnInit {
 	}
 	playTrack(entry: Entry, collection: Entry[]) {
 		this.ytService.setPlaying(entry, collection);
-		// console.log();
 	}
 	isFav(entry: Entry) {
 		return this.pService.isFav(entry);

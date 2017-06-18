@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Entry, Playlist, MostPlayedData } from './entry';
+import { Entry, Playlist, SELECTIONS } from './entry';
 import { UidService } from './uid.service';
 import * as moment from 'moment'
 
@@ -12,11 +12,13 @@ export class PlaylistsService {
 	selected: Playlist;
 
 	constructor(private uidServce: UidService) {}
+	getSelections() {return SELECTIONS}
 	newPlaylist(name: string) {
 		var newPlaylist = new Playlist(this.getNewUid(), name);
 		this.playlists.push(newPlaylist);
 		this.savePlaylists()
 	}
+
 	savePlaylists() {
 		localStorage.setItem("playlists", JSON.stringify(this.playlists));
 	}
@@ -27,14 +29,11 @@ export class PlaylistsService {
 		if (this.isFav(entry))
 		{
 			const index = this.favs.indexOf(entry)
-			if (index > -1) {
-				this.favs.splice(index, 1);
-			}
+			if (index > -1) {this.favs.splice(index, 1);} //Remove a fav
 		}
-		else {
-			this.favs.push(entry);
-			this.saveFavs();
-		}
+		else { this.favs.push(entry);} //Add a fav
+
+		this.saveFavs();
 
 	}
 	saveFavs() {
@@ -57,6 +56,7 @@ export class PlaylistsService {
 	getPlaylist(id: number): Playlist {
 		return this.playlists.find(playlist => playlist.id == id);
 	}
+
 	getMostPlayed() {
 		return this.getPlaylists()
 		.map(x=>x.entries)
@@ -74,8 +74,8 @@ export class PlaylistsService {
 		}
 		else {
 			playlist.entries.push(entry);
-			this.savePlaylists();
 			this.addRecent(entry);
+			this.savePlaylists();
 		}
 
 		
@@ -86,6 +86,7 @@ export class PlaylistsService {
 		.map(x=>x.entries)
 		.reduce((acc, curr) => acc.concat(curr))
 		.filter(entry=> now - entry.addedAt < 604800000) //Number of milliseconds in a week
+		.sort((x, y) => y.addedAt - x.addedAt)
 		.slice(0, 20);
 	}
 	loadPlaylists() {

@@ -12,9 +12,15 @@ export class YoutubeService {
 	selected: Entry;				//Currently playing track
 	selectedPlaylist: Entry[];
 	playing = false;				//Player status, true = playing
+	repeat = false;
+
 	constructor(private pService: PlaylistsService,
-				private http: Http) {
+		private http: Http) {
 		
+	}
+	isRepeat(): Boolean {return this.repeat;}
+	toggleRepeat() {
+		this.repeat = this.repeat?false:true;
 	}
 	initYt(player: YT.Player) {
 		this.player = player;
@@ -63,7 +69,10 @@ export class YoutubeService {
 			const index = this.selectedPlaylist.indexOf(this.selected);
 			if (this.selectedPlaylist[index+1]) {
 				this.setPlaying(this.selectedPlaylist[index+1], this.selectedPlaylist)
-
+				return true;
+			}
+			else if (this.repeat === true) {
+				this.setPlaying(this.selectedPlaylist[0], this.selectedPlaylist)
 				return true;
 			}
 		}

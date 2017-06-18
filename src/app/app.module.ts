@@ -29,6 +29,7 @@ import { AgoPipe } from './ago.pipe';
 import { PopoverModule } from 'ngx-bootstrap';
 import { AddPlaylistComponent } from './add-playlist.component';
 import { MostplayedComponent } from './results/mostplayed.component';
+import { RepeatComponent } from './player/repeat.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MostplayedComponent } from './results/mostplayed.component';
     DurationPipe,
     AgoPipe,
     AddPlaylistComponent,
-    MostplayedComponent
+    MostplayedComponent,
+    RepeatComponent
   ],
   imports: [
     BrowserModule,

@@ -1,83 +1,32 @@
 <div class="l-home">
 	<div class="container-fluid">
-	<div class="header">SELECTIONS</div>
+		<div class="header">SELECTIONS</div>
 		<div class="row">
-			<div class="col-md-6 col-lg-4">
-				<div class="sc-home_selectionLink">
-					Chill &amp; World music
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="sc-home_selectionLink">
-					Rock
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="sc-home_selectionLink">
-					Classical
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="sc-home_selectionLink">
-					Hip hop &amp; Rap
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="sc-home_selectionLink">
-					Progressive house
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="sc-home_selectionLink">
-					Jazz
+			<div class="col-md-6 col-lg-4" *ngFor="let selection of selections.main" routerLink="selections/{{selection.id}}">
+				<div class="sc-home_selectionLink" [style]="getStyle(selection.imgUrl)">
+					<span class="homeText">
+						{{selection.name}}
+					</span>
 				</div>
 			</div>
 		</div>
 
 		<div class="header">ALBUMS</div>
 		<div class="row clearfix">
-			<div class="col-6 col-sm-4 col-lg-3 col-xl-2">
-				<div class="album_wrapper">
+			<div class="col-6 col-sm-4 col-lg-3 col-xl-2" *ngFor="let album of selections.albums.entries">
+				<div class="album_wrapper" [style]="getStyle(album.thumbnails.high.url)">
 					<div class="album">
-						Placeholder Name
+						<span class="homeText">
+							{{album.title}}
+						</span>
+					</div>
+					<div class="album_play control_big">
+						<sc-play [collection]="selections.albums.entries" [entry]="album"></sc-play>
 					</div>
 				</div>
 			</div>
-			<div class="col-6 col-sm-4 col-lg-3 col-xl-2">
-				<div class="album_wrapper">
-					<div class="album">
-						Placeholder Name
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-4 col-lg-3 col-xl-2">
-				<div class="album_wrapper">
-					<div class="album">
-						Placeholder Name
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-4 col-lg-3 col-xl-2">
-				<div class="album_wrapper">
-					<div class="album">
-						Placeholder Name
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-4 col-lg-3 col-xl-2">
-				<div class="album_wrapper">
-					<div class="album">
-						Placeholder Name
-					</div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-4 col-lg-3 col-xl-2">
-				<div class="album_wrapper">
-					<div class="album">
-						Placeholder Name
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</div>
 </div>
+

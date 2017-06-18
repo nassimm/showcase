@@ -44,7 +44,13 @@ a {
 	background-image:none;
 	border-color:#01549b
 }
-
+.absoluteZero {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
 .playButton {
 	font-size: 11px;
 	&_wrapper {
@@ -62,7 +68,7 @@ a {
 }
 //States
 .isDisabled {
-	color: #666  !important;
+	color: #8FCF7B  !important;
 	pointer-events:none;
 }
 .coverCenter {
@@ -115,7 +121,8 @@ a {
 	font-size: 29px;
 	color: #fffdfa;
 	text-align: center;
-	margin: 15px 0 50px;
+	margin: 30px 0 37px;
+	cursor: pointer;
 	img {
 		max-width: 148px;
 	}
@@ -131,10 +138,21 @@ a {
 	z-index: 18;
 	@include lg {top: 0; bottom:0}
 	&_link {
+		i {
+			color: $iconMenu;
+			margin-right: 5px;
+		}
 		color: $textMenuColor;
-		i {color: $iconMenu;}
-		margin-bottom: 5px;
 		cursor: pointer;
+		font-size: 14px;
+		padding: 1px 0;
+		transition: background .2s;
+		&:hover {
+			background: #414141;
+		}
+		&.isActive {
+			background: #2c2c2c;
+		}
 	}
 	ul {
 		list-style: none;
@@ -150,7 +168,7 @@ a {
 
 	&_subgroup {
 		z-index: 5;
-		
+		line-height: 15px;
 		transition: padding-left .2s;
 		
 	}
@@ -217,26 +235,41 @@ a {
 .sc-home {
 	&_selectionLink {
 		height: 160px;
-		background: grey;
 		margin-bottom: 30px;
+		padding: $homePadding;
+		cursor: pointer;
+		border-radius: 3px;
+		@extend .coverCenter;
+		&:hover {
+			text-decoration: none!important;
+		}
 	}
 }
-.albums {
+.homeText {
+	color: $selectionsText;
+	@include box-shadow(0, 3px, 26px, rgba(0,0,0,0.1));
+	background: black;
+	padding: 3px;
 }
+
 .album_wrapper {
 	padding-bottom: 100%;
 	background-color:gol#F4F4F4d;
 	position: relative;
 	margin-bottom: 30px;
-	border-radius: 4px;
+	border-radius: 3px;
 	@extend .coverCenter;
 }
 .album {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
+	@extend .absoluteZero;
+	padding: $homePadding;
+	line-height: 23px;
+	&_play {
+		@extend .absoluteZero;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 //PLAYER
@@ -285,7 +318,13 @@ youtube-player {display:none;}
 	color: #717171;
 	justify-content: space-between;
 	margin-top: 21px;
+	&_button {
+		cursor: pointer;
+		&.isActive {color: white;}
+	}
+
 }
+
 $control_small: 31px;
 $control_big: 61px;
 $controlsColor: #FFFFFF;
@@ -309,8 +348,6 @@ $controlsColorHover: #EFEFEF;
 	}
 	&_big {
 		@extend .control;
-		width: $control_big;
-		height: $control_big;
 		border-radius: 33px;
 		.playButton_wrapper {
 			border-radius: 42px;
