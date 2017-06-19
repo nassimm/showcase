@@ -34,7 +34,6 @@ export class PlaylistComponent implements OnInit {
 		}
 		else {this.playlist =this.pService.getPlaylist(Number(param))}
 
-			console.log(JSON.stringify(this.playlist))
 		if(this.playlist!==undefined) {
 			this.pService.selectPlaylist(this.playlist)
 		}

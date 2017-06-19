@@ -304,7 +304,7 @@ export const SELECTIONS = {
     },
     {
       "id":"gcQ5lI1E3g4",
-      "title":"HÔTEL COSTES 6 // EMMANUEL SANTARROMANA - METROPOLITAIN",
+      "title":"Emmanuel Santarromana - Metropolitain",
       "duration":"PT3M34S",
       "definition":"sd",
       "publishedAt":"2012-03-06T11:55:57.000Z",
@@ -384,7 +384,7 @@ export const SELECTIONS = {
     },
     {
       "id":"lsoIrsOrRFk",
-      "title":"Oliver Shanti & Friends - White Bear's Medicine Dance . HQ",
+      "title":"Oliver Shanti & Friends - White Bear's Medicine Dance",
       "duration":"PT4M48S",
       "definition":"sd",
       "publishedAt":"2010-11-02T11:48:34.000Z",
@@ -478,7 +478,7 @@ export const SELECTIONS = {
     },
     {
       "id":"uyGxTUAi2EM",
-      "title":"Yann Tiersen - Comptine d un autre été",
+      "title":"Yann Tiersen - Comptine d un autre été (Amelie OST)",
       "duration":"PT4M46S",
       "definition":"sd",
       "publishedAt":"2011-06-30T15:08:46.000Z",
@@ -582,7 +582,7 @@ export const SELECTIONS = {
     },
     {
       "id":"pWCIac-ChsM",
-      "title":"Clubbed To Death HD (Matrix Soundtrack)",
+      "title":"Rob Dougan - Clubbed To Death (Matrix Soundtrack)",
       "duration":"PT7M27S",
       "definition":"hd",
       "publishedAt":"2017-02-04T19:34:27.000Z",
@@ -709,7 +709,7 @@ export const SELECTIONS = {
     },
     {
       "id":"YnzgdBAKyJo",
-      "title":"Casino Royale - Chris Cornell - You Know My Name",
+      "title":"Chris Cornell - You Know My Name (Casino Royale OST)",
       "duration":"PT3M18S",
       "definition":"hd",
       "publishedAt":"2010-02-21T14:20:44.000Z",
@@ -787,7 +787,7 @@ export const SELECTIONS = {
     "entries":[
     {
       "id":"IJz3njZvVWc",
-      "title":"The White Stripes Death letter",
+      "title":"The White Stripes - Death letter",
       "duration":"PT4M31S",
       "definition":"sd",
       "publishedAt":"2009-08-15T15:44:28.000Z",
@@ -820,7 +820,7 @@ export const SELECTIONS = {
     },
     {
       "id":"3W6mDUmPZ0Y",
-      "title":"Kashmir - Led Zeppelin - Remastered",
+      "title":"Kashmir - Led Zeppelin (Remastered)",
       "duration":"PT8M34S",
       "definition":"hd",
       "publishedAt":"2016-07-16T18:05:40.000Z",
@@ -892,7 +892,7 @@ export const SELECTIONS = {
     },
     {
       "id":"3_JeT_rfvZY",
-      "title":"The :Egocentrics - Spacewulf",
+      "title":"The Egocentrics - Spacewulf",
       "duration":"PT12M11S",
       "definition":"sd",
       "publishedAt":"2013-12-21T10:15:02.000Z",
@@ -961,7 +961,7 @@ export const SELECTIONS = {
     },
     {
       "id":"V6RIN_yFOno",
-      "title":"Monolord - Empress Rising | RidingEasy Records",
+      "title":"Monolord - Empress Rising",
       "duration":"PT12M20S",
       "definition":"hd",
       "publishedAt":"2013-12-09T15:22:34.000Z",
@@ -1011,115 +1011,8 @@ export const SELECTIONS = {
       "addedAt":1497797676463
     },
     {
-      "id":"YnzgdBAKyJo",
-      "title":"Casino Royale - Chris Cornell - You Know My Name",
-      "duration":"PT3M18S",
-      "definition":"hd",
-      "publishedAt":"2010-02-21T14:20:44.000Z",
-      "tags":[
-      "Casino",
-      "Royale",
-      "Chris",
-      "Cornell",
-      "You",
-      "Know",
-      "My",
-      "Name",
-      "Movie",
-      "Film",
-      "Video",
-      "Soundtrack",
-      "HD",
-      "HQ",
-      "Sound",
-      "High",
-      "Quality",
-      "Columbia",
-      "Pictures",
-      "James",
-      "Bond",
-      "Opening",
-      "Intro",
-      "James Bond (Film Character)",
-      "Chris Cornell (Musical Artist)",
-      "Casino Royale (Film)",
-      "You Know My Name (Composition)",
-      "Daniel",
-      "Craig",
-      "Daniel Craig (Celebrity)",
-      "Title",
-      "Definition",
-      "Music (TV Genre)"
-      ],
-      "thumbnails":{
-        "default":{
-          "url":"https://i.ytimg.com/vi/YnzgdBAKyJo/default.jpg",
-          "width":120,
-          "height":90
-        },
-        "medium":{
-          "url":"https://i.ytimg.com/vi/YnzgdBAKyJo/mqdefault.jpg",
-          "width":320,
-          "height":180
-        },
-        "high":{
-          "url":"https://i.ytimg.com/vi/YnzgdBAKyJo/hqdefault.jpg",
-          "width":480,
-          "height":360
-        },
-        "standard":{
-          "url":"https://i.ytimg.com/vi/YnzgdBAKyJo/sddefault.jpg",
-          "width":640,
-          "height":480
-        },
-        "maxres":{
-          "url":"https://i.ytimg.com/vi/YnzgdBAKyJo/maxresdefault.jpg",
-          "width":1280,
-          "height":720
-        }
-      },
-      "played":1,
-      "addedAt":1497798138444
-    },
-    {
-      "id":"nM0Fl2MnV5Y",
-      "title":"Aerosmith ft. Run DMC - Walk This Way",
-      "duration":"PT5M17S",
-      "definition":"sd",
-      "publishedAt":"2008-07-27T22:37:48.000Z",
-      "tags":[
-      "Rap",
-      "Rock",
-      "Aerosmith",
-      "Run",
-      "DMC",
-      "Walk",
-      "This",
-      "Way"
-      ],
-      "thumbnails":{
-        "default":{
-          "url":"https://i.ytimg.com/vi/nM0Fl2MnV5Y/default.jpg",
-          "width":120,
-          "height":90
-        },
-        "medium":{
-          "url":"https://i.ytimg.com/vi/nM0Fl2MnV5Y/mqdefault.jpg",
-          "width":320,
-          "height":180
-        },
-        "high":{
-          "url":"https://i.ytimg.com/vi/nM0Fl2MnV5Y/hqdefault.jpg",
-          "width":480,
-          "height":360
-        }
-      },
-      "played":1,
-      "addedAt":1497798219150
-    },
-    {
       "id":"4c8O2n1Gfto",
-      "title":"Aerosmith - Walk This Way (Audio)",
+      "title":"Aerosmith - Walk This Way",
       "duration":"PT3M42S",
       "definition":"hd",
       "publishedAt":"2013-09-10T15:46:29.000Z",
@@ -1655,7 +1548,7 @@ export const SELECTIONS = {
     },
     {
       "id":"XS_baa6xWgk",
-      "title":"Riktam & Bansi - Tih Tec (Original Mix)",
+      "title":"Riktam & Bansi - Tih Tec",
       "duration":"PT5M56S",
       "definition":"hd",
       "publishedAt":"2017-02-20T16:57:13.000Z",
@@ -1697,7 +1590,7 @@ export const SELECTIONS = {
     },
     {
       "id":"cPBatFJp7xk",
-      "title":"Kubrick (Extended Mix)",
+      "title":"Jerome Isma-Ae - Kubrick (Extended Mix)",
       "duration":"PT7M26S",
       "definition":"hd",
       "publishedAt":"2017-03-05T10:15:43.000Z",
@@ -1794,7 +1687,7 @@ export const SELECTIONS = {
     },
     {
       "id":"VhlrT79Rl-U",
-      "title":"The Information - Khainz, Alok",
+      "title":"Khainz, Alok - The Information",
       "duration":"PT7M36S",
       "definition":"hd",
       "publishedAt":"2016-07-31T02:35:37.000Z",
@@ -1830,7 +1723,7 @@ export const SELECTIONS = {
     },
     {
       "id":"NBzgm5u_GJg",
-      "title":"PREMIERE: Morttagua - Madox (Original Mix) [Dear Deer]",
+      "title":"Morttagua - Madox",
       "duration":"PT7M2S",
       "definition":"hd",
       "publishedAt":"2017-01-28T13:46:32.000Z",
@@ -1922,7 +1815,7 @@ export const SELECTIONS = {
     "entries":[
     {
       "id":"NUC2EQvdzmY",
-      "title":"DJ Shadow - Nobody Speak (Feat. Run The Jewels) (Official Video)",
+      "title":"DJ Shadow - Nobody Speak (Feat. Run The Jewels)",
       "duration":"PT3M53S",
       "definition":"hd",
       "publishedAt":"2016-08-24T12:02:33.000Z",
@@ -1992,7 +1885,7 @@ export const SELECTIONS = {
     },
     {
       "id":"vWaljXUiCaE",
-      "title":"Run The Jewels - Legend Has It (Official Music Video From RTJ3 & Black Panther)",
+      "title":"Run The Jewels - Legend Has It",
       "duration":"PT4M3S",
       "definition":"hd",
       "publishedAt":"2017-03-23T15:58:54.000Z",
@@ -2058,7 +1951,7 @@ export const SELECTIONS = {
     },
     {
       "id":"qhN5J1v7gM4",
-      "title":"Dr Dre ft Eminem 'Forgot About Dre' Lyrics (Good Q",
+      "title":"Dr Dre ft Eminem 'Forgot About Dre' Lyrics",
       "duration":"PT3M43S",
       "definition":"hd",
       "publishedAt":"2013-05-23T23:41:10.000Z",
@@ -2185,7 +2078,7 @@ export const SELECTIONS = {
     },
     {
       "id":"TjBh_a0Twuc",
-      "title":"King of Rock-RUN DMC (1080p HD)",
+      "title":"RUN DMC - King of Rock",
       "duration":"PT5M14S",
       "definition":"hd",
       "publishedAt":"2012-05-24T02:39:32.000Z",
@@ -2282,7 +2175,7 @@ export const SELECTIONS = {
     },
     {
       "id":"naS-92iWbQM",
-      "title":"Sugarhill Gang - Rapper's Delight (Full Version - High Quality)",
+      "title":"Sugarhill Gang - Rapper's Delight",
       "duration":"PT14M37S",
       "definition":"hd",
       "publishedAt":"2016-06-01T19:27:00.000Z",
@@ -2332,7 +2225,7 @@ export const SELECTIONS = {
     "entries":[
     {
       "id":"uS3FCWuihv0",
-      "title":"Mr Oizo - Analog Worms Attack (Full Album)",
+      "title":"Mr Oizo - Analog Worms Attack",
       "duration":"PT44M11S",
       "definition":"hd",
       "publishedAt":"2014-11-12T23:59:08.000Z",
@@ -2415,7 +2308,7 @@ export const SELECTIONS = {
     },
     {
       "id":"TTHF2Dfw1Dg",
-      "title":"Brian Eno - Thursday Afternoon [HD]",
+      "title":"Brian Eno - Thursday Afternoon",
       "duration":"PT1H54S",
       "definition":"hd",
       "publishedAt":"2014-11-16T23:46:43.000Z",
@@ -2455,7 +2348,7 @@ export const SELECTIONS = {
     },
     {
       "id":"lSU1eFxgr68",
-      "title":"Vanilla - Origin (Full Album)",
+      "title":"Vanilla - Origin",
       "duration":"PT1H8M14S",
       "definition":"sd",
       "publishedAt":"2015-11-13T08:45:29.000Z",
@@ -2527,7 +2420,7 @@ export const SELECTIONS = {
     },
     {
       "id":"qmitHcHqsCI",
-      "title":"Bonobo - Migration (Full Album)",
+      "title":"Bonobo - Migration",
       "duration":"PT1H2M",
       "definition":"hd",
       "publishedAt":"2017-01-15T15:20:26.000Z",
@@ -2574,7 +2467,7 @@ export const SELECTIONS = {
     },
     {
       "id":"8gNc1qbQ814",
-      "title":"RATATAT - BEATS (Full Album)",
+      "title":"Ratatat - Beats",
       "duration":"PT18M2S",
       "definition":"hd",
       "publishedAt":"2014-04-26T21:14:03.000Z",

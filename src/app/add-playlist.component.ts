@@ -15,9 +15,9 @@ import { PlaylistsService } from './playlists.service';
 })
 export class AddPlaylistComponent implements OnInit {
 
-  constructor(private playlistsService: PlaylistsService) { }
+  constructor(private pService: PlaylistsService) { }
   newPlaylist(form: FormGroup) {
-    this.playlistsService.newPlaylist(form.value.playlistName);
+    this.pService.newPlaylist(form.value.playlistName);
   }
   ngOnInit() {
   }

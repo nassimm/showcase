@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { PlaylistsService } from '../playlists.service';
 import { Entry, Playlist } from '../entry';
+import { BgService } from '../bg.service';
 
 @Component({
   selector: 'sc-menu',
@@ -22,7 +23,8 @@ export class MenuComponent implements OnInit {
   {name: "Instagram", icon: "icofont-social-instagram"}
   ]
   constructor(private playlistsService: PlaylistsService,
-    private router:Router) { }
+              private router:Router,
+              private bgService: BgService) { }
   playlists: Playlist[];
   ngOnInit() {
   	this.playlists = this.getPlaylists();
@@ -53,5 +55,8 @@ export class MenuComponent implements OnInit {
   	return playlist.entries.length;
   }
 
+  getStyle(imgUrl: String) {
+    return this.bgService.getStyle(imgUrl);
+  }
 
 }

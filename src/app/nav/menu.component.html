@@ -3,19 +3,30 @@
 	<hr>
 	<ul>
 		<li *ngFor="let link of menu" class="sc-menu_link" routerLink="{{link.action}}"  routerLinkActive="isActive" [routerLinkActiveOptions]="{exact:
-true}">
-			<i [ngClass]="['icofont', link.icon]"></i> {{link.name}}
-		</li>
-	</ul>
-	<hr>
-	<div class="sc-menu_link">
-		<i class="icofont icofont-list"></i>Playlists
+		true}">
+		<i [ngClass]="['icofont', link.icon]"></i> {{link.name}}
+	</li>
+</ul>
+<hr>
+<div class="sc-menu_playlists_wrapper">
+	<div class="sc-menu_elem">
+		<div class="iconPlaylist"></div> Playlists
 	</div>
 	<ul class="sc-menu_playlists">
 		<li *ngFor="let playlist of getPlaylists()" class="sc-menu_playlist">
 			<a routerLink="{{playlist.id}}" class="sc-menu_playlistLink">
 				<div *ngIf="playlist.entries[0]" class="sc-menu_link_pic">
 					<!-- <img src="{{playlist.entries[0].snippet.thumbnails.default.url}}" alt=""> -->
+				</div>
+				<div class="float-left sc-menu_playButton" [style]="getStyle(playlist.entries[0].thumbnails.default.url)" *ngIf="playlist.entries[0]">
+
+					<sc-play [entry]="playlist.entries[0]" [collection]="playlist.entries"></sc-play>
+
+				</div>
+
+				<div class="float-left sc-menu_playButton isEmpty" *ngIf="!playlist.entries[0]">
+
+
 				</div>
 				<div class="sc-menu_subgroup">					
 					<div class="sc-menu_playlistLink_name">{{playlist.name}}</div>
@@ -29,26 +40,27 @@ true}">
 		</li>
 		<hr>
 		<li  class="sc-menu_playlist">
-				<a class=" text-center" [popover]="addPlaylist" placement="bottom">
-					<div class="sc-menu_addPlaylist">
-						<i class="icofont icofont-plus"></i> Add a new Playlist
-					</div>
-				</a>
-				<ng-template #addPlaylist>
-					<sc-add-playlist></sc-add-playlist>
-				</ng-template>
+			<a class=" text-center" [popover]="addPlaylist" placement="bottom">
+				<div class="sc-menu_addPlaylist">
+					<i class="icofont icofont-ui-add"></i> Add a new Playlist
+				</div>
+			</a>
+			<ng-template #addPlaylist>
+				<sc-add-playlist></sc-add-playlist>
+			</ng-template>
 		</li>
 	</ul>
+</div>
 
-	<div class="footer">
-		<ul class="socialIcons">
-			<li *ngFor="let entry of social">
-				<i [ngClass]="['icofont', entry.icon]"></i> 
-			</li>
-		</ul>
-		<hr>
-		<div class="footer_links">
-			About Showcase &bull; Contact me
-		</div>
+<div class="footer">
+	<ul class="socialIcons">
+		<li *ngFor="let entry of social">
+			<i [ngClass]="['icofont', entry.icon]"></i> 
+		</li>
+	</ul>
+	<hr>
+	<div class="footer_links">
+		About Showcase &bull; Contact me
 	</div>
+</div>
 </div>

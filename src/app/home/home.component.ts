@@ -9,7 +9,7 @@ import { Entry, Playlist } from '../entry';
 	templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-	selections: Object;
+	selections: any;
 	constructor(private bgService: BgService,
 				private pService: PlaylistsService) { }
 
