@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import 'moment-duration-format';
 import { AppComponent } from './app.component';
 import { YoutubeService } from './youtube.service';
 import { UidService } from './uid.service';
@@ -30,6 +31,7 @@ import { PopoverModule } from 'ngx-bootstrap';
 import { AddPlaylistComponent } from './add-playlist.component';
 import { MostplayedComponent } from './results/mostplayed.component';
 import { RepeatComponent } from './player/repeat.component';
+import { DurationShortFormPipe } from './duration-short-form.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { RepeatComponent } from './player/repeat.component';
     AgoPipe,
     AddPlaylistComponent,
     MostplayedComponent,
-    RepeatComponent
+    RepeatComponent,
+    DurationShortFormPipe
   ],
   imports: [
     BrowserModule,

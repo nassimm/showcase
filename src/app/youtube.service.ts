@@ -93,6 +93,13 @@ export class YoutubeService {
 	getPosition(): number {
 		return Number((this.player.getCurrentTime()/this.player.getDuration()*100).toFixed(1));
 	}
+	getCurrentTime() {
+		return this.player.getCurrentTime()
+	}
+
+	getDuration() {
+		return this.player.getDuration()
+	}
 	getPlaying(): Entry {
 		return this.selected;
 	}

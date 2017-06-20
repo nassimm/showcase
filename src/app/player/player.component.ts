@@ -13,7 +13,9 @@ import { Observable } from 'rxjs/Rx';
 export class PlayerComponent implements OnInit {
 	volumeBar = new FormControl();
 	transportBar = new FormControl();
-	trackPosition = 0;
+	trackPosition = 0;			//Position in %
+	currentPos = 0;				//Current time in absolute
+	trackLength = 0;
 	trackVolume = 0;
 	transportInterval: number;
 	
@@ -35,9 +37,14 @@ export class PlayerComponent implements OnInit {
 		this.transportBar.valueChanges.subscribe(data =>
 			this.ytService.transport(Number(data))
 			);
-		Observable.interval(600)
-		.subscribe(() => this.trackPosition = this.getPosition())
+		Observable.interval(200)
+		.subscribe(() => this.handleUiChange())
 
+	}
+	handleUiChange() {
+		this.trackPosition = this.getPosition();
+		this.currentPos = this.ytService.getCurrentTime();
+		this.trackLength = this.ytService.getDuration();
 	}
 	onStateChange(event){
 		console.log('player state', event.data);

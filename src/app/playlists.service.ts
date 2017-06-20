@@ -28,11 +28,11 @@ export class PlaylistsService {
 	handleFav(entry: Entry) {
 		if (this.isFav(entry))
 		{
-			const index = this.favs.indexOf(entry)
+			const index = this.favs.indexOf(this.favs.find(line=> line.id === entry.id))
+
 			if (index > -1) {this.favs.splice(index, 1);} //Remove a fav
 		}
 		else { this.favs.push(entry);} //Add a fav
-
 		this.saveFavs();
 
 	}

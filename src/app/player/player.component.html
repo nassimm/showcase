@@ -1,9 +1,14 @@
 <div class="sc-player">
 	<div class="sc-player_controls">
-		<div class="transportBar_wrapper">
-			<div class="transportBar_bg"></div>
-			<div class="transportBar" [style.width.%]="trackPosition"></div>
-			<input type="range"  class="transportControl" [formControl]="transportBar">
+		<div class="transportBar_group">
+		<div class="transportBar_time">{{currentPos | durationShortForm}}</div>
+			<div class="transportBar_wrapper">
+				<div class="transportBar_bg"></div>
+				<div class="transportBar" [style.width.%]="trackPosition"></div>
+				<input type="range"  class="transportControl" [formControl]="transportBar">
+			</div>
+
+		<div class="transportBar_time">{{trackLength | durationShortForm}}</div>
 		</div>
 		<div class="currentlyPlaying_wrapper">
 			<span class="currentlyPlaying" *ngIf="getPlaying()">
