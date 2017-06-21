@@ -33,6 +33,8 @@ import { MostplayedComponent } from './results/mostplayed.component';
 import { RepeatComponent } from './player/repeat.component';
 import { DurationShortFormPipe } from './duration-short-form.pipe';
 import { NoPlaylistComponent } from './playlist/no-playlist.component';
+import { CurrentlyPlayingComponent } from './player/currently-playing.component';
+import { MenuService } from './menu.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { NoPlaylistComponent } from './playlist/no-playlist.component';
     MostplayedComponent,
     RepeatComponent,
     DurationShortFormPipe,
-    NoPlaylistComponent
+    NoPlaylistComponent,
+    CurrentlyPlayingComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,7 @@ import { NoPlaylistComponent } from './playlist/no-playlist.component';
     YoutubePlayerModule,
     PopoverModule.forRoot()
   ],
-  providers: [YoutubeService, UidService, PlaylistsService, BgService],
+  providers: [YoutubeService, UidService, PlaylistsService, BgService, MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

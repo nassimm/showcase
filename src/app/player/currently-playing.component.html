@@ -1,0 +1,17 @@
+<span class="currentlyPlaying" >
+	<div class=" entry_playButton" [style]="getStyle(entry?.thumbnails.default.url)">
+	</div>
+	<div class="texts">
+
+		<div class="currentlyPlaying_nowPlayingLabel">
+			Now playing: 
+		</div>
+		<br>
+		<div class="currentlyPlaying_nowPlaying">
+			<span>
+				{{entry?.title}}	
+			</span>
+			<span *ngIf="!entry">Nothing ! Use the search bar or browse our selections.</span>
+		</div>
+	</div>
+</span>

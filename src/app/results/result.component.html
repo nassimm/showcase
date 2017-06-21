@@ -23,7 +23,7 @@
 			<sc-add [entry]="entry" [pop]="pop"></sc-add>	
 		</ng-template>
 	</li>
-	<li><i class="icofont icofont-download"></i></li>
+	<li><a class="icofont icofont-download" (click)="downloadTrack()"></a></li>
 	<li><a class="icofont icofont-trash" (click)="remove(entry)" *ngIf="edit"></a></li>
 </ul>
 </div>

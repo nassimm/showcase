@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { DomSanitizer  } from '@angular/platform-browser';
 
 import { Entry } from '../entry';
+
 import { YoutubeService } from '../youtube.service';
 import { Observable } from 'rxjs/Rx';
 
@@ -19,8 +20,7 @@ export class PlayerComponent implements OnInit {
 	trackVolume = 0;
 	transportInterval: number;
 	
-	constructor(private ytService: YoutubeService,
-		private sanitizer: DomSanitizer
+	constructor(private ytService: YoutubeService
 		) { }
 
 	savePlayer (player) {
@@ -67,12 +67,6 @@ export class PlayerComponent implements OnInit {
 	}
 	getPlaying(): Entry {
 		return this.ytService.getPlaying();
-	}
-	getStyle() {
-		let entry = this.getPlaying();
-		const imgUrl = entry.thumbnails.default.url;
-		const style = `background-image: url(${imgUrl})`;
-		return this.sanitizer.bypassSecurityTrustStyle(style);
 	}
 	ngOnInit() {
 

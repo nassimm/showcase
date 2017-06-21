@@ -4,7 +4,7 @@
 //GENERAL RULES
 body {
 	padding-top: 54px;
-	padding-bottom: 160px;
+	padding-bottom: 230px;
 	@include lg {
 		padding: 72px 0 230px 210px;
 	}
@@ -33,6 +33,12 @@ a {
 	vertical-align: middle;
 	margin-bottom: 1px;
 	margin-right: 12px;
+}
+
+.fatButton {
+	background: #232323;
+	color: #DEDEDE;
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .btn {cursor:pointer;}
@@ -156,13 +162,15 @@ a {
 .sc-menu {
 	background-color: #363636;
 	position: fixed;
-	left: 0px;
+	left: -210px;
 	bottom: 0;
 	top: 54px;
 	width: 210px;
 	padding: 10px;
 	z-index: 18;
-	@include lg {top: 0; bottom:0}
+	transition: left .4s ease;
+	&.opened {left: 0}
+	@include lg {top: 0; bottom:0;left: 0}
 	&_playButton {
 		@extend .playButton_coverBg;
 		width: 34px;
@@ -336,7 +344,7 @@ youtube-player {display:none;}
 	z-index: 4;
 	@include box-shadow(0, 3px, 26px, rgba(0,0,0,0.1));
 	&_controls {
-		margin: 22px auto 0;
+		margin: 10px auto 0;
 		text-align: center;
 		font-size: 1.4rem;
 	}
@@ -346,22 +354,25 @@ youtube-player {display:none;}
 	}
 }
 .texts {
-	display: inline-block;
-	line-height: 1em;
+	line-height: 0.5em;
 }
 .currentlyPlaying {
 	&_wrapper {height: 49px;}
 	text-align: left;
-	display: inline-block;
-	margin: -9px auto 21px;
 	color: #ddd;
-	.sc-search_result_detail, .sc-search_result_title {
-		color: white;
-		display: inline-block;
+	margin-bottom: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&_nowPlayingLabel {
+		font-size: 13px;
+	}
+	&_nowPlaying {
+		font-size: 15px;
+		font-weight: 800;
 	}
 	.entry_playButton {
-		display: inline-block;
-		margin: 0px 7px -7px 0px;
+		margin: 0px 7px 0px 0px;
 	}
 }
 .controls_additional {
@@ -451,9 +462,10 @@ $controlsColorHover: #EFEFEF;
 	background-color: $brightGreen;
 }
 .transportBar_group {
-display: flex;
-justify-content: center;
-align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
 }
 .transportBar_time {
 	color: $playlistsLinkTextColor;
@@ -475,6 +487,7 @@ align-items: center;
 //Layout
 .l-results {
 	padding-top: 30px;
+	&_footer {margin: 10px 0; text-align: center;}
 }
 .sc-search {
 
@@ -502,9 +515,9 @@ align-items: center;
 
 .entry{
 	&_playButton{
-	@extend .playButton_coverBg;
-	width: 48px;
-	height: 48px;
+		@extend .playButton_coverBg;
+		width: 48px;
+		height: 48px;
 	}
 	&_texts {
 		margin-top: 3px;

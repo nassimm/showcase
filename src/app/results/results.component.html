@@ -4,14 +4,17 @@
 	</div>
 	<div class="sc-search">
 		<div class="container-fluid">
-		<div>
-			
-			<div class="sc-search_result" *ngFor="let entry of results">
-				<sc-result [entry]="entry" [playlist]="results"></sc-result>
-			</div>
-		</div>
+			<div *ngIf="results">
 
-		<div *ngIf="!results[0]"><sc-no-playlist></sc-no-playlist></div>
+				<div class="sc-search_result" *ngFor="let entry of results">
+					<sc-result [entry]="entry" [playlist]="results"></sc-result>
+				</div>
+			</div>
+
+			<div *ngIf="!isPlaylist()"><sc-no-playlist></sc-no-playlist></div>
+		</div>
+		<div class="l-results_footer" *ngIf="searchTerm">
+		<div class="fatButton btn" (click)="loadNextPage()">LOAD MORE</div>
 		</div>
 	</div>
 </div>

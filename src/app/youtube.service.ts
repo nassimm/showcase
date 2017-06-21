@@ -12,7 +12,8 @@ export class YoutubeService {
 	selected: Entry;				//Currently playing track
 	selectedPlaylist: Entry[];
 	playing = false;				//Player status, true = playing
-	repeat = false;
+	repeat = false;	
+	nextPageToken: String;
 
 	constructor(private pService: PlaylistsService,
 		private http: Http) {
@@ -31,9 +32,10 @@ export class YoutubeService {
 		this.selected = null;
 		this.selectedPlaylist = null;
 	}
-	searchYt(term: string): Observable<Entry[]> {
-		return this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=10&type=video&q='"+term+"'")
+	searchYt(term: string, next = false): Observable<Entry[]> {
+		return this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=10&type=video&q='"+term+"'"+((next===true)?("&pageToken="+this.nextPageToken):""))
 		.map(raw => raw.json())//Getting search result items
+		.do(response => this.nextPageToken = response.nextPageToken)
 		.map(response => response.items)
 		.map(items => items.map(entry => entry.id.videoId))
 		.map(videoIds => videoIds.join()) 
@@ -42,6 +44,9 @@ export class YoutubeService {
 		.map(response => response.items)
 		.map(items => items.map(entry=> new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition, entry.snippet.publishedAt, entry.snippet.tags, entry.snippet.thumbnails)))
 		
+	}
+	getNextPage() {
+		return this.nextPageToken;
 	}
 	setPlaying(entry: Entry, collection: Entry[]) {
 		if (this.selected != entry) {

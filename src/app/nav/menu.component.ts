@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PlaylistsService } from '../playlists.service';
 import { Entry, Playlist } from '../entry';
 import { BgService } from '../bg.service';
+import { MenuService } from '../menu.service';
 
 @Component({
   selector: 'sc-menu',
@@ -24,7 +25,8 @@ export class MenuComponent implements OnInit {
   ]
   constructor(private playlistsService: PlaylistsService,
               private router:Router,
-              private bgService: BgService) { }
+              private bgService: BgService,
+              private mService: MenuService) { }
   playlists: Playlist[];
   ngOnInit() {
   	this.playlists = this.getPlaylists();
@@ -54,7 +56,9 @@ export class MenuComponent implements OnInit {
   nbTracks(playlist: Playlist) {
   	return playlist.entries.length;
   }
-
+  isOpened() {
+    return this.mService.isOpened()
+  }
   getStyle(imgUrl: String) {
     return this.bgService.getStyle(imgUrl);
   }

@@ -10,24 +10,8 @@
 
 		<div class="transportBar_time">{{trackLength | durationShortForm}}</div>
 		</div>
-		<div class="currentlyPlaying_wrapper">
-			<span class="currentlyPlaying" *ngIf="getPlaying()">
-				<div class=" entry_playButton" [style]="getStyle()">
-				</div>
-				<div class="texts">
-					
-					<div class="sc-search_result_detail">
-						Now playing: 
-					</div>
-					<br>
-					<div class="sc-search_result_title">
-						<span>
-							{{getPlaying().title}}	
-						</span>
-					</div>
-				</div>
-			</span>
-		</div>
+		<sc-currently-playing [entry]="getPlaying()"></sc-currently-playing>
+
 		<div class="container">
 			<div class="row">
 				<div class="col-3">

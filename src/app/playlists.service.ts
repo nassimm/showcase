@@ -18,7 +18,6 @@ export class PlaylistsService {
 		this.playlists.push(newPlaylist);
 		this.savePlaylists()
 	}
-
 	savePlaylists() {
 		localStorage.setItem("playlists", JSON.stringify(this.playlists));
 	}

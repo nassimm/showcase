@@ -42,6 +42,9 @@ export class ResultComponent implements OnInit {
 	handleFav(entry: Entry) {
 		this.pService.handleFav(entry);
 	}
+	downloadTrack() {
+		 window.open("http://deturl.com/www.youtube.com/watch?v=" + this.entry.id, "_blank");
+	}
 	ngOnInit() {
 	}
 

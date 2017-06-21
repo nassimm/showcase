@@ -16,11 +16,12 @@ import 'rxjs/Rx';
 })
 export class ResultsComponent implements OnInit {
 
-	results: Object;
+	results = [];
 	name = new FormControl();
 	observeInput: Observable<string>;
-	title: String;
-	
+	title: string;
+	searchTerm: string;
+
 	constructor(private route: ActivatedRoute,
 		private ytService: YoutubeService,
 		private pService: PlaylistsService) {
@@ -36,19 +37,27 @@ export class ResultsComponent implements OnInit {
 		return this.ytService.currPlaying()==entry;
 	}
 	handleUrl(data) {
-		(data[0].path === "mostplayed")
-		?this.results=this.pService.getMostPlayed()
+		this.results = (data[0].path === "mostplayed")
+		?this.pService.getMostPlayed()
 		:(data[0].path === "favs")
-		?this.results=this.pService.getFavs()
+		?this.pService.getFavs()
 		:(data[0].path === "recent")
-		?this.results=this.pService.getRecent()
-		:console.log(data[0].path)
-		console.log(this.results);
+		?this.pService.getRecent()
+		:[]
+	}
+	loadNextPage() {
+		this.ytService.searchYt(this.searchTerm, true).subscribe(res => {
+			Array.prototype.push.apply(this.results, res);
+		})
+	}
+	isPlaylist() {
+		return this.results.length > 0;
 	}
 	ngOnInit() {
 		// this.searchyt();
 		this.route.params.subscribe(params =>{
-			if (params['term']!=undefined){
+			this.searchTerm = params['term'];
+			if (this.searchTerm!=undefined){
 				this.ytService.searchYt(params['term'])
 				.subscribe(res => {
 					this.results = res
