@@ -32,6 +32,7 @@ import { AddPlaylistComponent } from './add-playlist.component';
 import { MostplayedComponent } from './results/mostplayed.component';
 import { RepeatComponent } from './player/repeat.component';
 import { DurationShortFormPipe } from './duration-short-form.pipe';
+import { NoPlaylistComponent } from './playlist/no-playlist.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { DurationShortFormPipe } from './duration-short-form.pipe';
     AddPlaylistComponent,
     MostplayedComponent,
     RepeatComponent,
-    DurationShortFormPipe
+    DurationShortFormPipe,
+    NoPlaylistComponent
   ],
   imports: [
     BrowserModule,

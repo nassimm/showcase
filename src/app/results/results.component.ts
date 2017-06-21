@@ -43,15 +43,19 @@ export class ResultsComponent implements OnInit {
 		:(data[0].path === "recent")
 		?this.results=this.pService.getRecent()
 		:console.log(data[0].path)
+		console.log(this.results);
 	}
 	ngOnInit() {
 		// this.searchyt();
 		this.route.params.subscribe(params =>{
 			if (params['term']!=undefined){
 				this.ytService.searchYt(params['term'])
-				.subscribe(res => this.results = res,
-						err => console.log(err),
-						() => console.log());
+				.subscribe(res => {
+					this.results = res
+
+				},
+				err => console.log(err),
+				() => console.log());
 			}
 		});
 		this.route.url.subscribe(data=>this.handleUrl(data))

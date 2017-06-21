@@ -60,7 +60,7 @@ export class PlaylistsService {
 	getMostPlayed() {
 		return this.getPlaylists()
 		.map(x=>x.entries)
-		.reduce((acc, curr) => acc.concat(curr))
+		.reduce((acc, curr) => acc.concat(curr), [])
 		.filter(entry=>entry.played>0)
 		.sort((x, y) => y.played - x.played)
 		.slice(0, 20);
@@ -84,7 +84,7 @@ export class PlaylistsService {
 		var now = Date.now();
 		return this.getPlaylists()
 		.map(x=>x.entries)
-		.reduce((acc, curr) => acc.concat(curr))
+		.reduce((acc, curr) => acc.concat(curr), [])
 		.filter(entry=> now - entry.addedAt < 604800000) //Number of milliseconds in a week
 		.sort((x, y) => y.addedAt - x.addedAt)
 		.slice(0, 20);

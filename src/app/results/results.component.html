@@ -1,12 +1,17 @@
 <div class="l-results">
-<div class="container-fluid">
-<div class="header">{{title}}</div>
-</div>
-<div class="sc-search">
 	<div class="container-fluid">
-		<div class="sc-search_result" *ngFor="let entry of results;let i = index" >
-			<sc-result [entry]="entry" [playlist]="results"></sc-result>
+		<div class="header">{{title}}</div>
+	</div>
+	<div class="sc-search">
+		<div class="container-fluid">
+		<div>
+			
+			<div class="sc-search_result" *ngFor="let entry of results">
+				<sc-result [entry]="entry" [playlist]="results"></sc-result>
+			</div>
+		</div>
+
+		<div *ngIf="!results[0]"><sc-no-playlist></sc-no-playlist></div>
 		</div>
 	</div>
-</div>
 </div>

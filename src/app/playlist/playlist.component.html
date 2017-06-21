@@ -1,4 +1,4 @@
-<div class="l-playlists">
+<div class="l-playlists" *ngIf="playlist">
 	<div class="container-fluid">
 		<div class="row">
 
@@ -19,33 +19,34 @@
 						PLAY
 					</a>					
 					<a class="btn btn-primary" [popover]="editPlaylist" placement="bottom" *ngIf="edit">
-					EDIT
-				</a>
-			</div>
-			<ng-template class="editPlaylist" #editPlaylist>
-				
-				<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="rename-form">
-					<input type="text" placeholder="{{playlist?.name}}" required ngModel name=name class="style-2">
-					<button class=" btn btn-primary btn-sm" type="submit">Rename Playlist</button>
-				</form>
-				<button class=" btn btn-primary btn-sm" (click)="removePlaylist()">Delete Playlist</button>
-			</ng-template>
-		</div>
-
-		<div class="col-lg-8">
-			<div class="container-fluid">
-
+						EDIT
+					</a>
+				</div>
+				<ng-template class="editPlaylist" #editPlaylist>
+					
+					<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="rename-form">
+						<input type="text" placeholder="{{playlist?.name}}" required ngModel name=name class="style-2">
+						<button class=" btn btn-primary btn-sm" type="submit">Rename Playlist</button>
+					</form>
+					<button class=" btn btn-primary btn-sm" (click)="removePlaylist()">Delete Playlist</button>
+				</ng-template>
 			</div>
 
-			<div class="sc-search">
+			<div class="col-lg-8">
 				<div class="container-fluid">
-					<div class="sc-search_result" *ngFor="let entry of playlist?.entries;let i = index" >
-						<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=edit></sc-result>
+
+				</div>
+
+				<div class="sc-search">
+					<div class="container-fluid">
+						<div class="sc-search_result" *ngFor="let entry of playlist?.entries" >
+							<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=edit></sc-result>
+						</div>
+						<sc-no-playlist *ngIf="!playlist.entries[0]"></sc-no-playlist>
 					</div>
 				</div>
 			</div>
-		</div>
 
+		</div>
 	</div>
-</div>
 </div>
