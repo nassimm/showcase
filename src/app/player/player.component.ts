@@ -18,8 +18,8 @@ export class PlayerComponent implements OnInit {
 	currentPos = 0;				//Current time in absolute
 	trackLength = 0;
 	trackVolume = 0;
-	transportInterval: number;
-	
+	volMobileOpened = false;	//Volume slider state when in mobile
+
 	constructor(private ytService: YoutubeService
 		) { }
 
@@ -67,6 +67,15 @@ export class PlayerComponent implements OnInit {
 	}
 	getPlaying(): Entry {
 		return this.ytService.getPlaying();
+	}
+	toggleSlider(){
+		this.volMobileOpened = this.volMobileOpened?false:true;
+	}
+	isVolSliderOpen() {
+		return this.volMobileOpened;
+	}
+	onClickedOutside(e: Event, pop) {
+		this.volMobileOpened = false;
 	}
 	ngOnInit() {
 

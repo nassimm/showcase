@@ -18,13 +18,13 @@
 					<a class="btn btn-primary">
 						PLAY
 					</a>					
-					<a class="btn btn-primary" [popover]="editPlaylist" placement="bottom" *ngIf="edit">
+					<a class="btn btn-primary " [popover]="editPlaylist" placement="bottom" *ngIf="edit">
 						EDIT
 					</a>
 				</div>
 				<ng-template class="editPlaylist" #editPlaylist>
 					
-					<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="rename-form">
+					<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="rename-form" >
 						<input type="text" placeholder="{{playlist?.name}}" required ngModel name=name class="style-2">
 						<button class=" btn btn-primary btn-sm" type="submit">Rename Playlist</button>
 					</form>

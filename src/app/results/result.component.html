@@ -13,14 +13,13 @@
 		</li>
 		<li><i class="icofont icofont-share"></i></li>
 		<li *ngIf="!edit">
-			<a type="button" class="entry_actions_add" placement="left"
+			<a type="button" class="entry_actions_add doNotDismiss" placement="left"
 			[popover]="addToPlaylist"
-			popoverTitle="Dismissible popover"
-			popoverTitle="Add track to a playlist" #pop="bs-popover">
+			popoverTitle="Select a Playlist :" #pop="bs-popover" >
 			<i class="icofont icofont-plus" ></i>
 		</a>
 		<ng-template #addToPlaylist >
-			<sc-add [entry]="entry" [pop]="pop"></sc-add>	
+			<sc-add [entry]="entry" [pop]="pop" (clickOutside)="pop.hide()" [exclude]="'.doNotDismiss'" [excludeBeforeClick]=true></sc-add>	
 		</ng-template>
 	</li>
 	<li><a class="icofont icofont-download" (click)="downloadTrack()"></a></li>

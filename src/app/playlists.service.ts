@@ -14,10 +14,11 @@ export class PlaylistsService {
 
 	constructor(private uidServce: UidService) {}
 	getSelections() {return SELECTIONS}
-	newPlaylist(name: string) {
+	newPlaylist(name: string): Playlist {
 		var newPlaylist = new Playlist(this.getNewUid(), name);
 		this.playlists.push(newPlaylist);
 		this.savePlaylists()
+		return newPlaylist;
 	}
 	savePlaylists() {
 		localStorage.setItem("playlists", JSON.stringify(this.playlists));

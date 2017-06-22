@@ -1,3 +1,4 @@
 <div class="addTrack_popOver">
 <a class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist);pop.hide()">{{playlist.name}}</a>
+<a class="addTrack_playlist"><sc-add-playlist [entry]="entry" [popup]="pop"></sc-add-playlist></a>
 </div>

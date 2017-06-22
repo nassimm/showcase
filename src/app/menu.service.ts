@@ -7,6 +7,9 @@ export class MenuService {
 	toggleMenu() {
 		this.opened = this.opened?false:true;
 	}
+	closeMenu() {
+		this.opened = false;
+	}
 	isOpened() {
 		return this.opened;
 	}

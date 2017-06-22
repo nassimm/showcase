@@ -1,12 +1,11 @@
 <span class="currentlyPlaying" >
-	<div class=" entry_playButton" [style]="getStyle(entry?.thumbnails.default.url)">
+	<div class="currentlyPlayingThumbnail" [style]="getStyle(entry?.thumbnails.default.url)">
 	</div>
 	<div class="texts">
 
-		<div class="currentlyPlaying_nowPlayingLabel">
+		<div class="currentlyPlaying_nowPlayingLabel hidden-md-down">
 			Now playing: 
 		</div>
-		<br>
 		<div class="currentlyPlaying_nowPlaying">
 			<span>
 				{{entry?.title}}	

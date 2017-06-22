@@ -1,14 +1,14 @@
 <div class="sc-player">
 	<div class="sc-player_controls">
 		<div class="transportBar_group">
-		<div class="transportBar_time">{{currentPos | durationShortForm}}</div>
+			<div class="transportBar_time hidden-md-down">{{currentPos | durationShortForm}}</div>
 			<div class="transportBar_wrapper">
 				<div class="transportBar_bg"></div>
 				<div class="transportBar" [style.width.%]="trackPosition"></div>
 				<input type="range"  class="transportControl" [formControl]="transportBar">
 			</div>
 
-		<div class="transportBar_time">{{trackLength | durationShortForm}}</div>
+			<div class="transportBar_time hidden-md-down">{{trackLength | durationShortForm}}</div>
 		</div>
 		<sc-currently-playing [entry]="getPlaying()"></sc-currently-playing>
 
@@ -16,13 +16,12 @@
 			<div class="row">
 				<div class="col-3">
 					<div class="controls_additional">
-						<i class="icofont icofont-random"></i>
-
+						<sc-shuffle></sc-shuffle>
 						<sc-repeat></sc-repeat>
 					</div>
 				</div>
 				<div class="col-6">
-					<div class="controls_wrapper">
+					<div class="controls_main_wrapper">
 						<sc-prev></sc-prev>
 						<div class="control_big"><sc-play [entry]="getPlaying()"></sc-play></div>
 						<sc-prev [next]=true></sc-prev>
@@ -33,11 +32,13 @@
 						<div class="col-12">
 							<div class="volume">
 
-								<i class="icofont icofont-volume-bar"></i>
-								<div class="transportBar_wrapper">
-									<div class="transportBar_bg"></div>
-									<div class="transportBar" [style.width.%]="trackVolume"></div>
-									<input type="range"  class="transportControl" [formControl]="volumeBar">
+								<i class="icofont icofont-volume-bar showVolume doNotDismiss" (click)="toggleSlider()"></i>
+								<div class="volumeBar" [class.isOpened]="isVolSliderOpen()" (clickOutside)="onClickedOutside($event)" [exclude]="'.doNotDismiss'" [excludeBeforeClick]=true>
+									<div class="transportBar_wrapper">
+										<div class="transportBar_bg"></div>
+										<div class="transportBar" [style.width.%]="trackVolume"></div>
+										<input type="range"  class="transportControl" [formControl]="volumeBar">
+									</div>
 								</div>
 							</div>
 

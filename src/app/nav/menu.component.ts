@@ -59,6 +59,12 @@ export class MenuComponent implements OnInit {
   isOpened() {
     return this.mService.isOpened()
   }
+  toggleMenu() {
+    this.mService.toggleMenu();
+  }
+  closeMenu() {
+    this.mService.closeMenu();
+  }
   getStyle(imgUrl: String) {
     return this.bgService.getStyle(imgUrl);
   }

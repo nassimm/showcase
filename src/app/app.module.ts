@@ -35,6 +35,10 @@ import { DurationShortFormPipe } from './duration-short-form.pipe';
 import { NoPlaylistComponent } from './playlist/no-playlist.component';
 import { CurrentlyPlayingComponent } from './player/currently-playing.component';
 import { MenuService } from './menu.service';
+import { ClickOutsideModule } from 'ng-click-outside';
+import { ShuffleComponent } from './player/shuffle.component';
+import { PerfectScrollbarModule } from 'angular2-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,8 @@ import { MenuService } from './menu.service';
     RepeatComponent,
     DurationShortFormPipe,
     NoPlaylistComponent,
-    CurrentlyPlayingComponent
+    CurrentlyPlayingComponent,
+    ShuffleComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,9 @@ import { MenuService } from './menu.service';
     ReactiveFormsModule,
     appRouterModule,
     YoutubePlayerModule,
-    PopoverModule.forRoot()
+    PopoverModule.forRoot(),
+    ClickOutsideModule,
+    PerfectScrollbarModule.forRoot()
   ],
   providers: [YoutubeService, UidService, PlaylistsService, BgService, MenuService],
   bootstrap: [AppComponent]
