@@ -32,7 +32,7 @@ export class PlayComponent implements OnInit {
   constructor(private ytService: YoutubeService) { }
   playTrack(entry: Entry) {
     if (entry) {
-      this.ytService.setPlaying(entry, this.collection);
+      this.ytService.setPlaying(entry, this.collection, true);
     }
   }
   pauseTrack() {
