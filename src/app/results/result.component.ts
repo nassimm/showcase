@@ -29,12 +29,7 @@ export class ResultComponent implements OnInit {
 		return this.pService.isFav(entry);
 	}
 	remove(entry: Entry) {
-		const index = this.pService.selected.entries.indexOf(entry);
-
-		if (index !== -1) {
-			this.pService.selected.entries.splice(index, 1);
-		}
-		localStorage.setItem("playlists", JSON.stringify(this.pService.getPlaylists()));
+		const index = this.pService.removeTrack(entry);
 	}
 	getStyle(imgUrl: String) {
 		return this.bgService.getStyle(imgUrl);

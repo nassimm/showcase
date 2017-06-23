@@ -74,7 +74,7 @@ export class PlayerComponent implements OnInit {
 	isVolSliderOpen() {
 		return this.volMobileOpened;
 	}
-	onClickedOutside(e: Event, pop) {
+	onClickedOutside(e: Event) {
 		this.volMobileOpened = false;
 	}
 	ngOnInit() {

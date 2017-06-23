@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Entry, Playlist } from './entry';
 import {  SELECTIONS } from './selections';
 import { UidService } from './uid.service';
+import { YoutubeService } from './youtube.service';
 import * as moment from 'moment'
 
 @Injectable()
@@ -12,7 +13,9 @@ export class PlaylistsService {
 	recent = [];
 	selected: Playlist;
 
-	constructor(private uidServce: UidService) {}
+	constructor(private uidServce: UidService,
+		private ytService: YoutubeService) {}
+
 	getSelections() {return SELECTIONS}
 	newPlaylist(name: string): Playlist {
 		var newPlaylist = new Playlist(this.getNewUid(), name);
@@ -78,8 +81,15 @@ export class PlaylistsService {
 			this.addRecent(entry);
 			this.savePlaylists();
 		}
+	}
+	removeTrack(entry: Entry) {
+		let tmpEntry = this.selected;
+		const index = tmpEntry.entries.indexOf(entry);
 
-		
+		if (index !== -1) {
+			tmpEntry.entries.splice(index, 1);
+		}
+		localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
 	}
 	getRecent() {
 		var now = Date.now();

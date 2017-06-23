@@ -21,6 +21,7 @@ export class YoutubeService {
 		private http: Http) {
 		
 	}
+	getNonShuffled() {return this.shuffleSave}
 	isShuffle() {
 		return this.shuffle;
 	}
