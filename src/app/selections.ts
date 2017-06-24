@@ -389,7 +389,7 @@ export const SELECTIONS = {
     "entries":[
     {
       "id":"7gT4OTYUS-c",
-      "title":"Pink Panther Theme - Henry Mancini",
+      "title":"Henry Mancini - Pink Panther Theme",
       "duration":"PT2M44S",
       "definition":"sd",
       "publishedAt":"2009-05-24T11:43:11.000Z",
@@ -562,7 +562,7 @@ export const SELECTIONS = {
     },
     {
       "id":"9w-O60x1bYk",
-      "title":"House of Cards Main Theme (Season 5)",
+      "title":"House of Cards Theme (Season 5)",
       "duration":"PT1M37S",
       "definition":"hd",
       "publishedAt":"2015-02-27T22:01:26.000Z",
@@ -612,7 +612,7 @@ export const SELECTIONS = {
     },
     {
       "id":"UI2WuKFX7u0",
-      "title":"DEAD SILENCE (OFFICIAL THEME SONG) - Charlie Clouser",
+      "title":"Charlie Clouser - Dead Silence Theme",
       "duration":"PT3M",
       "definition":"sd",
       "publishedAt":"2013-02-18T00:08:18.000Z",
@@ -764,7 +764,7 @@ export const SELECTIONS = {
     },
     {
       "id":"3W6mDUmPZ0Y",
-      "title":"Kashmir - Led Zeppelin (Remastered)",
+      "title":"Led Zeppelin - Kashmir (Remastered)",
       "duration":"PT8M34S",
       "definition":"hd",
       "publishedAt":"2016-07-16T18:05:40.000Z",
@@ -1534,7 +1534,7 @@ export const SELECTIONS = {
     },
     {
       "id":"cPBatFJp7xk",
-      "title":"Jerome Isma-Ae - Kubrick (Extended Mix)",
+      "title":"Jerome Isma-Ae, Alastor - Kubrick (Extended Mix)",
       "duration":"PT7M26S",
       "definition":"hd",
       "publishedAt":"2017-03-05T10:15:43.000Z",
@@ -1895,7 +1895,7 @@ export const SELECTIONS = {
     },
     {
       "id":"qhN5J1v7gM4",
-      "title":"Dr Dre ft Eminem 'Forgot About Dre' Lyrics",
+      "title":"Dr Dre ft Eminem - Forgot About Dre",
       "duration":"PT3M43S",
       "definition":"hd",
       "publishedAt":"2013-05-23T23:41:10.000Z",

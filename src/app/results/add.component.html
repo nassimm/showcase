@@ -1,4 +1,19 @@
-<div class="addTrack_popOver">
-<a class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist);pop.hide()">{{playlist.name}}</a>
-<a class="addTrack_playlist"><sc-add-playlist [entry]="entry" [popup]="pop"></sc-add-playlist></a>
+<div class="contextual_screen" *ngIf="isVisible"  (clickOutside)="hideMenu()" exclude="{{'.exclude'+entry.id}}" [excludeBeforeClick]=true>
+	<div class="contextual">
+		<div class="contextual_title">
+			<div class="container-fluid">
+				Select a Playlist
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="addTrack_popOver">
+				<a class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">{{playlist.name}}</a>
+				<a class="addTrack_playlist"><sc-add-playlist [entry]="entry" (closeParent)="hideMenu()"></sc-add-playlist></a>
+			</div>
+		</div>
+	</div>
 </div>
+
+<a type="button" class="entry_actions_add" ngClass="{{'exclude'+entry.id}}"  (click)="toggleVisible()">
+	<i class="icofont icofont-plus" ></i>
+</a>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { FormsModule, FormGroup } from '@angular/forms';
 
 import { PlaylistsService } from './playlists.service';
@@ -13,7 +13,7 @@ import { Entry } from './entry';
   </div>
   </a>
   <ng-template #addPlaylist  >
-  <form #newPlaylistForm="ngForm" (ngSubmit)="newPlaylist(newPlaylistForm);pop.hide();popup.hide();" class="doNotDismiss">
+  <form #newPlaylistForm="ngForm" (ngSubmit)="newPlaylist(newPlaylistForm);pop.hide();closeParentPopover()" class="doNotDismiss">
   <input ngModel name="playlistName" required="" placeholder="New Playlist">
   <button type="submit" [disabled]="!newPlaylistForm.form.valid">Add <span *ngIf="isEntry()">track to a </span>new Playlist</button>
   </form>
@@ -24,10 +24,13 @@ import { Entry } from './entry';
 })
 export class AddPlaylistComponent implements OnInit {
   @Input() entry: Entry;
-  @Input() popup: any;
+ @Output() closeParent = new EventEmitter();
   constructor(private pService: PlaylistsService) { }
   isEntry() {
     return this.entry!==undefined;
+  }
+  closeParentPopover() {
+    this.closeParent.emit(false);
   }
   newPlaylist(form: FormGroup) {
     let newPlaylist = this.pService.newPlaylist(form.value.playlistName);

@@ -39,8 +39,8 @@
 
 				<div class="sc-search">
 					<div class="container-fluid">
-						<div class="sc-search_result" *ngFor="let entry of playlist?.entries" >
-							<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=edit></sc-result>
+						<div class="sc-search_result" *ngFor="let entry of playlist?.entries; let i = index" >
+							<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=edit  [index]=i.toString()></sc-result>
 						</div>
 						<sc-no-playlist *ngIf="!playlist.entries[0]"></sc-no-playlist>
 					</div>

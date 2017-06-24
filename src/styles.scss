@@ -35,6 +35,11 @@ a {
 	margin-right: 12px;
 }
 
+$miniContainerPadding: 5px;
+.mini-container {
+	padding-left: $miniContainerPadding;
+	padding-right: $miniContainerPadding;
+}
 .fatButton {
 	background: #232323;
 	color: #DEDEDE;
@@ -634,6 +639,30 @@ $controlsColorHover: #EFEFEF;
 .isFavorite {
 	color: red;
 }
+.contextual {
+	&_title {
+		background: charcoal;
+		color: white;
+	}
+	&_screen {
+		position: absolute;
+		right: 7px;
+		max-width: 94%;
+		-webkit-transform: translateY(32px);
+		transform: translateY(32px);
+		z-index: 19;
+		border: 1px #c6c6c6 solid;
+		border-radius: 3px;
+		background: white;
+		@include sm {	
+			transform: none;
+			right: 77px;
+			max-width: 65%;
+		}
+	}
+
+}
+
 .popover {z-index: 200;}
 .addTrack_popOver {
 	background: white;

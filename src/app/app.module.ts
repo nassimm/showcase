@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import 'moment-duration-format';
@@ -28,6 +27,7 @@ import { ResultComponent } from './results/result.component';
 import { DurationPipe } from './duration.pipe';
 import { AgoPipe } from './ago.pipe';
 import { PopoverModule } from 'ngx-bootstrap';
+import { CollapseModule } from 'ngx-bootstrap';
 import { AddPlaylistComponent } from './add-playlist.component';
 import { MostplayedComponent } from './results/mostplayed.component';
 import { RepeatComponent } from './player/repeat.component';
@@ -68,13 +68,13 @@ import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgbModule.forRoot(),
     ReactiveFormsModule,
     appRouterModule,
     YoutubePlayerModule,
     PopoverModule.forRoot(),
     ClickOutsideModule,
-    PerfectScrollbarModule.forRoot()
+    PerfectScrollbarModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [YoutubeService, UidService, PlaylistsService, BgService, MenuService],
   bootstrap: [AppComponent]

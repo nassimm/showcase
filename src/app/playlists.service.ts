@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Entry, Playlist } from './entry';
 import {  SELECTIONS } from './selections';
 import { UidService } from './uid.service';
-import { YoutubeService } from './youtube.service';
 import * as moment from 'moment'
 
 @Injectable()
@@ -13,8 +12,7 @@ export class PlaylistsService {
 	recent = [];
 	selected: Playlist;
 
-	constructor(private uidServce: UidService,
-		private ytService: YoutubeService) {}
+	constructor(private uidServce: UidService) {}
 
 	getSelections() {return SELECTIONS}
 	newPlaylist(name: string): Playlist {

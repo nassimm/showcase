@@ -14,11 +14,19 @@ export class ResultComponent implements OnInit {
 	@Input() playlist: Entry[];
 	@Input() entry: Entry;
 	@Input() edit = false;
+	@Input() index: string;
+	isVisible = false;
 
 	constructor(private ytService: YoutubeService,
 		private pService: PlaylistsService,
 		private bgService: BgService
 		) { }
+	hideMenu() {
+		this.isVisible = false;
+	}
+	toggleVisible() {
+		this.isVisible = !this.isVisible;
+	}
 	isPlaying(entry: Entry) {
 		return this.ytService.currPlaying()==entry;
 	}
