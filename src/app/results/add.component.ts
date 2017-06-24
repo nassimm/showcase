@@ -20,6 +20,9 @@ export class AddComponent implements OnInit {
 	hideMenu() {
 		this.isVisible = false;
 	}
+	nbTracks(playlist: Playlist) {
+		return playlist.entries.length
+	}
 	toggleVisible() {
 		this.isVisible = !this.isVisible;
 	}

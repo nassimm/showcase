@@ -5,12 +5,20 @@
 				Select a Playlist
 			</div>
 		</div>
-		<div class="container-fluid">
-			<div class="addTrack_popOver">
-				<a class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">{{playlist.name}}</a>
-				<a class="addTrack_playlist"><sc-add-playlist [entry]="entry" (closeParent)="hideMenu()"></sc-add-playlist></a>
-			</div>
+
+		<div class="addTrack_popOver">
+			<a class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">
+				<div class="addTrack_playlist_inner">
+				<div class="iconPlaylist"></div> 
+					<div class="sc-menu_subgroup">					
+						<div class="sc-menu_playlistLink_name">{{playlist.name}}</div>
+						<div class="sc-menu_playlistLink_nbTracks">{{nbTracks(playlist)}} tracks</div>
+					</div>
+				</div>
+			</a>
+			<a class="addTrack_playlist"><sc-add-playlist [entry]="entry" (closeParent)="hideMenu()"></sc-add-playlist></a>
 		</div>
+
 	</div>
 </div>
 

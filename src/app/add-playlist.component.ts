@@ -7,25 +7,33 @@ import { Entry } from './entry';
 @Component({
   selector: 'sc-add-playlist',
   template: `
-  <a class=" text-center" [popover]="addPlaylist" placement="bottom" #pop="bs-popover">
-  <div [class.addPlaylist]="!isEntry()" (clickOutside)="pop.hide()" [exclude]="'.doNotDismiss'" [excludeBeforeClick]=true>
+  <div class="addPlaylist" [class.edit]="isEdit()">
+
+  <div class="addPlaylist_over">
   <i class="icofont icofont-ui-add"></i> Add <span *ngIf="isEntry()">track to a </span>a new Playlist
   </div>
-  </a>
-  <ng-template #addPlaylist  >
-  <form #newPlaylistForm="ngForm" (ngSubmit)="newPlaylist(newPlaylistForm);pop.hide();closeParentPopover()" class="doNotDismiss">
-  <input ngModel name="playlistName" required="" placeholder="New Playlist">
-  <button type="submit" [disabled]="!newPlaylistForm.form.valid">Add <span *ngIf="isEntry()">track to a </span>new Playlist</button>
-  </form>
-  </ng-template>
 
+
+  <form #newPlaylistForm="ngForm" (ngSubmit)="newPlaylist(newPlaylistForm);closeParentPopover()" class="doNotDismiss">
+  <input ngModel class="addPlaylist_input" name="playlistName" required="" placeholder="Playlist Name" (focus)="showInput()" (blur)="hideInput()">
+  <button class="addPlaylist_button" type="submit" [disabled]="!newPlaylistForm.form.valid"><i class="icofont icofont-ui-add"></i></button>
+  </form>
+ 
+</div>
   `,
   styles: []
 })
 export class AddPlaylistComponent implements OnInit {
   @Input() entry: Entry;
- @Output() closeParent = new EventEmitter();
+  @Output() closeParent = new EventEmitter();
+  edit = false;
+
   constructor(private pService: PlaylistsService) { }
+  showInput() { this.edit = true; }
+  hideInput() {  this.edit = false; }
+  isEdit() {
+    return this.edit;
+  }
   isEntry() {
     return this.entry!==undefined;
   }
