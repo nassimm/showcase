@@ -7,7 +7,7 @@
 		</div>
 
 		<div class="addTrack_popOver">
-			<a class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">
+			<div class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">
 				<div class="addTrack_playlist_inner">
 				<div class="iconPlaylist"></div> 
 					<div class="sc-menu_subgroup">					
@@ -15,13 +15,13 @@
 						<div class="sc-menu_playlistLink_nbTracks">{{nbTracks(playlist)}} tracks</div>
 					</div>
 				</div>
-			</a>
-			<a class="addTrack_playlist"><sc-add-playlist [entry]="entry" (closeParent)="hideMenu()"></sc-add-playlist></a>
+			</div>
+			<div class="addTrack_playlist"><sc-add-playlist [entry]="entry" (closeParent)="hideMenu()"></sc-add-playlist></div>
 		</div>
 
 	</div>
 </div>
 
-<a type="button" class="entry_actions_add" ngClass="{{'exclude'+entry.id}}"  (click)="toggleVisible()">
+<a class="entry_actions_add" ngClass="{{'exclude'+entry.id}}"  (click)="toggleVisible()">
 	<i class="icofont icofont-plus" ></i>
 </a>

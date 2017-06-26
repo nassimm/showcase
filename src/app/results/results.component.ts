@@ -21,6 +21,7 @@ export class ResultsComponent implements OnInit {
 	observeInput: Observable<string>;
 	title: string;
 	searchTerm: string;
+	path: string;
 
 	constructor(private route: ActivatedRoute,
 		private ytService: YoutubeService,
@@ -44,6 +45,7 @@ export class ResultsComponent implements OnInit {
 		:(data[0].path === "recent")
 		?this.pService.getRecent()
 		:[]
+		this.path = data[0].path;
 	}
 	loadNextPage() {
 		this.ytService.searchYt(this.searchTerm, true).subscribe(res => {

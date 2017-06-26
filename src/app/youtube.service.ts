@@ -54,6 +54,11 @@ export class YoutubeService {
 		console.log(this.selectedPlaylist);
 		return shuffledTab;
 	}
+	playPlaylist(collection: Entry[]) {
+		if (this.selectedPlaylist !== collection && this.shuffleSave !== collection && collection[0]) {
+			this.setPlaying(collection[0], collection, true)
+		}
+	}
 	isRepeat(): Boolean {return this.repeat;}
 	toggleRepeat() {
 		this.repeat = this.repeat?false:true;

@@ -1,21 +1,20 @@
-<div class="sc-search_inner clearfix"  [class.isActive]="isPlaying(entry)">
+<div class="entry_inner clearfix"  [class.isActive]="isPlaying(entry)">
 
 	<div class="float-left entry_playButton" [style]="getStyle(entry.thumbnails.default.url)">
-
 		<sc-play [entry]="entry" [collection]="playlist"></sc-play>
-
 	</div>
+
 	<div class="float-right" >
 		<ul class="entry_actions">
 			<li> <a (click)="handleFav(entry)">
 				<i class="icofont icofont-heart entry_actions_favorite" [class.isFavorite]="isFav(entry)"></i>
 			</a>
 		</li>
-		<li><i class="icofont icofont-share"></i></li>
+		<li><sc-share-track [entry]="entry"></sc-share-track></li>
 		<li *ngIf="!edit">
 
 
-						<sc-add [entry]="entry"></sc-add>	
+			<sc-add [entry]="entry"></sc-add>	
 
 
 		</li>
@@ -23,12 +22,15 @@
 		<li><a class="icofont icofont-trash" (click)="remove(entry)" *ngIf="edit"></a></li>
 	</ul>
 </div>
+
 <div class="entry_texts">
 	
-	<a class="sc-search_result_title" (click)="playTrack(entry, playlist)">
+	<a class="entry_title" (click)="playTrack(entry, playlist)">
+	<div class="entry_title_ellipsisWrapper">
 		{{entry.title}}
+	</div>
 	</a>
-	<div class="sc-search_result_detail">
+	<div class="entry_detail">
 		{{entry.duration | duration}} &bull; {{entry.definition | uppercase}} &bull; Uploaded {{entry.publishedAt | ago}}
 	</div>
 </div>

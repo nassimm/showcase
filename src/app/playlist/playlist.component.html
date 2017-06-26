@@ -2,34 +2,47 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-lg-4 text-center">
-				<div class="row">
-					<div class="col-10 offset-1">					
-						<div class="album_wrapper" [style]="getStyle(playlist.imgUrl || playlist.entries[0]?.thumbnails.high.url) ">
-							<div class="album">
-								
+			<div class="col-lg-4">
+			<div class="container">
+
+
+					<div class="row">
+						<div class="col-4 col-sm-3 col-lg-10 offset-lg-1">					
+							<div class="album_wrapper" [style]="getStyle(playlist.imgUrl || playlist.entries[0]?.thumbnails.high.url) ">
+								<div class="album">
+
+								</div>
+							</div>
+						</div>
+						<div class="col-8 col-sm-9 col-lg-12">
+							<div class="playlistInfo">
+
+
+								<div class="playlistInfo_name"> {{playlist?.name}}</div>
+								<div class="playlistInfo_details"> {{nbTracks()}} tracks &bull; {{totalLength() | duration}}</div>
+								<div class="playlistInfo_buttons">					
+									<div class="btn mainStyleButton" (click)="playPlaylist()">
+										<i class="icofont icofont-ui-play"></i> PLAY
+									</div>					
+									<div class="btn editPlaylistButton" [popover]="editPlaylist" placement="top" *ngIf="allowEdit">
+										<i class="icofont icofont-ui-edit"></i>
+									</div>
+								</div>
+								<ng-template class="editPlaylist" #editPlaylist>
+
+									<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="rename-form" >
+										<input type="text" placeholder="{{playlist?.name}}" required ngModel name=name class="style-2">
+										<div>
+											<button class=" btn mainStyleButton" type="submit"><i class="icofont icofont-edit"></i> Rename</button>
+
+											<button class=" btn warningButton" (click)="removePlaylist()"><i class="icofont icofont-trash"></i></button>
+										</div>
+									</form>
+								</ng-template>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="playlistInfo_name"> {{playlist?.name}}</div>
-				<div class="playlistInfo_details"> {{nbTracks()}} tracks &bull; {{totalLength() | duration}}</div>
-				<div class="playlistInfo_buttons">					
-					<a class="btn btn-primary">
-						PLAY
-					</a>					
-					<a class="btn btn-primary " [popover]="editPlaylist" placement="bottom" *ngIf="edit">
-						EDIT
-					</a>
-				</div>
-				<ng-template class="editPlaylist" #editPlaylist>
-					
-					<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="rename-form" >
-						<input type="text" placeholder="{{playlist?.name}}" required ngModel name=name class="style-2">
-						<button class=" btn btn-primary btn-sm" type="submit">Rename Playlist</button>
-					</form>
-					<button class=" btn btn-primary btn-sm" (click)="removePlaylist()">Delete Playlist</button>
-				</ng-template>
 			</div>
 
 			<div class="col-lg-8">
@@ -39,10 +52,10 @@
 
 				<div class="sc-search">
 					<div class="container-fluid">
-						<div class="sc-search_result" *ngFor="let entry of playlist?.entries; let i = index" >
-							<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=edit  [index]=i.toString()></sc-result>
+						<div class="entry" *ngFor="let entry of playlist?.entries; let i = index" >
+							<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=allowEdit></sc-result>
 						</div>
-						<sc-no-playlist *ngIf="!playlist.entries[0]"></sc-no-playlist>
+						<sc-no-playlist *ngIf="!playlist.entries[0]" [path]="'playlist'"></sc-no-playlist>
 					</div>
 				</div>
 			</div>

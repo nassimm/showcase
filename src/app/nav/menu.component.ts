@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   {name: "Most played", action: "/mostplayed", icon: "icofont-star"},
   {name: "Recently added", action: "/recent", icon: "icofont-ui-calendar"}
   ]
+  shareUrl = "https://nassimm.github.io/showcase/"
   social = [
   {name: "Facebook", icon: "icofont-social-facebook"},
   {name: "Twitter",  icon: "icofont-social-twitter"},

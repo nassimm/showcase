@@ -39,6 +39,9 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { ShuffleComponent } from './player/shuffle.component';
 import { PerfectScrollbarModule } from 'angular2-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
+import {ShareButtonsModule} from 'ngx-sharebuttons';
+import { ShareTrackComponent } from './results/share-track.component';
+import { ShareComponent } from './results/share.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,9 @@ import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
     DurationShortFormPipe,
     NoPlaylistComponent,
     CurrentlyPlayingComponent,
-    ShuffleComponent
+    ShuffleComponent,
+    ShareTrackComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,8 @@ import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
     PopoverModule.forRoot(),
     ClickOutsideModule,
     PerfectScrollbarModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    ShareButtonsModule.forRoot()
   ],
   providers: [YoutubeService, UidService, PlaylistsService, BgService, MenuService],
   bootstrap: [AppComponent]

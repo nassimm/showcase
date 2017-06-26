@@ -6,12 +6,12 @@
 		<div class="container-fluid">
 			<div *ngIf="results">
 
-				<div class="sc-search_result" *ngFor="let entry of results">
+				<div class="entry" *ngFor="let entry of results">
 					<sc-result [entry]="entry" [playlist]="results"></sc-result>
 				</div>
 			</div>
 
-			<div *ngIf="!isPlaylist()"><sc-no-playlist></sc-no-playlist></div>
+			<div *ngIf="!isPlaylist()"><sc-no-playlist [path]="path"></sc-no-playlist></div>
 		</div>
 		<div class="l-results_footer" *ngIf="searchTerm">
 		<div class="fatButton btn" (click)="loadNextPage()">LOAD MORE</div>

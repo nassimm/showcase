@@ -17,7 +17,8 @@ import * as moment from 'moment';
 export class PlaylistComponent implements OnInit {
 
 	@Input() playlist;
-	edit = true;
+	allowEdit = true;
+	edit = false;
 	duration;
 
 	constructor(private route: ActivatedRoute,
@@ -30,7 +31,7 @@ export class PlaylistComponent implements OnInit {
 		
 		if (data[0].path === "selections") {
 			this.playlist =this.pService.getSelections().main[Number(param)-1];
-			this.edit = false
+			this.allowEdit = false
 		}
 		else {this.playlist =this.pService.getPlaylist(Number(param))}
 
@@ -57,6 +58,9 @@ export class PlaylistComponent implements OnInit {
 		.map(entry=>moment.duration(entry.duration))
 		.reduce((acc, curr) =>	acc.add(curr), moment.duration(0, 'seconds'))
 	}
+	toggleEdit() {
+		this.edit = !this.edit;
+	}
 	getStyle(imgUrl: String) {
 		return this.bgService.getStyle(imgUrl);
 	}
@@ -66,6 +70,7 @@ export class PlaylistComponent implements OnInit {
 	getPlaylist(id: number) {
 		return this.pService.getPlaylist(id);
 	}
+	playPlaylist() {this.ytService.playPlaylist(this.playlist.entries);}
 	isYtInit() {
 		return this.ytService.isYtInit();
 	}
@@ -74,11 +79,8 @@ export class PlaylistComponent implements OnInit {
 		return this.ytService.currPlaying()==entry;
 	}
 
-	editPlaylist() {
-		this.edit===false?this.edit=true:this.edit=false;
-	}
 	isEdit(): Boolean {
-		return this.edit;
+		return this.allowEdit;
 	}
 	renamePlaylist(rename: FormGroup) {
 		

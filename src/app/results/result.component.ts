@@ -14,7 +14,6 @@ export class ResultComponent implements OnInit {
 	@Input() playlist: Entry[];
 	@Input() entry: Entry;
 	@Input() edit = false;
-	@Input() index: string;
 	isVisible = false;
 
 	constructor(private ytService: YoutubeService,
