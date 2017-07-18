@@ -79,7 +79,7 @@ export class YoutubeService {
 		.map(response => response.items)
 		.map(items => items.map(entry => entry.id.videoId))
 		.map(videoIds => videoIds.join()) 
-		.switchMap(videoIds =>this.http.get("https://www.googleapis.com/youtube/v3/videos?id="+videoIds+"&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet,contentDetails")			) 
+		.switchMap(videoIds =>this.http.get("https://www.googleapis.com/youtube/v3/videos?id="+videoIds+"&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet,contentDetails")) 
 		.map(raw => raw.json())//Getting actual video items that include duration property.
 		.map(response => response.items)
 		.map(items => items.map(entry=> new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition, entry.snippet.publishedAt, entry.snippet.tags, entry.snippet.thumbnails)))

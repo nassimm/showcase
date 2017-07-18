@@ -2,11 +2,11 @@
 </div>
 <div class="sc-menu" [class.opened]="isOpened()">
 
-		<div class="hidden-md-down logoBig" routerLink="/"><img src="assets/img/logo.png" alt=""></div>
-		<hr>
-		<ul>
-			<li *ngFor="let link of menu" class="sc-menu_link" routerLink="{{link.action}}"  routerLinkActive="isActive" [routerLinkActiveOptions]="{exact:
-			true}"  (click)="closeMenu()">
+	<div class="hidden-md-down logoBig" routerLink="/"><img src="assets/img/logo.png" alt=""></div>
+	<hr class="hidden-md-down">
+	<ul>
+		<li *ngFor="let link of menu" class="sc-menu_link" routerLink="{{link.action}}" routerLinkActive="isActive" [routerLinkActiveOptions]="{exact:
+			true}" (click)="closeMenu()">
 			<i [ngClass]="['icofont', link.icon]"></i> {{link.name}}
 		</li>
 	</ul>
@@ -15,8 +15,8 @@
 		<div class="sc-menu_elem">
 			<div class="iconPlaylist"></div> Playlists
 		</div>
-
-
+	</div>
+	<div class="sc-menu_playlists_wrapper isRescalable">
 
 		<ul class="sc-menu_playlists">
 			<li *ngFor="let playlist of getPlaylists()" class="sc-menu_playlist">
@@ -34,34 +34,44 @@
 
 
 					</div>
-					<div class="sc-menu_subgroup">					
+					<div class="sc-menu_subgroup">
 						<div class="sc-menu_playlistLink_name">{{playlist.name}}</div>
 						<div class="sc-menu_playlistLink_nbTracks">{{nbTracks(playlist)}} tracks</div>
 					</div>
 
 				</a>
 			</li>
-			<li *ngIf="noPlaylist()"  class="sc-menu_playlist">
+			<li *ngIf="noPlaylist()" class="sc-menu_playlist">
 				<div class="sc-menu_playlistLink_name">No playlists here.</div>
 			</li>
-			<hr>
-			<li  class="sc-menu_playlist">
-				<sc-add-playlist></sc-add-playlist>
-			</li>
 		</ul>
+	</div>
+	<div class="sc-menu_playlists_wrapper">
+		<hr>
+		<div class="sc-menu_playlist">
+			<sc-add-playlist></sc-add-playlist>
+		</div>
 
 	</div>
-
-<div class="footer">
-<!-- 	<ul class="socialIcons">
+	<div class="spacer"></div>
+	<div class="footer">
+		<!-- 	<ul class="socialIcons">
 		<li *ngFor="let entry of social">
 			<i [ngClass]="['icofont', entry.icon]"></i> 
 		</li>
 	</ul> -->
-<sc-share></sc-share>
-	<hr>
-	<div class="footer_links">
-		About Showcase &bull; Contact me
+		<sc-share></sc-share>
+		<hr>
+		<div class="footer_links">
+			<div>
+				About Showcase
+			</div>
+			<div>
+				&bull;
+			</div>
+			<div>
+				Contact me
+			</div>
+		</div>
 	</div>
-</div>
 </div>
