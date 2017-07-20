@@ -1,27 +1,27 @@
 <div class="backgroundToggleMenu" (click)="closeMenu()" [class.isOpened]="isOpened()">
 </div>
-<div class="sc-menu" [class.opened]="isOpened()">
+<div class="menu" [class.opened]="isOpened()">
 
 	<div class="hidden-md-down logoBig" routerLink="/"><img src="assets/img/logo.png" alt=""></div>
 	<hr class="hidden-md-down">
 	<ul>
-		<li *ngFor="let link of menu" class="sc-menu_link" routerLink="{{link.action}}" routerLinkActive="isActive" [routerLinkActiveOptions]="{exact:
+		<li *ngFor="let link of menu" class="menu_link" routerLink="{{link.action}}" routerLinkActive="isActive" [routerLinkActiveOptions]="{exact:
 			true}" (click)="closeMenu()">
 			<i [ngClass]="['icofont', link.icon]"></i> {{link.name}}
 		</li>
 	</ul>
 	<hr>
-	<div class="sc-menu_playlists_wrapper">
-		<div class="sc-menu_elem">
+	<div class="menu_playlists_wrapper">
+		<div class="menu_elem">
 			<div class="iconPlaylist"></div> Playlists
 		</div>
 	</div>
-	<div class="sc-menu_playlists_wrapper isRescalable">
+	<div class="menu_playlists_wrapper isRescalable">
 
-		<ul class="sc-menu_playlists">
-			<li *ngFor="let playlist of getPlaylists()" class="sc-menu_playlist">
-				<a routerLink="{{playlist.id}}" class="sc-menu_playlistLink" (click)="closeMenu()">
-					<div *ngIf="playlist.entries[0]" class="sc-menu_link_pic">
+		<ul class="menu_playlists">
+			<li *ngFor="let playlist of getPlaylists()" class="menu_playlist">
+				<a routerLink="{{playlist.id}}" class="menu_playlistLink" (click)="closeMenu()">
+					<div *ngIf="playlist.entries[0]" class="menu_link_pic">
 						<!-- <img src="{{playlist.entries[0].snippet.thumbnails.default.url}}" alt=""> -->
 					</div>
 					<div class="float-left microPreview--small" [style]="getStyle(playlist.entries[0].thumbnails.default.url)" *ngIf="playlist.entries[0]">
@@ -34,21 +34,21 @@
 
 
 					</div>
-					<div class="sc-menu_subgroup">
-						<div class="sc-menu_playlistLink_name">{{playlist.name}}</div>
-						<div class="sc-menu_playlistLink_nbTracks">{{nbTracks(playlist)}} tracks</div>
+					<div class="superposedLines">
+						<div class="superposedLines_top">{{playlist.name}}</div>
+						<div class="superposedLines_bottom">{{nbTracks(playlist)}} tracks</div>
 					</div>
 
 				</a>
 			</li>
-			<li *ngIf="noPlaylist()" class="sc-menu_playlist">
-				<div class="sc-menu_playlistLink_name">No playlists here.</div>
+			<li *ngIf="noPlaylist()" class="menu_playlist">
+				<div class="menu_playlistLink_name">No playlists here.</div>
 			</li>
 		</ul>
 	</div>
-	<div class="sc-menu_playlists_wrapper">
+	<div class="menu_playlists_wrapper">
 		<hr>
-		<div class="sc-menu_playlist">
+		<div class="menu_playlist">
 			<sc-add-playlist></sc-add-playlist>
 		</div>
 

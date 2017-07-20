@@ -24,14 +24,14 @@
 									<div class="btn mainStyleButton" (click)="playPlaylist()">
 										<i class="icofont icofont-ui-play"></i> PLAY
 									</div>					
-									<div class="btn editPlaylistButton" [popover]="editPlaylist" placement="top" *ngIf="allowEdit">
+									<div class="btn editPlaylistButton" [popover]="editPlaylist" placement="top" *ngIf="allowEdit" container="body">
 										<i class="icofont icofont-ui-edit"></i>
 									</div>
 								</div>
 								<ng-template class="editPlaylist" #editPlaylist>
 
-									<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="rename-form" >
-										<input type="text" placeholder="{{playlist?.name}}" required ngModel name=name class="style-2">
+									<form #rename="ngForm" (ngSubmit)="renamePlaylist(rename)" class="renameForm" >
+										<input type="text" placeholder="{{playlist?.name}}" required ngModel name=name class="renamePlaylist">
 										<div>
 											<button class=" btn mainStyleButton" type="submit"><i class="icofont icofont-edit"></i> Rename</button>
 

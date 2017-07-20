@@ -1,0 +1,72 @@
+@import '../assets/css/variables';
+@import '../assets/css/mixins';
+
+.addPlaylist {
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    &_input {
+        width: 100%;
+        padding: 5px 35px 5px 12px;
+        border: 1px white solid;
+        border-radius: 2px;
+        font-size: 15px;
+        font-family: Overpass;
+        font-weight: 100;
+        font-style: italic;
+        color: black;
+        cursor: pointer;
+        &:focus {
+            cursor: initial;
+        }
+    }
+    &_button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform .4s ease;
+        padding: 4px 10px;
+        border: 1px white solid;
+        border-radius: 0px 3px 3px 0;
+        background: $brightGreen;
+        color: white;
+        cursor: default;
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            outline: 0
+        }
+    }
+    &_over {
+        .icofont {
+            color: $brightGreen;
+            margin-right: 5px;
+        }
+        color: $playlistsLinkTextColor;
+        font-size: 14px;
+        position: absolute;
+        background: #3B3B3B;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 2;
+        text-align: center;
+        padding: 8px 0px;
+        transition: transform .4s ease;
+    }
+    .ng-valid button {
+        cursor: pointer;
+    }
+}
+.addPlaylist--isEdit {
+    .addPlaylist_over {
+        transform: translateX(-100%);
+    }
+    .addPlaylist_button {
+        transform: translateX(0%);
+    }
+}

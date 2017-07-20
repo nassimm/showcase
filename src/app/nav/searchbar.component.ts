@@ -7,11 +7,12 @@ import { Observable } from 'rxjs/Rx';
 @Component({
   selector: 'sc-searchbar',
   template: `
-  <div class="sc-searchbar">
-  <i class="icofont icofont-search sc-searchbar_icon"></i>
-  <input type="text" [formControl]="name" class="sc-searchbar_input" placeholder="Search Youtube for tracks" (click)="searchIfNotEmpty()">
+  <div class="searchbar">
+  <i class="icofont icofont-search searchbar_icon"></i>
+  <input type="text" [formControl]="name" class="searchbar_input" placeholder="Search Youtube for tracks" (click)="searchIfNotEmpty()">
   </div>
-  `
+  `,
+  styleUrls: ["searchbar.component.scss"]
 })
 export class SearchbarComponent implements OnInit {
   name = new FormControl();

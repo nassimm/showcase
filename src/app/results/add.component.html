@@ -1,27 +1,27 @@
-<div class="contextual_screen" *ngIf="isVisible"  (clickOutside)="hideMenu()" exclude="{{'.exclude'+entry.id}}" [excludeBeforeClick]=true>
-	<div class="contextual">
-		<div class="contextual_title">
-			<div class="container-fluid">
-				Select a Playlist
-			</div>
-		</div>
+<div class="contextual" *ngIf="isVisible" (clickOutside)="hideMenu()" exclude="{{'.exclude'+entry.id}}" [excludeBeforeClick]=true>
 
-		<div class="addTrack_popOver">
-			<div class="addTrack_playlist" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">
-				<div class="addTrack_playlist_inner">
-				<div class="iconPlaylist"></div> 
-					<div class="sc-menu_subgroup">					
-						<div class="sc-menu_playlistLink_name">{{playlist.name}}</div>
-						<div class="sc-menu_playlistLink_nbTracks">{{nbTracks(playlist)}} tracks</div>
-					</div>
+	<div class="contextual_title">
+		<div class="container-fluid">
+			Select a Playlist
+		</div>
+	</div>
+
+	<div class="contextual_content">
+		<div class="addToPlaylistLink" *ngFor="let playlist of getPlaylists()" (click)="addTrack(playlist)">
+			<div class="addToPlaylistLink_clickable">
+				<div class="iconPlaylist"></div>
+				<div class="superposedLines">
+					<div class="superposedLines_top superposedLines_top--dark">{{playlist.name}}</div>
+					<div class="superposedLines_bottom">{{nbTracks(playlist)}} tracks</div>
 				</div>
 			</div>
-			<div class="addTrack_playlist"><sc-add-playlist [entry]="entry" (closeParent)="hideMenu()"></sc-add-playlist></div>
 		</div>
-
+		<div class="addToPlaylistLink">
+			<sc-add-playlist [entry]="entry" (closeParent)="hideMenu()"></sc-add-playlist>
+		</div>
 	</div>
 </div>
 
-<a class="entry_actions_add" ngClass="{{'exclude'+entry.id}}"  (click)="toggleVisible()">
+<a class="entry_actions_add" ngClass="{{'exclude'+entry.id}}" (click)="toggleVisible()">
 	<i class="icofont icofont-plus" ></i>
 </a>

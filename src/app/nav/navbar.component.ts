@@ -4,7 +4,8 @@ import { MenuService } from '../menu.service';
 
 @Component({
   selector: 'sc-navbar',
-  templateUrl: './navbar.component.html'
+  templateUrl: './navbar.component.html',
+  styleUrls: ["navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
 

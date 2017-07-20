@@ -5,7 +5,7 @@ import { YoutubeService } from '../youtube.service';
   selector: 'sc-prev',
   template: `
   <a (click)= "handle()">  
-  <div class="control_small">
+  <div class="control--small">
   <i class="icofont" [class.icofont-ui-previous]="!next" [class.icofont-ui-next]="next">
   </i>
   </div>

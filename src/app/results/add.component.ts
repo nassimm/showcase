@@ -5,7 +5,8 @@ import { Entry, Playlist } from '../entry';
 
 @Component({
 	selector: 'sc-add',
-	templateUrl: './add.component.html'
+	templateUrl: './add.component.html',
+	styleUrls: ["./add.component.scss"]
 })
 export class AddComponent implements OnInit {
 

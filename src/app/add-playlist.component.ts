@@ -7,7 +7,7 @@ import { Entry } from './entry';
 @Component({
   selector: 'sc-add-playlist',
   template: `
-  <div class="addPlaylist" [class.edit]="isEdit()">
+  <div class="addPlaylist" [class.addPlaylist--isEdit]="isEdit()">
 
   <div class="addPlaylist_over">
   <i class="icofont icofont-ui-add"></i> Add <span *ngIf="isEntry()">track to a </span>a new Playlist
@@ -21,7 +21,7 @@ import { Entry } from './entry';
  
 </div>
   `,
-  styles: []
+  styleUrls: ["add-playlist.component.scss"]
 })
 export class AddPlaylistComponent implements OnInit {
   @Input() entry: Entry;

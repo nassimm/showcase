@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges  } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
@@ -12,7 +12,8 @@ import * as moment from 'moment';
 
 @Component({
 	selector: 'sc-playlist',
-	templateUrl: './playlist.component.html'
+	templateUrl: './playlist.component.html',
+	styleUrls: ['./playlist.component.scss']
 })
 export class PlaylistComponent implements OnInit {
 
@@ -25,17 +26,17 @@ export class PlaylistComponent implements OnInit {
 		private pService: PlaylistsService,
 		private ytService: YoutubeService,
 		private rService: Router,
-		private bgService: BgService) { 
+		private bgService: BgService) {
 	}
 	handleUrl(data, param) {
-		
+
 		if (data[0].path === "selections") {
-			this.playlist =this.pService.getSelections().main[Number(param)-1];
+			this.playlist = this.pService.getSelections().main[Number(param) - 1];
 			this.allowEdit = false
 		}
-		else {this.playlist =this.pService.getPlaylist(Number(param))}
+		else { this.playlist = this.pService.getPlaylist(Number(param)) }
 
-		if(this.playlist!=undefined) {
+		if (this.playlist != undefined) {
 			this.pService.selectPlaylist(this.playlist)
 		}
 		else {
@@ -43,9 +44,9 @@ export class PlaylistComponent implements OnInit {
 		}
 	}
 	ngOnInit() {
-		this.route.params.subscribe(params =>{
-			if (params['id']!=undefined){
-				this.route.url.subscribe(data=>this.handleUrl(data, params['id']))
+		this.route.params.subscribe(params => {
+			if (params['id'] != undefined) {
+				this.route.url.subscribe(data => this.handleUrl(data, params['id']))
 
 			}
 		});
@@ -55,8 +56,8 @@ export class PlaylistComponent implements OnInit {
 	}
 	totalLength() {
 		return this.playlist.entries
-		.map(entry=>moment.duration(entry.duration))
-		.reduce((acc, curr) =>	acc.add(curr), moment.duration(0, 'seconds'))
+			.map(entry => moment.duration(entry.duration))
+			.reduce((acc, curr) => acc.add(curr), moment.duration(0, 'seconds'))
 	}
 	toggleEdit() {
 		this.edit = !this.edit;
@@ -64,26 +65,26 @@ export class PlaylistComponent implements OnInit {
 	getStyle(imgUrl: String) {
 		return this.bgService.getStyle(imgUrl);
 	}
-	getPlaylists(): Playlist[]{
+	getPlaylists(): Playlist[] {
 		return this.pService.getPlaylists();
 	}
 	getPlaylist(id: number) {
 		return this.pService.getPlaylist(id);
 	}
-	playPlaylist() {this.ytService.playPlaylist(this.playlist.entries);}
+	playPlaylist() { this.ytService.playPlaylist(this.playlist.entries); }
 	isYtInit() {
 		return this.ytService.isYtInit();
 	}
 
 	isPlaying(entry: Entry) {
-		return this.ytService.currPlaying()==entry;
+		return this.ytService.currPlaying() == entry;
 	}
 
 	isEdit(): Boolean {
 		return this.allowEdit;
 	}
 	renamePlaylist(rename: FormGroup) {
-		
+
 		if (rename.value.name) {
 			this.playlist.name = rename.value.name;
 			localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));

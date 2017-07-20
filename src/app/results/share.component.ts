@@ -20,7 +20,7 @@ import { Entry } from '../entry';
   [image]="image"
   ></share-buttons>
   `,
-  styles: []
+  styleUrls: ["./share.component.scss"]
 })
 export class ShareComponent implements OnInit {
   @Input() entry?: Entry;

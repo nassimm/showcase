@@ -1,0 +1,51 @@
+@import '../../assets/css/mixins';
+
+.renameForm {
+    display: flex;
+    align-items: center;
+}
+
+.playlistInfo {
+    @include sm {
+        margin-top: 10px;
+    }
+    @include lg {
+        text-align: center;
+    }
+    &_name {
+        font-size: 15px;
+        @include sm {
+            font-size: 17px;
+        }
+        @include lg {
+            font-size: 23px;
+        }
+    }
+    &_details {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    &_buttons {
+        margin-bottom: 20px;
+
+        .popover-content {
+            padding: 9px 14px;
+        }
+    }
+}
+
+.renamePlaylist {
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: solid 1px #7d7d7d;
+    transition: border 0.3s;
+    font-size: 15px;
+    margin-right: 7px;
+    color: #7d7d7d;
+    background: rgba(200, 200, 200, 0.1);
+}
+
+.renamePlaylist:focus,
+.renamePlaylist.focus {
+    border-color: #C8C8C8;
+}

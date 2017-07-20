@@ -5,7 +5,7 @@ import { BgService } from '../bg.service';
 @Component({
 	selector: 'sc-currently-playing',
 	templateUrl: './currently-playing.component.html',
-	styles: []
+	styleUrls: ["currently-playing.component.scss"]
 })
 
 export class CurrentlyPlayingComponent implements OnInit {

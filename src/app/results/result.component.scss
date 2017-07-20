@@ -8,14 +8,11 @@
     &:hover {
         background-color: rgba(131, 255, 100, 0.06);
     }
-    .sc-search_result_title:hover {
-        text-decoration: underline !important;
-    }
     @include md {
         padding: 7px 0;
     }
     &_texts {
-        margin-top: 3px;
+        padding-top: 4px;
     }
     &_title {
         &_ellipsisWrapper {
@@ -26,6 +23,9 @@
         color: $entryTextColor;
         @include sm {
             font-size: 1.1rem;
+        }
+        &:hover {
+            text-decoration: underline !important;
         }
     }
     &_detail {
@@ -44,6 +44,9 @@
         min-width: 86px;
         &_favorite {
             color: #eaeaea;
+            &.isFavorite {
+                color: #f54242;
+            }
         }
         a {
             text-decoration: none !important;
@@ -58,8 +61,8 @@
             min-width: 121px;
         }
     }
-    & .isActive {
-        background: rgba(237, 237, 237, 0.5);
+    &.isActive {
+        background: rgba(237, 237, 237, 0.3);
         .sc-search_result_title,
         .sc-search_result_detail {
             color: #504d57;
@@ -67,4 +70,3 @@
         }
     }
 }
-

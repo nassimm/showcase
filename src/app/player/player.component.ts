@@ -9,7 +9,8 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
 	selector: 'sc-player',
-	templateUrl: './player.component.html'
+	templateUrl: './player.component.html',
+	styleUrls: ["player.component.scss"]
 })
 export class PlayerComponent implements OnInit {
 	volumeBar = new FormControl();

@@ -1,0 +1,169 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/mixins';
+
+youtube-player {
+    display: none;
+}
+
+.sc-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #414141;
+    z-index: 4;
+    height: 108px;
+    @include box-shadow(0, 3px, 26px, rgba(0, 0, 0, 0.1));
+    &_controls {
+        margin: 10px auto 0;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+    @include lg {
+        left: 210px;
+        height: 230px;
+    }
+}
+
+.texts {
+    line-height: 1em;
+}
+
+
+
+.controls_additional {
+    display: flex;
+    color: #717171;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    margin-top: 9px;
+    @include lg {
+        font-size: 22px;
+        margin-top: 21px;
+    }
+    &_button {
+        cursor: pointer;
+        &.isActive {
+            color: white;
+        }
+    }
+}
+
+
+
+.controls_main_wrapper {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: space-between;
+    max-width: 270px;
+    margin: auto;
+}
+
+.transportControl {
+    max-width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    z-index: 20;
+    position: relative;
+}
+
+.transport {
+    height: 4px;
+    border-radius: 3px;
+    position: absolute;
+    top: 13px;
+}
+
+.transportBar {
+    @extend .transport;
+    background-color: $brightGreen;
+}
+
+.transportBar_group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -10px 15px -6px;
+    @include lg {
+        max-width: 70%;
+        margin: 0 auto 10px;
+    }
+}
+
+.transportBar_time {
+    color: $playlistsLinkTextColor;
+    font-size: 13px;
+    margin: 2px 11px 0;
+    min-width: 63px;
+}
+
+.transportBar_wrapper {
+    position: relative;
+    height: 31px;
+    width: 100%;
+}
+
+.transportBar_bg {
+    @extend .transport;
+    background-color: #575757;
+    width: 100%;
+}
+
+.volume {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 20px;
+    @include lg {
+        margin-top: 11px;
+        margin-left: 0;
+        position: static;
+    }
+    .icofont {
+        color: white;
+    }
+}
+
+.showVolume {
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 21;
+    @include lg {
+        font-size: 23px;
+        cursor: initial;
+    }
+}
+
+.volumeBar {
+    position: absolute;
+    left: -90px;
+    transform: rotateZ(-90deg);
+    width: 200px;
+    bottom: 74px;
+    background-color: #333;
+    z-index: 20;
+    padding: 0px 11px 0px 36px;
+    visibility: hidden;
+    &.isOpened {
+        visibility: visible;
+    }
+    @include lg {
+        position: static;
+        left: initial;
+        transform: none;
+        width: 100%;
+        bottom: initial;
+        background: none;
+        padding: 0 0 0 20px;
+        visibility: visible;
+    }
+}

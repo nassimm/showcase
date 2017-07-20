@@ -1,0 +1,34 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/mixins';
+
+.searchbar {
+    background: #f2f2f2;
+    vertical-align: middle;
+    line-height: 4.5rem;
+    padding-left: 29px;
+    &_icon {
+        color: $medGreen;
+        font-size: 1.9rem;
+        margin-right: 20px;
+    }
+    &_input {
+        width: 67%;
+        margin: 8px auto 0;
+        font-size: 21px;
+        padding: 5px 0;
+        background: transparent;
+        border: none;
+        line-height: 2.5rem;
+        font-weight: 100;
+        font-style: italic;
+        font-family: 'Overpass', sans-serif !important;
+    }
+    @include lg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 72px;
+        left: 210px;
+        z-index: 20;
+    }
+}

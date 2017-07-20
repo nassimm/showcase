@@ -1,0 +1,35 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/mixins';
+
+.currentlyPlaying {
+    text-align: left;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    @include lg {
+        margin-bottom: 24px;
+    }
+    &_nowPlayingLabel {
+        font-size: 13px;
+    }
+    &_nowPlaying {
+        @extend .ellipsis;
+        font-weight: 800;
+        font-size: 11px;
+        max-width: 220px;
+        @include sm {
+            max-width: 360px;
+        }
+        @include lg {
+            font-size: 15px;
+            max-width: 430px;
+        }
+    }
+    .entry_playButton {
+        @include lg {
+            margin: 0px 12px 0px 0px;
+        }
+    }
+}
