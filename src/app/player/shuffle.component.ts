@@ -6,7 +6,7 @@ import { YoutubeService } from '../youtube.service';
   selector: 'sc-shuffle',
   template: `
 
-  <i class="icofont icofont-random controls_additional_button " [class.isActive]="isShuffle()" (click)=toggleShuffle()></i>
+  <i class="icofont icofont-random loopAndShuffleGroup_button " [class.isActive]="isShuffle()" (click)=toggleShuffle()></i>
   `,
   styles: []
 })

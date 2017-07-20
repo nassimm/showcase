@@ -4,7 +4,7 @@ import { YoutubeService } from '../youtube.service'
 @Component({
   selector: 'sc-repeat',
   template: `
-  <i class="icofont icofont-refresh controls_additional_button" [class.isActive]="isRepeat()" (click)=toggleRepeat()></i>
+  <i class="icofont icofont-refresh loopAndShuffleGroup_button" [class.isActive]="isRepeat()" (click)=toggleRepeat()></i>
   `,
   styles: []
 })

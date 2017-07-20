@@ -23,7 +23,7 @@ Your playlists haven't been played yet.
   </div>
   <div *ngIf="path==='recent'">
   <p>
-  Your collection is empty.
+ No track has been added recently.
   </p>
   </div>
   <div *ngIf="path==='playlist' || path==='mostplayed' || path==='recent'">
@@ -33,7 +33,7 @@ Your playlists haven't been played yet.
   </div>
   <div *ngIf="path==='favs'">
   <p>
-  Start by searching for music or <a routerLink="/">browse our selections</a> then click on the Add to favorites icon: <i class="icofont icofont-heart"></i>
+  Start by searching for music and click on the Add to favorites icon: <i class="icofont icofont-heart"></i>
   </p>
   </div>
 

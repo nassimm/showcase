@@ -1,21 +1,21 @@
-<div class="sc-player">
-	<div class="sc-player_controls">
-		<div class="transportBar_group">
-			<div class="transportBar_time hidden-md-down">{{currentPos | durationShortForm}}</div>
-			<div class="transportBar_wrapper">
+<div class="player">
+	<div class="player_controls">
+		<div class="transportBarGroup">
+			<div class="transportBarGroup_time hidden-md-down">{{currentPos | durationShortForm}}</div>
+			<div class="transportBar">
 				<div class="transportBar_bg"></div>
-				<div class="transportBar" [style.width.%]="trackPosition"></div>
+				<div class="transportBar_main" [style.width.%]="trackPosition"></div>
 				<input type="range"  class="transportControl" [formControl]="transportBar">
 			</div>
 
-			<div class="transportBar_time hidden-md-down">{{trackLength | durationShortForm}}</div>
+			<div class="transportBarGroup_time hidden-md-down">{{trackLength | durationShortForm}}</div>
 		</div>
 		<sc-currently-playing [entry]="getPlaying()"></sc-currently-playing>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
-					<div class="controls_additional">
+					<div class="loopAndShuffleGroup">
 						<sc-shuffle></sc-shuffle>
 						<sc-repeat></sc-repeat>
 					</div>
@@ -34,9 +34,9 @@
 
 								<i class="icofont icofont-volume-bar showVolume doNotDismiss" (click)="toggleSlider()"></i>
 								<div class="volumeBar" [class.isOpened]="isVolSliderOpen()" (clickOutside)="onClickedOutside($event)" [exclude]="'.doNotDismiss'" [excludeBeforeClick]=true>
-									<div class="transportBar_wrapper">
+									<div class="transportBar">
 										<div class="transportBar_bg"></div>
-										<div class="transportBar" [style.width.%]="trackVolume"></div>
+										<div class="transportBar_main" [style.width.%]="trackVolume"></div>
 										<input type="range"  class="transportControl" [formControl]="volumeBar">
 									</div>
 								</div>

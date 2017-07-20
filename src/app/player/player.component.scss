@@ -1,11 +1,10 @@
 @import '../../assets/css/variables';
 @import '../../assets/css/mixins';
-
 youtube-player {
     display: none;
 }
 
-.sc-player {
+.player {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -28,29 +27,6 @@ youtube-player {
 .texts {
     line-height: 1em;
 }
-
-
-
-.controls_additional {
-    display: flex;
-    color: #717171;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 17px;
-    margin-top: 9px;
-    @include lg {
-        font-size: 22px;
-        margin-top: 21px;
-    }
-    &_button {
-        cursor: pointer;
-        &.isActive {
-            color: white;
-        }
-    }
-}
-
-
 
 .controls_main_wrapper {
     display: -webkit-flex;
@@ -75,18 +51,14 @@ youtube-player {
 }
 
 .transport {
+    //To be extended
     height: 4px;
     border-radius: 3px;
     position: absolute;
     top: 13px;
 }
 
-.transportBar {
-    @extend .transport;
-    background-color: $brightGreen;
-}
-
-.transportBar_group {
+.transportBarGroup {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,25 +67,27 @@ youtube-player {
         max-width: 70%;
         margin: 0 auto 10px;
     }
+    &_time {
+        color: $playlistsLinkTextColor;
+        font-size: 13px;
+        margin: 2px 11px 0;
+        min-width: 63px;
+    }
 }
 
-.transportBar_time {
-    color: $playlistsLinkTextColor;
-    font-size: 13px;
-    margin: 2px 11px 0;
-    min-width: 63px;
-}
-
-.transportBar_wrapper {
+.transportBar {
     position: relative;
     height: 31px;
     width: 100%;
-}
-
-.transportBar_bg {
-    @extend .transport;
-    background-color: #575757;
-    width: 100%;
+    &_main {
+        @extend .transport;
+        background-color: $brightGreen;
+    }
+    &_bg {
+        @extend .transport;
+        background-color: #575757;
+        width: 100%;
+    }
 }
 
 .volume {

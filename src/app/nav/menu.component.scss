@@ -33,13 +33,6 @@
         bottom: 0;
         left: 0
     }
-    &_link {
-        @extend .menu_elem;
-        cursor: pointer;
-        &:hover {
-            background: #414141;
-        }
-    }
     &_elem {
         i {
             color: $iconMenu;
@@ -53,6 +46,18 @@
         &.isActive {
             background: #2c2c2c;
         }
+
+    }
+    &_link {
+        @extend .menu_elem;
+        cursor: pointer;
+        &:hover {
+            background: #414141;
+        }
+    }
+    &_playlistTitleHeader {
+        @extend .menu_elem;
+        padding-top: 8px;
     }
     ul {
         list-style: none;
@@ -61,14 +66,7 @@
     }
     &_playlists {
         padding-top: 8px;
-        &_wrapper {
-            background-color: $playlistsBackground;
-            padding: 0 10px;
-            margin: 0 -10px;
-            &.isRescalable {
-                overflow-y: auto;
-            }
-        }
+
     }
     &_playlist {
         padding-bottom: 8px;

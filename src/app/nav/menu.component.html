@@ -11,12 +11,12 @@
 		</li>
 	</ul>
 	<hr>
-	<div class="menu_playlists_wrapper">
-		<div class="menu_elem">
+	<div class="l-miniContainer">
+		<div class="menu_playlistTitleHeader">
 			<div class="iconPlaylist"></div> Playlists
 		</div>
 	</div>
-	<div class="menu_playlists_wrapper isRescalable">
+	<div class="l-miniContainer isRescalable">
 
 		<ul class="menu_playlists">
 			<li *ngFor="let playlist of getPlaylists()" class="menu_playlist">
@@ -46,7 +46,7 @@
 			</li>
 		</ul>
 	</div>
-	<div class="menu_playlists_wrapper">
+	<div class="l-miniContainer">
 		<hr>
 		<div class="menu_playlist">
 			<sc-add-playlist></sc-add-playlist>
