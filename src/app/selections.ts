@@ -1082,7 +1082,7 @@ export const SELECTIONS = {
     {
       "id":"T1nd-XPXNbQ",
       "title":"Antonín Dvořák - Symphony No. 1 C minor",
-      "duration":"PT51M46S",
+      "duration": "PT51M46S",
       "definition":"sd",
       "publishedAt":"2013-02-24T12:44:05.000Z",
       "tags":[
@@ -2215,41 +2215,55 @@ export const SELECTIONS = {
       "addedAt":1497819553266
     },
     {
-      "id":"YI67GAQYsRc",
-      "title":"Pink Floyd \"Dark Side of The Moon\" LP",
-      "duration":"PT42M34S",
-      "definition":"hd",
-      "publishedAt":"2017-05-26T12:40:53.000Z",
-      "thumbnails":{
-        "default":{
-          "url":"https://i.ytimg.com/vi/YI67GAQYsRc/default.jpg",
-          "width":120,
-          "height":90
-        },
-        "medium":{
-          "url":"https://i.ytimg.com/vi/YI67GAQYsRc/mqdefault.jpg",
-          "width":320,
-          "height":180
-        },
-        "high":{
-          "url":"https://i.ytimg.com/vi/YI67GAQYsRc/hqdefault.jpg",
-          "width":480,
-          "height":360
-        },
-        "standard":{
-          "url":"https://i.ytimg.com/vi/YI67GAQYsRc/sddefault.jpg",
-          "width":640,
-          "height":480
-        },
-        "maxres":{
-          "url":"https://i.ytimg.com/vi/YI67GAQYsRc/maxresdefault.jpg",
-          "width":1280,
-          "height":720
-        }
+   "id":"5GOi2FnI1y4",
+   "title":"Pink Floyd  - Dark Side Of The Moon (Full Album) 1973 HD",
+   "duration":"PT43M1S",
+   "definition":"hd",
+   "publishedAt":"2017-07-09T18:58:24.000Z",
+   "tags":[
+      "Pink Floyd",
+      "Dark Side Of The Moon",
+      "Full Album",
+      "pink floyd full",
+      "pink floyd full album",
+      "Pink Floyd Dark Side Of The Moon",
+      "Dark Side Of The Moon Full album",
+      "Speak to Me",
+      "Breathe",
+      "On the Run",
+      "The Great Gig in the Sky",
+      "Time",
+      "Money",
+      "Us and Them",
+      "Any Colour You Like",
+      "Brain Damage",
+      "Eclipse",
+      "art rock"
+   ],
+   "thumbnails":{
+      "default":{
+         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/default.jpg",
+         "width":120,
+         "height":90
       },
-      "played":1,
-      "addedAt":1497819587273
-    },
+      "medium":{
+         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/mqdefault.jpg",
+         "width":320,
+         "height":180
+      },
+      "high":{
+         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/hqdefault.jpg",
+         "width":480,
+         "height":360
+      },
+      "standard":{
+         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/sddefault.jpg",
+         "width":640,
+         "height":480
+      }
+   },
+   "played":1
+},
     {
       "id":"TTHF2Dfw1Dg",
       "title":"Brian Eno - Thursday Afternoon",
@@ -2466,4 +2480,4 @@ export const SELECTIONS = {
     }
     ]
   }
-}
+};

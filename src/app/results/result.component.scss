@@ -1,0 +1,70 @@
+@import '../../assets/css/mixins';
+@import '../../assets/css/variables';
+.entry {
+    padding: 0px 0;
+    border: 0 silver solid;
+    border-bottom-width: 1px;
+    transition: background-color, .2s;
+    &:hover {
+        background-color: rgba(131, 255, 100, 0.06);
+    }
+    .sc-search_result_title:hover {
+        text-decoration: underline !important;
+    }
+    @include md {
+        padding: 7px 0;
+    }
+    &_texts {
+        margin-top: 3px;
+    }
+    &_title {
+        &_ellipsisWrapper {
+            @extend .ellipsis;
+        }
+        font-size: 14px;
+        margin-bottom: 0.2rem;
+        color: $entryTextColor;
+        @include sm {
+            font-size: 1.1rem;
+        }
+    }
+    &_detail {
+        font-size: 0.7rem;
+        @extend .ellipsis;
+    }
+    &_actions {
+        list-style: none;
+        padding-left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: space-between;
+        font-size: 17px;
+        margin: 9px 0 0;
+        min-width: 86px;
+        &_favorite {
+            color: #eaeaea;
+        }
+        a {
+            text-decoration: none !important;
+        }
+        &_add {
+            background: none;
+            border: none;
+            color: inherit
+        }
+        @include md {
+            font-size: 21px;
+            min-width: 121px;
+        }
+    }
+    & .isActive {
+        background: rgba(237, 237, 237, 0.5);
+        .sc-search_result_title,
+        .sc-search_result_detail {
+            color: #504d57;
+            font-weight: 600;
+        }
+    }
+}
+

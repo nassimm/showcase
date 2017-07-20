@@ -4,11 +4,12 @@ import { Entry, Playlist } from '../entry';
 import { YoutubeService } from '../youtube.service';
 import { PlaylistsService } from '../playlists.service';
 import { BgService } from '../bg.service';
-import * as moment from 'moment';
+import * as moment from "moment";
 
 @Component({
-	selector: 'sc-result',
-	templateUrl: './result.component.html'
+	selector: "sc-result",
+	templateUrl: "./result.component.html",
+	styleUrls: ["./result.component.scss"]
 })
 export class ResultComponent implements OnInit {
 	@Input() playlist: Entry[];
@@ -27,7 +28,7 @@ export class ResultComponent implements OnInit {
 		this.isVisible = !this.isVisible;
 	}
 	isPlaying(entry: Entry) {
-		return this.ytService.currPlaying()==entry;
+		return this.ytService.currPlaying()===entry;
 	}
 	playTrack(entry: Entry, collection: Entry[]) {
 		this.ytService.setPlaying(entry, collection);

@@ -8,7 +8,8 @@ import { MenuService } from '../menu.service';
 
 @Component({
   selector: 'sc-menu',
-  templateUrl: './menu.component.html'
+  templateUrl: './menu.component.html',
+  styleUrls: ["./menu.component.scss"]
 })
 export class MenuComponent implements OnInit {
   menu = [

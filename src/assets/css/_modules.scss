@@ -1,0 +1,73 @@
+@import 'variables';
+@import 'mixins';
+
+.album {
+    padding-bottom: 100%;
+    background-color: gol#F4F4F4d;
+    position: relative;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    @extend .coverCenter;
+    &_mainLayer {
+        @extend .absoluteZero;
+        padding: $homePadding;
+        line-height: 23px;
+    }
+    &_playButtonLayer {
+        @extend .absoluteZero;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.microPreview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 3px;
+    margin-right: 13px;
+    @extend .coverCenter;
+    .playButton_wrapper {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+}
+.microPreview--small {
+    @extend .microPreview;
+    width: 34px;
+    height: 34px;
+    .playButton_wrapper {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+        
+    }
+    &.isEmpty {
+        background-image: url('/assets/img/track_placeholder.jpg');
+        @extend .coverCenter;
+    }
+}
+.microPreview--big {
+    @extend .microPreview;
+    width: 35px;
+    height: 35px;
+    @include sm {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+$currentlyPlayingMobileSize: 19px;
+$currentlyPlayingLg: 48px;
+.currentlyPlayingThumbnail {
+    @extend .microPreview;
+    width: $currentlyPlayingMobileSize;
+    height: $currentlyPlayingMobileSize;
+    @include lg {
+        width: $currentlyPlayingLg;
+        height: $currentlyPlayingLg;
+    }
+}

@@ -1,6 +1,7 @@
-<div class="entry_inner clearfix"  [class.isActive]="isPlaying(entry)">
+<div class="entry"  [class.isActive]="isPlaying(entry)">
+<div class="clearfix" >
 
-	<div class="float-left entry_playButton" [style]="getStyle(entry.thumbnails.default.url)">
+	<div class="float-left microPreview--big" [style]="getStyle(entry.thumbnails.default.url)">
 		<sc-play [entry]="entry" [collection]="playlist"></sc-play>
 	</div>
 
@@ -34,4 +35,4 @@
 		{{entry.duration | duration}} &bull; {{entry.definition | uppercase}} &bull; Uploaded {{entry.publishedAt | ago}}
 	</div>
 </div>
-</div>
+</div></div>

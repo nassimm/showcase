@@ -1,0 +1,21 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/mixins';
+.selectionLink {
+    height: 160px;
+    margin-bottom: 30px;
+    padding: $homePadding;
+    cursor: pointer;
+    border-radius: 3px;
+    @extend .coverCenter;
+    &:hover {
+        text-decoration: none!important;
+    }
+}
+
+.homeText {
+    color: $selectionsText;
+    @include box-shadow(0, 3px, 26px, rgba(0, 0, 0, 0.1));
+    background: black;
+    padding: 3px 5px;
+}
+

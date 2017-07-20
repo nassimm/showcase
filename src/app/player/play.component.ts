@@ -1,12 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
-import { YoutubeService } from '../youtube.service';
-import { Entry, Playlist } from '../entry';
+import { YoutubeService } from "../youtube.service";
+import { Entry, Playlist } from "../entry";
 
 @Component({
-  selector: 'sc-play',
+  selector: "sc-play",
   template: `
-  <a class="playButton"
+  <a 
   (click)="playTrack(entry)"
   [class.isDisabled]="isYtInit()==false"  *ngIf="!isPlaying() || entry !== getPlaying();else btnpause">
   <div class="playButton_wrapper">
@@ -16,20 +16,21 @@ import { Entry, Playlist } from '../entry';
 
   
   <ng-template #btnpause>
-  <a (click)="pauseTrack()" class="playButton">
+  <a (click)="pauseTrack()" >
   <div class="playButton_wrapper">
   <i class="icofont icofont-ui-pause"></i>
   </div>
   </a>
   </ng-template>
   `,
-  styles: []
+	styleUrls: ["./play.component.scss"]
 })
 export class PlayComponent implements OnInit {
   @Input() collection: Entry[];
-  
   @Input() entry: Entry;
+
   constructor(private ytService: YoutubeService) { }
+
   playTrack(entry: Entry) {
     if (entry) {
       this.ytService.setPlaying(entry, this.collection, true);

@@ -3,7 +3,7 @@
 		<div class="header">SELECTIONS</div>
 		<div class="row">
 			<div class="col-md-6 col-lg-4" *ngFor="let selection of selections.main" routerLink="selections/{{selection.id}}">
-				<div class="sc-home_selectionLink" [style]="getStyle(selection.imgUrl)">
+				<div class="selectionLink" [style]="getStyle(selection.imgUrl)">
 					<span class="homeText">
 						{{selection.name}}
 					</span>
@@ -14,13 +14,13 @@
 		<div class="header">ALBUMS</div>
 		<div class="row clearfix">
 			<div class="col-6 col-sm-4 col-lg-3 col-xl-2" *ngFor="let album of selections.albums.entries">
-				<div class="album_wrapper" [style]="getStyle(album.thumbnails.high.url)">
-					<div class="album">
+				<div class="album" [style]="getStyle(album.thumbnails.high.url)">
+					<div class="album_mainLayer">
 						<span class="homeText">
 							{{album.title}}
 						</span>
 					</div>
-					<div class="album_play control_big">
+					<div class="album_playButtonLayer control_big">
 						<sc-play [collection]="selections.albums.entries" [entry]="album"></sc-play>
 					</div>
 				</div>

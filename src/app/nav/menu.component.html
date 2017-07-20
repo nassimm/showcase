@@ -24,13 +24,13 @@
 					<div *ngIf="playlist.entries[0]" class="sc-menu_link_pic">
 						<!-- <img src="{{playlist.entries[0].snippet.thumbnails.default.url}}" alt=""> -->
 					</div>
-					<div class="float-left sc-menu_playButton" [style]="getStyle(playlist.entries[0].thumbnails.default.url)" *ngIf="playlist.entries[0]">
+					<div class="float-left microPreview--small" [style]="getStyle(playlist.entries[0].thumbnails.default.url)" *ngIf="playlist.entries[0]">
 
 						<sc-play [entry]="playlist.entries[0]" [collection]="playlist.entries"></sc-play>
 
 					</div>
 
-					<div class="float-left sc-menu_playButton isEmpty" *ngIf="!playlist.entries[0]">
+					<div class="float-left microPreview--small isEmpty" *ngIf="!playlist.entries[0]">
 
 
 					</div>

@@ -8,8 +8,8 @@
 
 					<div class="row">
 						<div class="col-4 col-sm-3 col-lg-10 offset-lg-1">					
-							<div class="album_wrapper" [style]="getStyle(playlist.imgUrl || playlist.entries[0]?.thumbnails.high.url) ">
-								<div class="album">
+							<div class="album" [style]="getStyle(playlist.imgUrl || playlist.entries[0]?.thumbnails.high.url) ">
+								<div class="album_mainLayer">
 
 								</div>
 							</div>
@@ -52,9 +52,9 @@
 
 				<div class="sc-search">
 					<div class="container-fluid">
-						<div class="entry" *ngFor="let entry of playlist?.entries; let i = index" >
-							<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=allowEdit></sc-result>
-						</div>
+	
+							<sc-result [entry]="entry" [playlist]="playlist.entries" [edit]=allowEdit *ngFor="let entry of playlist?.entries"></sc-result>
+	
 						<sc-no-playlist *ngIf="!playlist.entries[0]" [path]="'playlist'"></sc-no-playlist>
 					</div>
 				</div>
