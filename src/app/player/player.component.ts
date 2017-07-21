@@ -48,7 +48,7 @@ export class PlayerComponent implements OnInit {
 		this.trackLength = this.ytService.getDuration();
 	}
 	onStateChange(event){
-		console.log('player state', event.data);
+		// console.log('player state', event.data);
 		if (event.data === 1 || event.data === 3) {
 			this.ytService.setState(true);
 		}

@@ -97,7 +97,7 @@ export class YoutubeService {
 			this.selectedPlaylist = (this.selectedPlaylist !== collection &&allowShuffle && this.shuffle)
 				? this.shufflePlaylist(collection, entry)
 				: collection;
-			console.log(JSON.stringify(entry));
+			// console.log(JSON.stringify(entry));
 		}
 		else { this.player.playVideo(); }
 		this.selected = entry;
