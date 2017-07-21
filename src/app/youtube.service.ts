@@ -15,7 +15,7 @@ export class YoutubeService {
 	repeat = false;
 	shuffle = false;
 	shuffleSave: Entry[];				//Original playlist to restore once the user turns shuffle off
-	nextPageToken: String;
+	nextPageToken: string;
 
 	constructor(private pService: PlaylistsService,
 		private http: Http) {
@@ -43,8 +43,8 @@ export class YoutubeService {
 	}
 	shufflePlaylist(array: Entry[], entry: Entry) {
 		this.shuffleSave = array;
-		var copy = array.filter(line => line.id !== entry.id);
-		var shuffledTab = [], n = copy.length, i;
+		let copy = array.filter(line => line.id !== entry.id);
+		let shuffledTab = [], n = copy.length, i;
 		shuffledTab.push(entry);
 		while (n) {
 			i = Math.floor(Math.random() * n--);
@@ -59,15 +59,15 @@ export class YoutubeService {
 			this.setPlaying(collection[0], collection, true);
 		}
 	}
-	isRepeat(): Boolean { return this.repeat; }
+	isRepeat(): boolean { return this.repeat; }
 	toggleRepeat() {
-		this.repeat = this.repeat ? false : true;
+		this.repeat = !this.repeat;
 	}
 	initYt(player: YT.Player) {
 		this.player = player;
 		this.isInit = true;
 	}
-	isYtInit() { return this.isInit; }
+	isYtInit(): boolean { return this.isInit; }
 	deselect() {
 		this.selected = null;
 		this.selectedPlaylist = null;
@@ -85,7 +85,7 @@ export class YoutubeService {
 			.map(items => items.map(entry => new Entry(entry.id, entry.snippet.title, entry.contentDetails.duration, entry.contentDetails.definition, entry.snippet.publishedAt, entry.snippet.tags, entry.snippet.thumbnails)));
 
 	}
-	getNextPage() {
+	getNextPage(): string {
 		return this.nextPageToken;
 	}
 	setPlaying(entry: Entry, collection: Entry[], allowShuffle = false) {
@@ -142,17 +142,17 @@ export class YoutubeService {
 	getPosition(): number {
 		return Number((this.player.getCurrentTime() / this.player.getDuration() * 100).toFixed(1));
 	}
-	getCurrentTime() {
+	getCurrentTime(): number {
 		return this.player.getCurrentTime();
 	}
 
-	getDuration() {
+	getDuration(): number {
 		return this.player.getDuration();
 	}
 	getPlaying(): Entry {
 		return this.selected;
 	}
-	isPlaying() {
+	isPlaying(): boolean {
 		return this.playing;
 	}
 	setState(playing) {

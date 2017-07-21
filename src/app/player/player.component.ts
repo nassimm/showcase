@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DomSanitizer  } from '@angular/platform-browser';
 
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Rx';
 	templateUrl: './player.component.html',
 	styleUrls: ["player.component.scss"]
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent {
 	volumeBar = new FormControl();
 	transportBar = new FormControl();
 	trackPosition = 0;			//Position in %
@@ -60,10 +60,10 @@ export class PlayerComponent implements OnInit {
 
 		}
 	}
-	getPosition() {
+	getPosition(): number {
 		return this.ytService.getPosition();
 	}
-	isYtInit(){
+	isYtInit(): boolean{
 		return this.ytService.isYtInit();
 	}
 	getPlaying(): Entry {
@@ -72,16 +72,11 @@ export class PlayerComponent implements OnInit {
 	toggleSlider(){
 		this.volMobileOpened = this.volMobileOpened?false:true;
 	}
-	isVolSliderOpen() {
+	isVolSliderOpen(): boolean {
 		return this.volMobileOpened;
 	}
 	onClickedOutside(e: Event) {
 		this.volMobileOpened = false;
 	}
-	ngOnInit() {
-
-	}
-
-
 
 }

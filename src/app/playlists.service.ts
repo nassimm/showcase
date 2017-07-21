@@ -14,9 +14,9 @@ export class PlaylistsService {
 
 	constructor(private uidServce: UidService) {}
 
-	getSelections() {return SELECTIONS}
+	getSelections(): any {return SELECTIONS;}
 	newPlaylist(name: string): Playlist {
-		var newPlaylist = new Playlist(this.getNewUid(), name);
+		let newPlaylist = new Playlist(this.getNewUid(), name);
 		this.playlists.push(newPlaylist);
 		this.savePlaylists()
 		return newPlaylist;
@@ -89,12 +89,12 @@ export class PlaylistsService {
 		}
 		localStorage.setItem("playlists", JSON.stringify(this.getPlaylists()));
 	}
-	getRecent() {
-		var now = Date.now();
+	getRecent(): Entry[] {
+		let now = Date.now();
 		return this.getPlaylists()
 		.map(x=>x.entries)
 		.reduce((acc, curr) => acc.concat(curr), [])
-		.filter(entry=> now - entry.addedAt < 604800000) //Number of milliseconds in a week
+		.filter(entry=> now - entry.addedAt < 604800000) //Number of milliseconds in a week (Shame)
 		.sort((x, y) => y.addedAt - x.addedAt)
 		.slice(0, 20);
 	}
