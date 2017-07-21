@@ -2,7 +2,7 @@
 @import 'mixins';
 .album {
     padding-bottom: 100%;
-    background-color: gol#F4F4F4d;
+    background-color: #F4F4F4;
     position: relative;
     margin-bottom: 10px;
     border-radius: 3px;
@@ -73,6 +73,7 @@ $currentlyPlayingLg: 48px;
     }
 }
 
+//Play, Prev & Next buttons
 $control_small: 31px;
 $controlsColor: #FFFFFF;
 $controlsColorHover: #EFEFEF;
@@ -124,12 +125,15 @@ $control_big_lg: 65px;
     }
 }
 
+
+
 .fatButton {
     background: #232323;
     color: #DEDEDE;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+//Block header title
 .header {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 300;
@@ -211,7 +215,7 @@ $control_big_lg: 65px;
     z-index: 200;
 }
 
-//button to select which to playlist add the track in contextual menu
+//button to select the playlist to which the track is to be added
 $addTrackBorder: #e9e9e9;
 .addToPlaylistLink {
     display: block;

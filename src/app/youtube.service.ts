@@ -21,7 +21,7 @@ export class YoutubeService {
 		private http: Http) {
 
 	}
-	getNonShuffled() { return this.shuffleSave }
+	getNonShuffled() { return this.shuffleSave; }
 	isShuffle() {
 		return this.shuffle;
 	}
@@ -29,7 +29,7 @@ export class YoutubeService {
 		if (this.shuffle === false) {
 			if (!this.selectedPlaylist) {
 				this.shuffle = true;
-				return
+				return;
 			}
 			this.selectedPlaylist = this.shufflePlaylist(this.selectedPlaylist, this.selected);
 			this.shuffle = true;
@@ -45,7 +45,7 @@ export class YoutubeService {
 		this.shuffleSave = array;
 		var copy = array.filter(line => line.id !== entry.id);
 		var shuffledTab = [], n = copy.length, i;
-		shuffledTab.push(entry)
+		shuffledTab.push(entry);
 		while (n) {
 			i = Math.floor(Math.random() * n--);
 			shuffledTab.push(copy.splice(i, 1)[0]);
@@ -56,7 +56,7 @@ export class YoutubeService {
 	}
 	playPlaylist(collection: Entry[]) {
 		if (this.selectedPlaylist !== collection && this.shuffleSave !== collection && collection[0]) {
-			this.setPlaying(collection[0], collection, true)
+			this.setPlaying(collection[0], collection, true);
 		}
 	}
 	isRepeat(): Boolean { return this.repeat; }
