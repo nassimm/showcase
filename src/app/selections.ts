@@ -2215,8 +2215,8 @@ export const SELECTIONS = {
       "addedAt":1497819553266
     },
     {
-   "id":"5GOi2FnI1y4",
-   "title":"Pink Floyd  - Dark Side Of The Moon (Full Album) 1973 HD",
+   "id":"5DLreOgMIOQ",
+   "title":"Pink Floyd  - Dark Side Of The Moon (Full Album)",
    "duration":"PT43M1S",
    "definition":"hd",
    "publishedAt":"2017-07-09T18:58:24.000Z",
@@ -2242,22 +2242,22 @@ export const SELECTIONS = {
    ],
    "thumbnails":{
       "default":{
-         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/default.jpg",
+         "url":"https://i.ytimg.com/vi/5DLreOgMIOQ/default.jpg",
          "width":120,
          "height":90
       },
       "medium":{
-         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/mqdefault.jpg",
+         "url":"https://i.ytimg.com/vi/5DLreOgMIOQ/mqdefault.jpg",
          "width":320,
          "height":180
       },
       "high":{
-         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/hqdefault.jpg",
+         "url":"https://i.ytimg.com/vi/5DLreOgMIOQ/hqdefault.jpg",
          "width":480,
          "height":360
       },
       "standard":{
-         "url":"https://i.ytimg.com/vi/5GOi2FnI1y4/sddefault.jpg",
+         "url":"https://i.ytimg.com/vi/5DLreOgMIOQ/sddefault.jpg",
          "width":640,
          "height":480
       }

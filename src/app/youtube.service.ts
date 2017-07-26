@@ -72,7 +72,7 @@ export class YoutubeService {
 		this.selected = null;
 		this.selectedPlaylist = null;
 	}
-	searchYt(term: string, next = false): Observable<Entry[]> {
+	searchYt(term: string, next = false): Observable<Entry[]> { //Real API Key will need to not be indexed by git
 		return this.http.get("https://www.googleapis.com/youtube/v3/search?&key=AIzaSyBNIXoVJN8_NbaA7hyBPPZgw5vIbZVsUVg&part=snippet&maxResults=10&type=video&q='" + term + "'" + ((next === true) ? ("&pageToken=" + this.nextPageToken) : ""))
 			.map(raw => raw.json())//Getting search result items
 			.do(response => this.nextPageToken = response.nextPageToken)
