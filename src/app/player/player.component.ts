@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { FormControl } from '@angular/forms';
-import { DomSanitizer  } from '@angular/platform-browser';
 
 import { Entry } from '../entry';
-
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
 import { YoutubePlayerService } from '../youtube-player.service';
-import { Observable } from 'rxjs/Rx';
 
 @Component({
 	selector: 'sc-player',
@@ -21,38 +21,34 @@ export class PlayerComponent {
 	trackVolume = 0;
 	volMobileOpened = false;	//Volume slider state when in mobile
 
-	constructor(private ytService: YoutubePlayerService
-		) { }
-
-	savePlayer (player) {
-		this.ytService.initYt(player);
-		const volumeInit = this.ytService.getVolume();
-		this.volumeBar.setValue(volumeInit);
-		this.trackVolume = volumeInit;
-		this.volumeBar.valueChanges.subscribe(data =>
-			this.ytService.setVolume(Number(data))
-			);
-		this.volumeBar.valueChanges.subscribe(data =>
-			this.trackVolume = data
-			);
-		this.transportBar.valueChanges.subscribe(data =>
-			this.ytService.transport(Number(data))
-			);
-		Observable.interval(200)
-		.subscribe(() => this.handleUiChange())
-
+	constructor(private ytService: YoutubePlayerService) { }
+	
+	getPlaying(): Entry {
+		return this.ytService.getPlaying();
+	}
+	getPosition(): number {
+		return this.ytService.getPosition();
 	}
 	handleUiChange() {
 		this.trackPosition = this.getPosition();
 		this.currentPos = this.ytService.getCurrentTime();
 		this.trackLength = this.ytService.getDuration();
 	}
-	onStateChange(event){
+	isVolSliderOpen(): boolean {
+		return this.volMobileOpened;
+	}
+	isYtInit(): boolean {
+		return this.ytService.isYtInit();
+	}
+	onClickedOutside(e: Event) {
+		this.volMobileOpened = false;
+	}
+	onStateChange(event) {
 		// console.log('player state', event.data);
 		if (event.data === 1 || event.data === 3) {
 			this.ytService.setState(true);
 		}
-		else{
+		else {
 			this.ytService.setState(false);
 		}
 		if (event.data === 0 && !this.ytService.nextTrack()) {
@@ -60,23 +56,24 @@ export class PlayerComponent {
 
 		}
 	}
-	getPosition(): number {
-		return this.ytService.getPosition();
+	savePlayer(player) {
+		this.ytService.initYt(player);
+		const volumeInit = this.ytService.getVolume();
+		this.volumeBar.setValue(volumeInit);
+		this.trackVolume = volumeInit;
+		this.volumeBar.valueChanges.subscribe(data =>
+			this.ytService.setVolume(Number(data))
+		);
+		this.volumeBar.valueChanges.subscribe(data =>
+			this.trackVolume = data
+		);
+		this.transportBar.valueChanges.subscribe(data =>
+			this.ytService.transport(Number(data))
+		);
+		Observable.interval(200)
+			.subscribe(() => this.handleUiChange())
 	}
-	isYtInit(): boolean{
-		return this.ytService.isYtInit();
+	toggleSlider() {
+		this.volMobileOpened = this.volMobileOpened ? false : true;
 	}
-	getPlaying(): Entry {
-		return this.ytService.getPlaying();
-	}
-	toggleSlider(){
-		this.volMobileOpened = this.volMobileOpened?false:true;
-	}
-	isVolSliderOpen(): boolean {
-		return this.volMobileOpened;
-	}
-	onClickedOutside(e: Event) {
-		this.volMobileOpened = false;
-	}
-
 }

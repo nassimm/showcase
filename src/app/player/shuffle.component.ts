@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { YoutubePlayerService } from '../youtube-player.service';
 
@@ -10,16 +10,13 @@ import { YoutubePlayerService } from '../youtube-player.service';
   `,
   styles: []
 })
-export class ShuffleComponent implements OnInit {
-
+export class ShuffleComponent {
   constructor(private ytService: YoutubePlayerService) { }
+
   toggleShuffle() {
     this.ytService.toggleShuffle();
   }
   isShuffle(): Boolean {
     return this.ytService.isShuffle();
   }
-  ngOnInit() {
-  }
-
 }

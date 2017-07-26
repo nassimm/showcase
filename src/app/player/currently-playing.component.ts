@@ -10,7 +10,9 @@ import { BgService } from '../bg.service';
 
 export class CurrentlyPlayingComponent implements OnInit {
 	@Input() entry;
+
 	constructor(private bgService: BgService) { }
+	
 	getStyle(imgUrl) {
 		return this.bgService.getStyle(imgUrl);
 	}

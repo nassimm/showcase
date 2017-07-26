@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'sc-no-playlist',
@@ -40,11 +40,8 @@ Your playlists haven't been played yet.
   `,
   styles: []
 })
-export class NoPlaylistComponent implements OnInit {
+export class NoPlaylistComponent {
   @Input() path: string;
+
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

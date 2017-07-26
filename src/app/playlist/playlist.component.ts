@@ -1,13 +1,12 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/Rx';
 
+import { BgService } from '../bg.service';
 import { Playlist, Entry } from '../entry';
 import { PlaylistsDataService } from '../playlists-data.service';
 import { YoutubePlayerService } from '../youtube-player.service';
-import { BgService } from '../bg.service';
 import * as moment from 'moment';
 
 @Component({
@@ -16,11 +15,10 @@ import * as moment from 'moment';
 	styleUrls: ['./playlist.component.scss']
 })
 export class PlaylistComponent implements OnInit {
-
-	@Input() playlist;
+	playlist: Playlist;
 	allowEdit = true;
 	edit = false;
-	duration;
+	duration: moment.Duration;
 
 	constructor(private route: ActivatedRoute,
 		private pService: PlaylistsDataService,
@@ -29,7 +27,6 @@ export class PlaylistComponent implements OnInit {
 		private bgService: BgService) {
 	}
 	handleUrl(data, param) {
-
 		if (data[0].path === "selections") {
 			this.playlist = this.pService.getSelections().main[Number(param) - 1];
 			this.allowEdit = false
@@ -46,8 +43,7 @@ export class PlaylistComponent implements OnInit {
 	ngOnInit() {
 		this.route.params.subscribe(params => {
 			if (params['id'] != undefined) {
-				this.route.url.subscribe(data => this.handleUrl(data, params['id']))
-
+				this.route.url.subscribe(data => this.handleUrl(data, params['id']));
 			}
 		});
 	}
@@ -79,7 +75,6 @@ export class PlaylistComponent implements OnInit {
 	isPlaying(entry: Entry) {
 		return this.ytService.currPlaying() == entry;
 	}
-
 	isEdit(): Boolean {
 		return this.allowEdit;
 	}

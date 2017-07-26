@@ -37,16 +37,14 @@ export class ResultsComponent implements OnInit {
 		return this.ytService.isYtInit();
 	}
 	isPlaying(entry: Entry) {
-		return this.ytService.currPlaying()===entry;
+		return this.ytService.currPlaying() === entry;
 	}
 	handleUrl(data) {
-		this.results = (data[0].path === "mostplayed")
-		?this.pService.getMostPlayed()
-		:(data[0].path === "favs")
-		?this.pService.getFavs()
-		:(data[0].path === "recent")
-		?this.pService.getRecent()
-		:[]
+		this.results =
+			(data[0].path === "mostplayed") ? this.pService.getMostPlayed()
+			: (data[0].path === "favs") ? this.pService.getFavs()
+			: (data[0].path === "recent") ? this.pService.getRecent()
+			: [];
 		this.path = data[0].path;
 	}
 	loadNextPage() {
@@ -59,20 +57,20 @@ export class ResultsComponent implements OnInit {
 	}
 	ngOnInit() {
 		// this.searchyt();
-		this.route.params.subscribe(params =>{
+		this.route.params.subscribe(params => {
 			this.searchTerm = params['term'];
-			if (this.searchTerm!=undefined){
+			if (this.searchTerm != undefined) {
 				this.ytApiService.searchYt(params['term'])
-				.subscribe(res => {
-					this.results = res;
+					.subscribe(res => {
+						this.results = res;
 
-				},
-				err => console.log(err),
-				() => console.log());
+					},
+					err => console.log(err),
+					() => console.log());
 			}
 		});
-		this.route.url.subscribe(data=>this.handleUrl(data))
-		this.route.data.subscribe(data=>this.title = data[0].title)
+		this.route.url.subscribe(data => this.handleUrl(data))
+		this.route.data.subscribe(data => this.title = data[0].title)
 
 
 	}

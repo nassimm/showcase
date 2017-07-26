@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PlaylistsDataService } from '../playlists-data.service';
 import { BgService } from '../bg.service';
 import { Entry, Playlist } from '../entry';
@@ -11,6 +12,7 @@ import { Entry, Playlist } from '../entry';
 })
 export class HomeComponent implements OnInit {
 	selections: any;
+	
 	constructor(private bgService: BgService,
 				private pService: PlaylistsDataService) { }
 
