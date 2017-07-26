@@ -4,7 +4,7 @@ import { DomSanitizer  } from '@angular/platform-browser';
 
 import { Entry } from '../entry';
 
-import { YoutubeService } from '../youtube.service';
+import { YoutubePlayerService } from '../youtube-player.service';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
@@ -21,12 +21,12 @@ export class PlayerComponent {
 	trackVolume = 0;
 	volMobileOpened = false;	//Volume slider state when in mobile
 
-	constructor(private ytService: YoutubeService
+	constructor(private ytService: YoutubePlayerService
 		) { }
 
 	savePlayer (player) {
 		this.ytService.initYt(player);
-		let volumeInit = this.ytService.getVolume();
+		const volumeInit = this.ytService.getVolume();
 		this.volumeBar.setValue(volumeInit);
 		this.trackVolume = volumeInit;
 		this.volumeBar.valueChanges.subscribe(data =>

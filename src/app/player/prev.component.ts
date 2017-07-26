@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { YoutubeService } from '../youtube.service';
+import { YoutubePlayerService } from '../youtube-player.service';
 
 @Component({
   selector: 'sc-prev',
@@ -15,7 +15,7 @@ import { YoutubeService } from '../youtube.service';
 })
 export class PrevComponent implements OnInit {
   @Input() next = false;
-  constructor(private ytService: YoutubeService) { }
+  constructor(private ytService: YoutubePlayerService) { }
   handle() {
     this.next?this.ytService.nextTrack():this.ytService.prevTrack()
   }

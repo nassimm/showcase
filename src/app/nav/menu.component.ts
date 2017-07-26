@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { PlaylistsService } from '../playlists.service';
+import { PlaylistsDataService } from '../playlists-data.service';
 import { Entry, Playlist } from '../entry';
 import { BgService } from '../bg.service';
 import { MenuService } from '../menu.service';
@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
   {name: "Google Plus", icon: "icofont-social-google-plus"},
   {name: "Instagram", icon: "icofont-social-instagram"}
   ]
-  constructor(private playlistsService: PlaylistsService,
+  constructor(private PlaylistsDataService: PlaylistsDataService,
               private router:Router,
               private bgService: BgService,
               private mService: MenuService) { }
@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
   }
 
   getPlaylists(): Playlist[] {
-    return this.playlistsService.getPlaylists();
+    return this.PlaylistsDataService.getPlaylists();
   }
   navigate(link){
     link.action.call(this);

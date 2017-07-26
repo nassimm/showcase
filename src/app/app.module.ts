@@ -6,10 +6,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import 'moment-duration-format';
 import { AppComponent } from './app.component';
-import { YoutubeService } from './youtube.service';
+import { YoutubePlayerService } from './youtube-player.service';
+import { YoutubeApiService } from './youtube-api.service';
 import { UidService } from './uid.service';
 import { BgService } from './bg.service';
-import { PlaylistsService } from './playlists.service';
+import { PlaylistsDataService } from './playlists-data.service';
 import { NavbarComponent } from './nav/navbar.component';
 import { MenuComponent } from './nav/menu.component';
 import { ResultsComponent } from './results/results.component';
@@ -27,7 +28,6 @@ import { ResultComponent } from './results/result.component';
 import { DurationPipe } from './duration.pipe';
 import { AgoPipe } from './ago.pipe';
 import { PopoverModule } from 'ngx-bootstrap';
-import { CollapseModule } from 'ngx-bootstrap';
 import { AddPlaylistComponent } from './add-playlist.component';
 import { MostplayedComponent } from './results/mostplayed.component';
 import { RepeatComponent } from './player/repeat.component';
@@ -39,7 +39,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { ShuffleComponent } from './player/shuffle.component';
 import { PerfectScrollbarModule } from 'angular2-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
-import {ShareButtonsModule} from 'ngx-sharebuttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons';
 import { ShareTrackComponent } from './results/share-track.component';
 import { ShareComponent } from './results/share.component';
 
@@ -79,10 +79,9 @@ import { ShareComponent } from './results/share.component';
     PopoverModule.forRoot(),
     ClickOutsideModule,
     PerfectScrollbarModule.forRoot(),
-    CollapseModule.forRoot(),
     ShareButtonsModule.forRoot()
   ],
-  providers: [YoutubeService, UidService, PlaylistsService, BgService, MenuService],
+  providers: [YoutubePlayerService, YoutubeApiService, UidService, PlaylistsDataService, BgService, MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

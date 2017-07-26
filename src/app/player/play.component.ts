@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 
-import { YoutubeService } from "../youtube.service";
+import { YoutubePlayerService } from "../youtube-player.service";
 import { Entry, Playlist } from "../entry";
 
 @Component({
@@ -29,7 +29,7 @@ export class PlayComponent implements OnInit {
   @Input() collection: Entry[];
   @Input() entry: Entry;
 
-  constructor(private ytService: YoutubeService) { }
+  constructor(private ytService: YoutubePlayerService) { }
 
   playTrack(entry: Entry) {
     if (entry) {

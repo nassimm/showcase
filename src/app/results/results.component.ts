@@ -5,10 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Entry } from '../entry';
 import { PlayComponent } from '../player/play.component';
-import { YoutubeService } from '../youtube.service';
-import { PlaylistsService } from '../playlists.service';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/Rx';
+import { YoutubeApiService } from '../youtube-api.service';
+import { YoutubePlayerService } from '../youtube-player.service';
+import { PlaylistsDataService } from '../playlists-data.service';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
 	selector: 'sc-results',
@@ -24,8 +25,9 @@ export class ResultsComponent implements OnInit {
 	path: string;
 
 	constructor(private route: ActivatedRoute,
-		private ytService: YoutubeService,
-		private pService: PlaylistsService) {
+		private ytService: YoutubePlayerService,
+		private ytApiService: YoutubeApiService,
+		private pService: PlaylistsDataService) {
 	}
 
 	playTrack(entry: Entry, collection: Entry[]) {
@@ -35,7 +37,7 @@ export class ResultsComponent implements OnInit {
 		return this.ytService.isYtInit();
 	}
 	isPlaying(entry: Entry) {
-		return this.ytService.currPlaying()==entry;
+		return this.ytService.currPlaying()===entry;
 	}
 	handleUrl(data) {
 		this.results = (data[0].path === "mostplayed")
@@ -48,8 +50,8 @@ export class ResultsComponent implements OnInit {
 		this.path = data[0].path;
 	}
 	loadNextPage() {
-		this.ytService.searchYt(this.searchTerm, true).subscribe(res => {
-			Array.prototype.push.apply(this.results, res);
+		this.ytApiService.searchYt(this.searchTerm, true).subscribe(res => {
+			this.results = [...this.results, ...res];
 		})
 	}
 	isPlaylist() {
@@ -60,9 +62,9 @@ export class ResultsComponent implements OnInit {
 		this.route.params.subscribe(params =>{
 			this.searchTerm = params['term'];
 			if (this.searchTerm!=undefined){
-				this.ytService.searchYt(params['term'])
+				this.ytApiService.searchYt(params['term'])
 				.subscribe(res => {
-					this.results = res
+					this.results = res;
 
 				},
 				err => console.log(err),

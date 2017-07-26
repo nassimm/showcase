@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Entry, Playlist } from '../entry';
-import { YoutubeService } from '../youtube.service';
-import { PlaylistsService } from '../playlists.service';
+import { YoutubePlayerService } from '../youtube-player.service';
+import { PlaylistsDataService } from '../playlists-data.service';
 import { BgService } from '../bg.service';
 import * as moment from "moment";
 
@@ -17,8 +17,8 @@ export class ResultComponent implements OnInit {
 	@Input() edit = false;
 	isVisible = false;
 
-	constructor(private ytService: YoutubeService,
-		private pService: PlaylistsService,
+	constructor(private ytService: YoutubePlayerService,
+		private pService: PlaylistsDataService,
 		private bgService: BgService
 		) { }
 	hideMenu() {

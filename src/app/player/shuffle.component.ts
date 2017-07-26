@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { YoutubeService } from '../youtube.service';
+import { YoutubePlayerService } from '../youtube-player.service';
 
 @Component({
   selector: 'sc-shuffle',
@@ -12,7 +12,7 @@ import { YoutubeService } from '../youtube.service';
 })
 export class ShuffleComponent implements OnInit {
 
-  constructor(private ytService: YoutubeService) { }
+  constructor(private ytService: YoutubePlayerService) { }
   toggleShuffle() {
     this.ytService.toggleShuffle();
   }

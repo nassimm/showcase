@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PlaylistsService } from '../playlists.service';
+import { PlaylistsDataService } from '../playlists-data.service';
 
 @Component({
   selector: 'sc-mostplayed',
@@ -13,7 +13,7 @@ import { PlaylistsService } from '../playlists.service';
 })
 export class MostplayedComponent implements OnInit {
 
-  constructor(private pService: PlaylistsService) { }
+  constructor(private pService: PlaylistsDataService) { }
 
   ngOnInit() {
 

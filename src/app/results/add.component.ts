@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { PlaylistsService } from '../playlists.service';
+import { PlaylistsDataService } from '../playlists-data.service';
 import { Entry, Playlist } from '../entry';
 
 @Component({
@@ -13,7 +13,7 @@ export class AddComponent implements OnInit {
 	@Input() entry: Entry;
 	isVisible = false;
 	selectedPlaylist: Playlist;
-	constructor(private pService: PlaylistsService) {
+	constructor(private pService: PlaylistsDataService) {
 	}
 
 	ngOnInit() {

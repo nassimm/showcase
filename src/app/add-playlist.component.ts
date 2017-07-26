@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { FormsModule, FormGroup } from '@angular/forms';
 
-import { PlaylistsService } from './playlists.service';
+import { PlaylistsDataService } from './playlists-data.service';
 import { Entry } from './entry';
 
 @Component({
@@ -28,7 +28,8 @@ export class AddPlaylistComponent implements OnInit {
   @Output() closeParent = new EventEmitter();
   edit = false;
 
-  constructor(private pService: PlaylistsService) { }
+  constructor(private pService: PlaylistsDataService) { }
+  
   showInput() { this.edit = true; }
   hideInput() {  this.edit = false; }
   isEdit() {
@@ -41,7 +42,7 @@ export class AddPlaylistComponent implements OnInit {
     this.closeParent.emit(false);
   }
   newPlaylist(form: FormGroup) {
-    let newPlaylist = this.pService.newPlaylist(form.value.playlistName);
+    const newPlaylist = this.pService.newPlaylist(form.value.playlistName);
     if (this.entry) {
       this.pService.addTrack(newPlaylist, this.entry);
     }

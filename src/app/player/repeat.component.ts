@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { YoutubeService } from '../youtube.service'
+import { YoutubePlayerService } from '../youtube-player.service'
 
 @Component({
   selector: 'sc-repeat',
@@ -10,7 +10,7 @@ import { YoutubeService } from '../youtube.service'
 })
 export class RepeatComponent implements OnInit {
 
-  constructor(private ytService: YoutubeService) { }
+  constructor(private ytService: YoutubePlayerService) { }
   isRepeat() {
     return this.ytService.isRepeat();
   }

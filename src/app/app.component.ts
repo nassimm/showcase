@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { PlaylistsService} from './playlists.service';
+import { PlaylistsDataService} from './playlists-data.service';
 import { UidService} from './uid.service';
 import { Playlist } from './entry';
 
@@ -10,23 +10,23 @@ import { Playlist } from './entry';
 })
 export class AppComponent implements OnInit, OnDestroy {
 	playlists: Playlist[];
-	constructor(private playlistsService: PlaylistsService,
+	constructor(private PlaylistsDataService: PlaylistsDataService,
 		private uidService: UidService) {
 
 	}
 	newPlaylist(name: string){
-		this.playlistsService.newPlaylist(name);
+		this.PlaylistsDataService.newPlaylist(name);
 	}
 
 	ngOnInit() {
-		this.playlistsService.loadPlaylists();
-		this.playlists = this.playlistsService.getPlaylists();
+		this.PlaylistsDataService.loadPlaylists();
+		this.playlists = this.PlaylistsDataService.getPlaylists();
 
 
 	}
 	ngOnDestroy() {
 
-		localStorage.setItem("playlists", JSON.stringify(this.playlistsService.getPlaylists()));
+		localStorage.setItem("playlists", JSON.stringify(this.PlaylistsDataService.getPlaylists()));
 	}
 
 }

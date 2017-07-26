@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 
 import { Playlist, Entry } from '../entry';
-import { PlaylistsService } from '../playlists.service';
-import { YoutubeService } from '../youtube.service';
+import { PlaylistsDataService } from '../playlists-data.service';
+import { YoutubePlayerService } from '../youtube-player.service';
 import { BgService } from '../bg.service';
 import * as moment from 'moment';
 
@@ -23,8 +23,8 @@ export class PlaylistComponent implements OnInit {
 	duration;
 
 	constructor(private route: ActivatedRoute,
-		private pService: PlaylistsService,
-		private ytService: YoutubeService,
+		private pService: PlaylistsDataService,
+		private ytService: YoutubePlayerService,
 		private rService: Router,
 		private bgService: BgService) {
 	}
