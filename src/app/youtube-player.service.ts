@@ -138,12 +138,4 @@ export class YoutubePlayerService {
 	transport(location: number) {
 		this.player.seekTo(this.player.getDuration() * location / 100, true);
 	}
-
-
-
-
-
-
-
-
 }

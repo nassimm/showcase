@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 import { YoutubePlayerService } from "../youtube-player.service";
 import { Entry, Playlist } from "../entry";
@@ -23,31 +23,29 @@ import { Entry, Playlist } from "../entry";
   </a>
   </ng-template>
   `,
-	styleUrls: ["./play.component.scss"]
+  styleUrls: ["./play.component.scss"]
 })
-export class PlayComponent implements OnInit {
+export class PlayComponent {
   @Input() collection: Entry[];
   @Input() entry: Entry;
 
   constructor(private ytService: YoutubePlayerService) { }
-
+  getPlaying() {
+    return this.ytService.getPlaying();
+  }
+  isPlaying() {
+    return this.ytService.isPlaying();
+  }
+  isYtInit() {
+    return this.ytService.isYtInit();
+  }
+  pauseTrack() {
+    this.ytService.pauseTrack();
+  }
   playTrack(entry: Entry) {
     if (entry) {
       this.ytService.setPlaying(entry, this.collection, true);
     }
   }
-  pauseTrack() {
-    this.ytService.pauseTrack();
-  }
-  isYtInit() {
-    return this.ytService.isYtInit();
-  }
-  getPlaying() {
-    return this.ytService.getPlaying();
-  }
-  ngOnInit() {
-  }
-  isPlaying() {
-    return this.ytService.isPlaying();
-  }
+
 }

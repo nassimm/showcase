@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { YoutubePlayerService } from '../youtube-player.service'
 
 @Component({
@@ -8,16 +8,13 @@ import { YoutubePlayerService } from '../youtube-player.service'
   `,
   styles: []
 })
-export class RepeatComponent implements OnInit {
-
+export class RepeatComponent {
   constructor(private ytService: YoutubePlayerService) { }
+
   isRepeat() {
     return this.ytService.isRepeat();
   }
   toggleRepeat() {
     this.ytService.toggleRepeat();
   }
-  ngOnInit() {
-  }
-
 }

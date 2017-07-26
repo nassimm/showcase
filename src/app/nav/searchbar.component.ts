@@ -25,12 +25,9 @@ export class SearchbarComponent implements OnInit {
   ngOnInit() {
     this.observeInput = this.name.valueChanges.debounceTime(250);
     this.observeInput.subscribe(data => this.router.navigateByUrl("search/"+data));
-
-
   }
   searchIfNotEmpty() {
     if (this.name.value) {this.router.navigateByUrl("search/"+this.name.value)}
-
   }
 
 }

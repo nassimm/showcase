@@ -13,62 +13,63 @@ import { MenuService } from '../menu.service';
 })
 export class MenuComponent implements OnInit {
   menu = [
-  {name: "Home", action: "/", icon: "icofont-ui-home"},
-  {name: "Favorite tracks", action: "/favs", icon: "icofont-heart"},
-  {name: "Most played", action: "/mostplayed", icon: "icofont-star"},
-  {name: "Recently added", action: "/recent", icon: "icofont-ui-calendar"}
+    { name: "Home", action: "/", icon: "icofont-ui-home" },
+    { name: "Favorite tracks", action: "/favs", icon: "icofont-heart" },
+    { name: "Most played", action: "/mostplayed", icon: "icofont-star" },
+    { name: "Recently added", action: "/recent", icon: "icofont-ui-calendar" }
   ]
   shareUrl = "https://nassimm.github.io/showcase/"
   social = [
-  {name: "Facebook", icon: "icofont-social-facebook"},
-  {name: "Twitter",  icon: "icofont-social-twitter"},
-  {name: "Google Plus", icon: "icofont-social-google-plus"},
-  {name: "Instagram", icon: "icofont-social-instagram"}
+    { name: "Facebook", icon: "icofont-social-facebook" },
+    { name: "Twitter", icon: "icofont-social-twitter" },
+    { name: "Google Plus", icon: "icofont-social-google-plus" },
+    { name: "Instagram", icon: "icofont-social-instagram" }
   ]
-  constructor(private PlaylistsDataService: PlaylistsDataService,
-              private router:Router,
-              private bgService: BgService,
-              private mService: MenuService) { }
   playlists: Playlist[];
+
+  constructor(private PlaylistsDataService: PlaylistsDataService,
+    private router: Router,
+    private bgService: BgService,
+    private mService: MenuService) { }
+
   ngOnInit() {
-  	this.playlists = this.getPlaylists();
+    this.playlists = this.getPlaylists();
   }
 
-  getPlaylists(): Playlist[] {
-    return this.PlaylistsDataService.getPlaylists();
-  }
-  navigate(link){
-    link.action.call(this);
-  }
-  goHome() {
-    this.router.navigateByUrl('/')
-  }
-  goMostPlayed() {
-    this.router.navigateByUrl('/mostplayed')
-  }
-  goRecent() {
-    this.router.navigateByUrl('/recent')
-  }
-  goFavs() {
-    this.router.navigateByUrl('/favs')
-  }
-  noPlaylist(){
-    return this.playlists.length == 0;
-  }
-  nbTracks(playlist: Playlist) {
-  	return playlist.entries.length;
-  }
-  isOpened() {
-    return this.mService.isOpened()
-  }
-  toggleMenu() {
-    this.mService.toggleMenu();
-  }
   closeMenu() {
     this.mService.closeMenu();
+  }
+  getPlaylists(): Playlist[] {
+    return this.PlaylistsDataService.getPlaylists();
   }
   getStyle(imgUrl: String) {
     return this.bgService.getStyle(imgUrl);
   }
-
+  goFavs() {
+    this.router.navigateByUrl('/favs');
+  }
+  goHome() {
+    this.router.navigateByUrl('/');
+  }
+  goMostPlayed() {
+    this.router.navigateByUrl('/mostplayed');
+  }
+  goRecent() {
+    this.router.navigateByUrl('/recent');
+  }
+  isOpened() {
+    return this.mService.isOpened()
+  }
+  navigate(link) {
+    link.action.call(this);
+  }
+  nbTracks(playlist: Playlist) {
+    return playlist.entries.length;
+  }
+  noPlaylist() {
+    return this.playlists.length == 0;
+  }
+  toggleMenu() {
+    this.mService.toggleMenu();
+  }
 }
