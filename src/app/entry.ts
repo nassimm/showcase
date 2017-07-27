@@ -44,12 +44,3 @@ export class Selection extends Playlist {
   description: string;
   imgUrl: string;
 }
-export class MostPlayedData {
-  id: string;
-  times: number;
-  constructor(id: string, times: number) {
-    this.id=id;
-    this.times = times;
-  }
-
-}

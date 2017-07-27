@@ -5,7 +5,7 @@ export class MenuService {
 	opened = false; //Menu state
 
 	toggleMenu() {
-		this.opened = this.opened?false:true;
+		this.opened = !this.opened;
 	}
 	closeMenu() {
 		this.opened = false;

@@ -31,9 +31,9 @@ export class PlaylistsDataService {
 		if (this.isFav(entry))
 		{
 			const index = this.favs.indexOf(this.favs.find(line=> line.id === entry.id))
-			if (index > -1) {this.favs.splice(index, 1);} //Remove a fav
+			if (index > -1) {this.favs.splice(index, 1);}
 		}
-		else { this.favs.push(entry);} //Add a fav
+		else { this.favs.push(entry);} 
 		this.saveFavs();
 
 	}
@@ -47,24 +47,24 @@ export class PlaylistsDataService {
 		return this.playlists;
 	}
 	getPlaylist(id: number): Playlist {
-		return this.playlists.find(playlist => playlist.id == id);
+		return this.playlists.find(playlist => playlist.id === id);
 	}
 
 	getMostPlayed() {
 		return this.getPlaylists()
 		.map(x=>x.entries)
 		.reduce((acc, curr) => acc.concat(curr), [])
-		.filter(entry=>entry.played>0)
+		.filter(entry=>entry.played > 0)
 		.sort((x, y) => y.played - x.played)
 		.slice(0, 20);
 	}
 
 	getRecent(): Entry[] {
-		const now = Date.now();
+		let now = Date.now();		
 		return this.getPlaylists()
 		.map(x=>x.entries)
 		.reduce((acc, curr) => acc.concat(curr), [])
-		.filter(entry=> now - entry.addedAt < 604800000) //Number of milliseconds in a week (Shame)
+		.filter(entry => now - entry.addedAt < 604800000) //Number of milliseconds in a week (Shame)
 		.sort((x, y) => y.addedAt - x.addedAt)
 		.slice(0, 20);
 	}
@@ -73,9 +73,10 @@ export class PlaylistsDataService {
 	}
 	addTrack(playlist: Playlist, entry: Entry) {
 		if (playlist.entries.some(line => line.id === entry.id)) {
-			console.log("track is already in playlist");
+			//TODO Toast message, track already in playlist
 		}
 		else {
+			entry.addedAt = Date.now();
 			playlist.entries.push(entry);
 			this.savePlaylists();
 		}

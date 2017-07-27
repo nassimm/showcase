@@ -21,7 +21,6 @@ import { DurationShortFormPipe } from './pipes/duration-short-form.pipe';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './nav/menu.component';
 import { MenuService } from './services/menu.service';
-import { MostplayedComponent } from './results/mostplayed.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { NoPlaylistComponent } from './playlist/no-playlist.component';
 import { PlayComponent } from './player/play.component';
@@ -54,7 +53,6 @@ import { YoutubePlayerService } from './services/youtube-player.service';
     DurationShortFormPipe,
     HomeComponent,
     MenuComponent,
-    MostplayedComponent,
     NavbarComponent,
     NoPlaylistComponent,
     PlayComponent,
