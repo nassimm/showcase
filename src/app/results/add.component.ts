@@ -22,7 +22,7 @@ export class AddComponent implements OnInit {
 		this.isVisible = false;
 	}
 	nbTracks(playlist: Playlist) {
-		return playlist.entries.length
+		return playlist.entries.length;
 	}
 	toggleVisible() {
 		this.isVisible = !this.isVisible;

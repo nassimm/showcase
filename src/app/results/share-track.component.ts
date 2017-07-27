@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Entry } from '../entry';
 
@@ -16,14 +16,6 @@ import { Entry } from '../entry';
   `,
   styles: []
 })
-export class ShareTrackComponent implements OnInit {
+export class ShareTrackComponent {
   @Input() entry: Entry;
-
-
-  constructor() { }
-
-
-  ngOnInit() {
-  }
-
 }
