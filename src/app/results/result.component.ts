@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Entry, Playlist } from '../entry';
-import { YoutubePlayerService } from '../youtube-player.service';
-import { PlaylistsDataService } from '../playlists-data.service';
-import { BgService } from '../bg.service';
+import { YoutubePlayerService } from '../services/youtube-player.service';
+import { PlaylistsDataService } from '../services/playlists-data.service';
+import { BgService } from '../services/bg.service';
 import * as moment from "moment";
 
 @Component({

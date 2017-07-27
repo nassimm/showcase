@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Entry, Playlist } from './entry';
-import {  SELECTIONS } from './selections';
+import { Entry, Playlist } from '../entry';
+import {  SELECTIONS } from '../selections';
 import { UidService } from './uid.service';
 import * as moment from 'moment'
 

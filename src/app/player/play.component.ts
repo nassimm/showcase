@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 
-import { YoutubePlayerService } from "../youtube-player.service";
+import { YoutubePlayerService } from "../services/youtube-player.service";
 import { Entry, Playlist } from "../entry";
 
 @Component({

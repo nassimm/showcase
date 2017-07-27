@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { PlaylistsDataService } from '../playlists-data.service';
+import { PlaylistsDataService } from '../services/playlists-data.service';
 import { Entry, Playlist } from '../entry';
-import { BgService } from '../bg.service';
-import { MenuService } from '../menu.service';
+import { BgService } from '../services/bg.service';
+import { MenuService } from '../services/menu.service';
 
 @Component({
   selector: 'sc-menu',

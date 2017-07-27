@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-import { Entry, Playlist } from './entry';
+import { Entry, Playlist } from '../entry';
 import { PlaylistsDataService } from './playlists-data.service';
 
 

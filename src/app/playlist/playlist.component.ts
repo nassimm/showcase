@@ -3,10 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 
-import { BgService } from '../bg.service';
+import { BgService } from '../services/bg.service';
 import { Playlist, Entry } from '../entry';
-import { PlaylistsDataService } from '../playlists-data.service';
-import { YoutubePlayerService } from '../youtube-player.service';
+import { PlaylistsDataService } from '../services/playlists-data.service';
+import { YoutubePlayerService } from '../services/youtube-player.service';
 import * as moment from 'moment';
 
 @Component({

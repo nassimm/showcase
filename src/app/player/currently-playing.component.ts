@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { BgService } from '../bg.service';
+import { BgService } from '../services/bg.service';
 
 @Component({
 	selector: 'sc-currently-playing',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PlaylistsDataService } from '../playlists-data.service';
-import { BgService } from '../bg.service';
+import { PlaylistsDataService } from '../services/playlists-data.service';
+import { BgService } from '../services/bg.service';
 import { Entry, Playlist } from '../entry';
 
 

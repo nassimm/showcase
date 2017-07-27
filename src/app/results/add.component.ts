@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { PlaylistsDataService } from '../playlists-data.service';
+import { PlaylistsDataService } from '../services/playlists-data.service';
 import { Entry, Playlist } from '../entry';
 
 @Component({

@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
 import { Entry } from '../entry';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
-import { YoutubePlayerService } from '../youtube-player.service';
+import { YoutubePlayerService } from '../services/youtube-player.service';
 
 @Component({
 	selector: 'sc-player',

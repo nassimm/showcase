@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { YoutubePlayerService } from '../youtube-player.service';
+import { YoutubePlayerService } from '../services/youtube-player.service';
 
 @Component({
   selector: 'sc-prev',

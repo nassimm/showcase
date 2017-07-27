@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { FormsModule, FormGroup } from '@angular/forms';
 
-import { PlaylistsDataService } from './playlists-data.service';
-import { Entry } from './entry';
+import { PlaylistsDataService } from '../services/playlists-data.service';
+import { Entry } from '../entry';
 
 @Component({
   selector: 'sc-add-playlist',

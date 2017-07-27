@@ -5,9 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Entry } from '../entry';
 import { PlayComponent } from '../player/play.component';
-import { YoutubeApiService } from '../youtube-api.service';
-import { YoutubePlayerService } from '../youtube-player.service';
-import { PlaylistsDataService } from '../playlists-data.service';
+import { YoutubeApiService } from '../services/youtube-api.service';
+import { YoutubePlayerService } from '../services/youtube-player.service';
+import { PlaylistsDataService } from '../services/playlists-data.service';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -69,10 +69,8 @@ export class ResultsComponent implements OnInit {
 					() => console.log());
 			}
 		});
-		this.route.url.subscribe(data => this.handleUrl(data))
-		this.route.data.subscribe(data => this.title = data[0].title)
-
-
+		this.route.url.subscribe(data => this.handleUrl(data));
+		this.route.data.subscribe(data => this.title = data[0].title);
 	}
 
 }

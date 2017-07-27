@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { PlaylistsDataService} from './playlists-data.service';
-import { UidService} from './uid.service';
+import { PlaylistsDataService} from './services/playlists-data.service';
+import { UidService} from './services/uid.service';
 import { Playlist } from './entry';
 
 @Component({
