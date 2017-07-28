@@ -109,7 +109,4 @@ export class PlaylistsDataService {
 	selectPlaylist(playlist: Playlist) {
 		this.selected = playlist;
 	}
-	ngOnInit() {
-
-	}
 }

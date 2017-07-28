@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { PlaylistsDataService } from '../services/playlists-data.service';
 import { Entry, Playlist } from '../entry';
@@ -8,15 +8,12 @@ import { Entry, Playlist } from '../entry';
 	templateUrl: './add.component.html',
 	styleUrls: ["./add.component.scss"]
 })
-export class AddComponent implements OnInit {
+export class AddComponent {
 
 	@Input() entry: Entry;
 	isVisible = false;
 	selectedPlaylist: Playlist;
 	constructor(private pService: PlaylistsDataService) {
-	}
-
-	ngOnInit() {
 	}
 	hideMenu() {
 		this.isVisible = false;

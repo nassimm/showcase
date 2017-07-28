@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Entry, Playlist } from '../entry';
 import { YoutubePlayerService } from '../services/youtube-player.service';
@@ -11,7 +11,7 @@ import * as moment from "moment";
 	templateUrl: "./result.component.html",
 	styleUrls: ["./result.component.scss"]
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent {
 	@Input() playlist: Entry[];
 	@Input() entry: Entry;
 	@Input() edit = false;
@@ -47,8 +47,6 @@ export class ResultComponent implements OnInit {
 	}
 	downloadTrack() {
 		 window.open("http://deturl.com/www.youtube.com/watch?v=" + this.entry.id, "_blank");
-	}
-	ngOnInit() {
 	}
 
 }

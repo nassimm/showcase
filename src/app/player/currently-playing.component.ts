@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { BgService } from '../services/bg.service';
 
@@ -8,7 +8,7 @@ import { BgService } from '../services/bg.service';
 	styleUrls: ["currently-playing.component.scss"]
 })
 
-export class CurrentlyPlayingComponent implements OnInit {
+export class CurrentlyPlayingComponent {
 	@Input() entry;
 
 	constructor(private bgService: BgService) { }
@@ -16,7 +16,4 @@ export class CurrentlyPlayingComponent implements OnInit {
 	getStyle(imgUrl) {
 		return this.bgService.getStyle(imgUrl);
 	}
-	ngOnInit() {
-	}
-
 }

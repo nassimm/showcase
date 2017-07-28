@@ -23,7 +23,7 @@ export class SearchbarComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-    this.observeInput = this.name.valueChanges.debounceTime(250);
+    this.observeInput = this.name.valueChanges.debounceTime(250).distinctUntilChanged();
     this.observeInput.subscribe(data => this.router.navigateByUrl("search/"+data));
   }
   searchIfNotEmpty() {

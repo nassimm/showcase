@@ -2,7 +2,6 @@ import { Routes, RouterModule } from '@angular/router'
 import { HomeComponent } from './home/home.component';
 import { ResultsComponent } from './results/results.component';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { MostplayedComponent } from './results/mostplayed.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent, pathMatch: 'full'},

@@ -56,7 +56,6 @@ export class ResultsComponent implements OnInit {
 		return this.results.length > 0;
 	}
 	ngOnInit() {
-		// this.searchyt();
 		this.route.params.subscribe(params => {
 			this.searchTerm = params['term'];
 			if (this.searchTerm != undefined) {

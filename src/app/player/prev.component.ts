@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { YoutubePlayerService } from '../services/youtube-player.service';
 
 @Component({
@@ -13,13 +13,10 @@ import { YoutubePlayerService } from '../services/youtube-player.service';
   `,
   styles: []
 })
-export class PrevComponent implements OnInit {
+export class PrevComponent {
   @Input() next = false;
   constructor(private ytService: YoutubePlayerService) { }
   handle() {
     this.next?this.ytService.nextTrack():this.ytService.prevTrack()
   }
-  ngOnInit() {
-  }
-
 }
